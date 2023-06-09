@@ -16,21 +16,21 @@
   <meta name="author" content="Fraxdeo">
   <meta name="keywords" content="">
   
-    <meta name="description" content="域环境的搭建前言当你需要搭建域环境，那么说明应该对什么是域已经有一定的了解，不细说，随便找了一篇介绍搭建域环境的文章，时效性自行验证，本文主要讨论搭建域环境需要注意的事情，帮助那些在搭建域环境和我一样踩坑的人。 虚拟机软件：VMware Workstation Pro IOS镜像：MSDN ​		tips：小米手机自带浏览器就可以新建ed2k类型(ED2K可视为P2P下载链接)的下载任务. 虚拟机">
+    <meta name="description" content="pippip 是 Python 的包管理器。这意味着它是一个工具,允许你安装和管理不属于标准库的其他库和依赖。 issueissue:pip报错：ValueError: check_hostname requires server_hostname 记录使用pip的一次踩坑今天使用dirsearch,报错缺少依赖，就安装依赖呗，dirsearch下有个文件requirements.txt，记录了其">
 <meta property="og:type" content="article">
-<meta property="og:title" content="域环境的搭建">
-<meta property="og:url" content="https://dbii.top/posts/20230605-bbf780e8.html">
+<meta property="og:title" content="记录使用pip命令的一次踩坑">
+<meta property="og:url" content="https://dbii.top/posts/20230609-1840438d.html">
 <meta property="og:site_name" content="Fraxdeo&#39;s blog">
-<meta property="og:description" content="域环境的搭建前言当你需要搭建域环境，那么说明应该对什么是域已经有一定的了解，不细说，随便找了一篇介绍搭建域环境的文章，时效性自行验证，本文主要讨论搭建域环境需要注意的事情，帮助那些在搭建域环境和我一样踩坑的人。 虚拟机软件：VMware Workstation Pro IOS镜像：MSDN ​		tips：小米手机自带浏览器就可以新建ed2k类型(ED2K可视为P2P下载链接)的下载任务. 虚拟机">
+<meta property="og:description" content="pippip 是 Python 的包管理器。这意味着它是一个工具,允许你安装和管理不属于标准库的其他库和依赖。 issueissue:pip报错：ValueError: check_hostname requires server_hostname 记录使用pip的一次踩坑今天使用dirsearch,报错缺少依赖，就安装依赖呗，dirsearch下有个文件requirements.txt，记录了其">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-06-05T06:14:03.000Z">
-<meta property="article:modified_time" content="2023-06-05T08:05:06.590Z">
+<meta property="article:published_time" content="2023-06-09T14:00:14.000Z">
+<meta property="article:modified_time" content="2023-06-09T14:01:27.441Z">
 <meta property="article:author" content="Fraxdeo">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>域环境的搭建 - Fraxdeo&#39;s blog</title>
+  <title>记录使用pip命令的一次踩坑 - Fraxdeo&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -214,7 +214,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">域环境的搭建</span>
+            <span id="subtitle">记录使用pip命令的一次踩坑</span>
           
         </div>
 
@@ -225,8 +225,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-06-05 14:14" pubdate>
-          2023年6月5日 下午
+        <time datetime="2023-06-09 22:00" pubdate>
+          2023年6月9日 晚上
         </time>
       </span>
     
@@ -237,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.8k 字
+          7k 字
         
       </span>
     
@@ -248,7 +248,7 @@
         
         
         
-          24 分钟
+          59 分钟
         
       </span>
     
@@ -286,87 +286,81 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">域环境的搭建</h1>
+            <h1 style="display: none">记录使用pip命令的一次踩坑</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="域环境的搭建"><a href="#域环境的搭建" class="headerlink" title="域环境的搭建"></a>域环境的搭建</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当你需要搭建域环境，那么说明应该对什么是域已经有一定的了解，不细说，随便找了一篇介绍搭建域环境的<a target="_blank" rel="noopener" href="https://www.cnblogs.com/romatic/p/13284787.html">文章</a>，时效性自行验证，本文主要讨论搭建域环境需要注意的事情，帮助那些在搭建域环境和我一样踩坑的人。</p>
-<p>虚拟机软件：VMware Workstation Pro</p>
-<p>IOS镜像：<a target="_blank" rel="noopener" href="https://msdn.itellyou.cn/">MSDN</a></p>
-<p>​		tips：小米手机自带浏览器就可以新建ed2k类型(ED2K可视为P2P下载链接)的下载任务.</p>
-<h2 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h2><p>在虚拟机的菜单栏可以选择“编辑-&gt;虚拟网络编辑器”，可以看到我们的虚拟网络适配器，一般情况下：</p>
-<ul>
-<li>虚拟网络适配器VMnet1是 <strong>仅主机模式</strong> 默认的虚拟网络适配器</li>
-<li>虚拟网络适配器VMnet8是 <strong>NAT模式</strong> 默认的虚拟网络适配器</li>
-</ul>
-<p>在后文，我们将虚拟网络适配器理解为网卡。我为域环境内的计算机添加的网卡选择的模式就是仅主机模式，在搭建域环境的时候比较重要的是选择合适的网段，我的VMnet1子网IP段为192.168.10.0/24，掩码255.255.255.0，因为我不希望我的计算机的IP地址是随机的，因此取消勾选使用DHCP将IP分给虚拟机，这就是说我们要手动给计算机分配IP，这里是否取消勾选是不重要的。</p>
-<p>设置了子网IP段后，也就是说我们的域内计算机所在的内网IP段已经确定，在手动给域内计算机分配IP时，IP要属于这一网段。</p>
-<h2 id="计算机IP设置"><a href="#计算机IP设置" class="headerlink" title="计算机IP设置"></a>计算机IP设置</h2><p>虚拟机的网段设置好后，我们要为我们的域内计算机手动分配静态IP。</p>
-<h3 id="Windows操作系统"><a href="#Windows操作系统" class="headerlink" title="Windows操作系统"></a>Windows操作系统</h3><p>在window操作系统的图形界面中，找到网络适配器，更改适配器设置，在属性里，修改IPV4的设置，选择合适的IP作为静态IP，DNS的设置为你部署DNS服务的计算机的IP，一般在域控部署DNS服务，那么不论是域控还是域用户的计算机，DNS都可以设置为域控的IP地址。</p>
-<p>然后在cmd中，重启网卡后，可以使用ipconfig查看网卡对应的IP地址。</p>
-<h3 id="Linux操作系统"><a href="#Linux操作系统" class="headerlink" title="Linux操作系统"></a>Linux操作系统</h3><p>Linux操作系统是不方便加入Windows域中的，在搭建域环境，尽量不要打算使用Linux系统的计算机入域。这里来讲一下如何给Linux系统的计算机设置静态IP的步骤：</p>
-<p>要给Linux计算机设置静态IP地址，需要进行以下步骤：</p>
-<ol>
-<li><p>打开终端窗口，使用文本编辑器打开网络配置文件。在大多数Linux发行版中，网络配置文件位于“/etc/network/interfaces”或“/etc/sysconfig/network-scripts/”目录下，具体路径可能会有所不同。</p>
-</li>
-<li><p>找到需要设置静态IP地址的网络接口，例如eth0。在接口配置块中添加以下内容：</p>
-</li>
-</ol>
-<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">auto</span> eth0<br>iface eth0 inet static<br>address <span class="hljs-number">192.168.1.100</span>     <span class="hljs-comment"># 设置静态IP地址</span><br>netmask <span class="hljs-number">255.255.255.0</span>    <span class="hljs-comment"># 设置子网掩码</span><br>gateway <span class="hljs-number">192.168.1.1</span>      <span class="hljs-comment"># 设置网关地址</span><br>dns-nameservers <span class="hljs-number">8.8.8.8</span>  <span class="hljs-comment"># 设置DNS服务器地址</span><br></code></pre></td></tr></tbody></table></figure>
+                <h2 id="pip"><a href="#pip" class="headerlink" title="pip"></a>pip</h2><p>pip 是 Python 的包管理器。这意味着它是一个工具,允许你安装和管理不属于标准库的其他库和依赖。</p>
+<h3 id="issue"><a href="#issue" class="headerlink" title="issue"></a>issue</h3><p>issue:pip报错：ValueError: check_hostname requires server_hostname</p>
+<h3 id="记录使用pip的一次踩坑"><a href="#记录使用pip的一次踩坑" class="headerlink" title="记录使用pip的一次踩坑"></a>记录使用pip的一次踩坑</h3><p>今天使用dirsearch,报错缺少依赖，就安装依赖呗，dirsearch下有个文件requirements.txt，记录了其所需的依赖。</p>
+<figure class="highlight cmake"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> -r requirements.txt<br></code></pre></td></tr></tbody></table></figure>
 
-<p>在上述配置中，address为需要设置的静态IP地址，netmask为子网掩码，gateway为网关地址，dns-nameservers为DNS服务器地址。这些信息需要根据实际情况进行修改。</p>
-<ol start="3">
-<li>保存文件并关闭文本编辑器。然后，使用以下命令重启网络服务，使配置生效：</li>
-</ol>
-<figure class="highlight ebnf"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo systemctl restart networking</span><br></code></pre></td></tr></tbody></table></figure>
-
-<p>执行完上述命令后，静态IP地址就会生效。可以使用ifconfig命令或ip addr命令检查网络接口的IP地址是否已经改变。</p>
-<p>需要注意的是，在设置静态IP地址时，需要确保该IP地址没有被其他设备使用，并且与所在网络的IP地址段、子网掩码、网关地址等参数相匹配，否则网络连接可能会出现问题。</p>
-<h3 id="域控的搭建"><a href="#域控的搭建" class="headerlink" title="域控的搭建"></a>域控的搭建</h3><p>搭建域控根据网上靠谱的教程都是没有问题的，但这里要列一下注意点：</p>
-<ul>
-<li>部署DC时，如果教程没有让你同时勾选DNS服务器，如果没有别的要求，即DNS可以和域控在同一计算机，勾选DNS服务器！</li>
-<li>.net formwork3.5和.net formwork4.6最好一起勾选</li>
-<li>域控设置域名时，不要离谱，尽量符合域名的命名格式，同时也要避免选择的域名为已经在互联网已经被频繁使用。</li>
-</ul>
-<h3 id="计算机入域"><a href="#计算机入域" class="headerlink" title="计算机入域"></a>计算机入域</h3><p>假设我们已经在windows server 2016部署了域控和DNS服务器，域名为fraxdeo.web,另一台计算机win 7要入域，那么这些工作是必须的：</p>
-<p>win 7的DNS服务器地址为：DNS服务器所在计算机的IP地址，一般为域控的IP地址。</p>
-<p>已经为入域的计算机选择了合适的域内用户，并设置了账户名和密码。</p>
-<p>win 7可以ping通域名。</p>
-<h2 id="踩过的坑"><a href="#踩过的坑" class="headerlink" title="踩过的坑"></a>踩过的坑</h2><p>1.计算机不能加入域</p>
-<p>在域内，win 7可以ping通域控域名，也可以ping通域控域名，回复的IP是域控在内网的静态IP，但是加域时依旧报错，信息如下：</p>
+<p>执行命令报错：</p>
 <blockquote>
-<p>已成功查询 DNS，获取服务位置(SRV)资源记录(此资源记录用于查找域“feaxdeo.web”的域控制器):</p>
-<p>此查询用于查找 _ldap._tcp.dc._msdcs.feaxdeo.web 的 SRV 记录</p>
-<p>下列域控制器由查询识别:<br>        DC.feaxdeo.web</p>
-<p>但是无法连接到域控制器。</p>
-<p>此错误的常见原因包括:</p>
-<ul>
-<li>将域控制器的名称映射到其 IP 地址的主机(A)或主机(AAAA)记录丢失或包含错误地址。</li>
-<li>在 DNS 中注册的域控制器没有连接到网络上，或没有运行。<br>报错如上，请分析</li>
-</ul>
+<p>ERROR: Exception:</p>
+<p>Traceback (most recent call last):<br>File “d:\python\lib\site-packages\pip_internal\cli\base_command.py”, line 180, in _main<br>status = self.run(options, args)<br>File “d:\python\lib\site-packages\pip_internal\cli\req_command.py”, line 205, in wrapper<br>return func(self, options, args)<br>File “d:\python\lib\site-packages\pip_internal\commands\install.py”, line 318, in run<br>requirement_set = resolver.resolve(<br>File “d:\python\lib\site-packages\pip_internal\resolution\resolvelib\resolver.py”, line 127……</p>
+<p>  File “d:\python\lib\site-packages\pip_vendor\urllib3\util\ssl_.py”, line 432, in ssl_wrap_socket_</p>
+<p>_sl_sock = <em>ssl_wrap_socket_impl(sock, context, tls_in_tls)<br>  File “d:\python\lib\site-packages\pip_vendor\urllib3\util\ssl</em>.py”, line 474, in _ssl_wrap_socket_impl<br>    return ssl_context.wrap_socket(sock)<br>  File “d:\python\lib\ssl.py”, line 500, in wrap_socket<br>    return self.sslsocket_class._create(<br>  File “d:\python\lib\ssl.py”, line 997, in _create<br>    raise ValueError(“check_hostname requires server_hostname”)<br>ValueError: check_hostname requires server_hostname</p>
 </blockquote>
-<p>原因：因为一些原因，给域控添加了两张网卡，一张仅主机模式在内网，一张NAT模式连接外网，导致加域失败。</p>
-<p>解决办法：删除多余的网卡</p>
-<p>2.加域后计算机登陆问题</p>
-<p>比如我们加域前一直用用户fraxdeo登陆win 7，加域时使用的用户是abc，win 7加域后登陆时的用户一般就是fraxdeo/abc,前面的fraxdeo是域名，如果要登陆到自己的计算机，登陆名应该是<strong>计算机名/用户名。</strong></p>
-<p>3.ping不通域名</p>
-<p>要加域的计算机可以ping通域控的IP，但是ping不同域名，也就是DNS问题，除了常见问题，如DNS地址设置不正确，还可以手动配置域控制器的主机记录(A/AAAA)。</p>
+<p>搜索报错有两种原因：（有必要说明，这里搜索很长的报错，我习惯性的从ERROR后截取一段来搜索）</p>
+<p>1.pip版本过老</p>
+<p>2.网络问题(更换国内镜像)</p>
+<h3 id="检查报错原因1"><a href="#检查报错原因1" class="headerlink" title="检查报错原因1"></a>检查报错原因1</h3><p>这里习惯性的尝试了直接使用解决方法，升级pip</p>
+<figure class="highlight ada"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">python -m pip install <span class="hljs-comment">--upgrade pip</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>然后又是一堆报错，搜索报错的原因，提示我尝试清除缓存</p>
+<figure class="highlight ebnf"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">pip cache purge</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>又报错：</p>
 <blockquote>
-<p>要配置域控制器的主机记录(A/AAAA)，以确保正确的 DNS 解析，可以按照以下步骤进行操作：</p>
+<p>ERROR: No matching packages</p>
+</blockquote>
+<p>搜索报错，网上给出的原因：缓存已经被清空或者是pip 版本较老导致的。</p>
+<p>解决办法：</p>
 <ol>
-<li>登录到域控制器服务器上，打开“DNS 管理器”，并展开相应的 DNS 区域。</li>
-<li>在左侧窗格中找到要添加或修改主机记录的主机名，右键单击它，并选择“新建记录”选项。</li>
-<li>在“新建记录”对话框中，选择记录类型为“主机(A)”或“主机(AAAA)”，并填写以下信息：<ul>
-<li>名称：填写要添加或修改主机记录的主机名。</li>
-<li>IP 地址：填写要映射到该主机名的 IP 地址。</li>
-<li>时间到期：根据需要设置记录的到期时间。</li>
+<li>升级pip：在命令行中执行 python -m pip install –upgrade pip命令，升级 pip到最新版本。然后再尝试执行 pip cache purge 命令。</li>
+<li>直接删除缓存目录：在命令行中执行以下命令，手动删除 pip 的缓存目录：<ul>
+<li>Windows：rmdir /s %HOME%\AppData\Local\pip\Cache</li>
+<li>Linux/MacOS：rm -rf ~/.cache/pi</li>
 </ul>
 </li>
-<li>单击“确定”按钮，以创建或修改主机记录。现在，在 DNS 区域中，您应该能够看到新添加或修改的主机记录。</li>
 </ol>
-<p>请注意，在添加或修改主机记录时，请确保填写正确的主机名和 IP 地址。如果主机名或 IP 地址填写错误，可能会导致DNS 解析失败。此外，如果您在添加或修改主机记录时遇到任何问题，请参考相关的技术文档和教程，或者咨询专业的 IT 技术人员，以获取更多帮助和支持。</p>
+<hr>
+<p>到这里其实已经花费了很多时间，从互联网找答案真的很消耗耐心，各种信息里需要筛选正确的答案，很容易走弯路。</p>
+<p>耐心快没了，这个时候我反而安静下来了，我仔细想了一下 pip更新很快吗？我安装的pip版本是多少呢？</p>
+<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">pip</span> --version<br><span class="hljs-attribute">pip</span> <span class="hljs-number">21</span>.<span class="hljs-number">1</span>.<span class="hljs-number">3</span> from d:\python\lib\site-packages\pip (python <span class="hljs-number">3</span>.<span class="hljs-number">9</span>)<br></code></pre></td></tr></tbody></table></figure>
+
+<p>当我看到21.1.3 我内心大概有了猜测，搜索“pip 21.1.3 ERROR: No matching packages”,得到一个答案：</p>
+<blockquote>
+<p>在 pip 版本 20.3 或更高版本中，pip cache purge 命令已经被废弃，并且在最新版本的pip中已经被删除。因此，如果您使用的是 pip 版本 21.1.3，执行 pip cache purge 命令会提示 “ERROR: No matching packages”，这是因为此命令已经不存在了。</p>
 </blockquote>
+<p>这个时候我直接搜索了全部的报错信息：</p>
+<blockquote>
+<p>ERROR: Exception:<br>Traceback (most recent call last):<br>File “d:\python\lib\site-packages\pip_internal\cli\base_command.py”, line 180, in _main<br>status = self.run(options, args)<br>File “d:\python\lib\site-packages\pip_internal\cli\req_command.py”, line 205, in wrapper<br>return func(self, options, args)<br>File “d:\python\lib\site-packages\pip_internal\commands\install.py”, line 318, in run<br>requirement_set = resolver.resolve(<br>File “d:\python\lib\site-packages\pip_internal\resolution\resolvelib\resolver.py”, line 127, in resolve<br>result = self._result = resolver.resolve(<br>File “d:\python\lib\site-packages\pip_vendor\resolvelib\resolvers.py”, line 473, in resolve<br>state = resolution.resolve(requirements, max_rounds=max_rounds)<br>File “d:\python\lib\site-packages\pip_vendor\resolvelib\resolvers.py”, line 341, in resolve<br>name, crit = self._merge_into_criterion(r, parent=None)<br>File “d:\python\lib\site-packages\pip_vendor\resolvelib\resolvers.py”, line 172, in _merge_into_criterion<br>if not criterion.candidates:<br>File “d:\python\lib\site-packages\pip_vendor\resolvelib\structs.py”, line 139, in bool<br>return bool(self.sequence)<br>File “d:\python\lib\site-packages\pip_internal\resolution\resolvelib\found_candidates.py”, line 143, in bool<br>return any(self)<br>File “d:\python\lib\site-packages\pip_internal\resolution\resolvelib\found_candidates.py”, line 129, in <genexpr><br>return (c for c in iterator if id(c) not in self.incompatible_ids)<br>File “d:\python\lib\site-packages\pip_internal\resolution\resolvelib\found_candidates.py”, line 30, in _iter_built<br>for version, func in infos:<br>File “d:\python\lib\site-packages\pip_internal\resolution\resolvelib\factory.py”, line 269, in iter_index_candidate_infos<br>result = self._finder.find_best_candidate(<br>File “d:\python\lib\site-packages\pip_internal\index\package_finder.py”, line 879, in find_best_candidate<br>candidates = self.find_all_candidates(project_name)<br>File “d:\python\lib\site-packages\pip_internal\index\package_finder.py”, line 824, in find_all_candidates<br>page_candidates = list(page_candidates_it)<br>File “d:\python\lib\site-packages\pip_internal\index\sources.py”, line 134, in page_candidates<br>yield from self._candidates_from_page(self._link)<br>File “d:\python\lib\site-packages\pip_internal\index\package_finder.py”, line 783, in process_project_url<br>html_page = self._link_collector.fetch_page(project_url)<br>File “d:\python\lib\site-packages\pip_internal\index\collector.py”, line 512, in fetch_page<br>return _get_html_page(location, session=self.session)<br>File “d:\python\lib\site-packages\pip_internal\index\collector.py”, line 422, in _get_html_page<br>resp = _get_html_response(url, session=session)<br>File “d:\python\lib\site-packages\pip_internal\index\collector.py”, line 120, in _get_html_response<br>resp = session.get(<br>File “d:\python\lib\site-packages\pip_vendor\requests\sessions.py”, line 555, in get<br>return self.request(‘GET’, url, kwargs)<br>File “d:\python\lib\site-packages\pip_internal\network\session.py”, line 449, in request<br>return super().request(method, url, *args, kwargs)<br>File “d:\python\lib\site-packages\pip_vendor\requests\sessions.py”, line 542, in request<br>resp = self.send(prep, send_kwargs)<br>File “d:\python\lib\site-packages\pip_vendor\requests\sessions.py”, line 655, in send<br>r = adapter.send(request, kwargs)<br>File “d:\python\lib\site-packages\pip_vendor\cachecontrol\adapter.py”, line 53, in send<br>resp = super(CacheControlAdapter, self).send(request, **kw)<br>File “d:\python\lib\site-packages\pip_vendor\requests\adapters.py”, line 439, in send<br>resp = conn.urlopen(<br>File “d:\python\lib\site-packages\pip_vendor\urllib3\connectionpool.py”, line 696, in urlopen<br>self._prepare_proxy(conn)<br>File “d:\python\lib\site-packages\pip_vendor\urllib3\connectionpool.py”, line 964, in _prepare_proxy<br>conn.connect()<br>File “d:\python\lib\site-packages\pip_vendor\urllib3\connection.py”, line 359, in connect<br>conn = self._connect_tls_proxy(hostname, conn)<br>File “d:\python\lib\site-packages\pip_vendor\urllib3\connection.py”, line 500, in <em>connect_tls_proxy<br>return ssl_wrap_socket(<br>File “d:\python\lib\site-packages\pip_vendor\urllib3\util\ssl</em>.py”, line 432, in ssl_wrap_socket<br>ssl_sock = <em>ssl_wrap_socket_impl(sock, context, tls_in_tls)<br>File “d:\python\lib\site-packages\pip_vendor\urllib3\util\ssl</em>.py”, line 474, in _ssl_wrap_socket_impl<br>return ssl_context.wrap_socket(sock)<br>File “d:\python\lib\ssl.py”, line 500, in wrap_socket<br>return self.sslsocket_class._create(<br>File “d:\python\lib\ssl.py”, line 997, in _create<br>raise ValueError(“check_hostname requires server_hostname”)<br>ValueError: check_hostname requires server_hostname</genexpr></p>
+</blockquote>
+<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><blockquote>
+<p>这个报错是由于 <code>pip</code> 在使用 TLS 代理时出现了问题。</p>
+<p>问题可能是由于您使用的代理服务器没有正确配置 TLS 证书，或者是由于代理服务器返回的响应中缺少必要的信息导致的。</p>
+</blockquote>
+<p>📌我看到这个回答，马上就明白可能是因为我开了<strong>网络代理</strong>的原因。</p>
+<p>📌关闭代理后，执行命令一切正常了。</p>
+<p>做完这一切后，知道自己又陷入经验主义的错误后，想到了自己以前经常犯的错误：</p>
+<p><strong>报错的真正原因可能是在出现在头部，也可能在尾部，而不应该总是从ERROR开始跟踪报错</strong></p>
+<p>之后又仔细查看了报错，搜索了这么一个关键报错：</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">pip ValueError: check_hostname <span class="hljs-keyword">requires</span> server_hostname<br></code></pre></td></tr></tbody></table></figure>
+
+<p>w3c的一个回答不错，还有分析：<a target="_blank" rel="noopener" href="https://www.w3cschool.cn/article/92755260.html">文章链接</a></p>
+<p>分析如下：</p>
+<blockquote>
+<p>出现这个错误的原因是使用了代理，由于总所周知的原因，有些外网需要一些特殊手段才能访问，而要访问这些网站就需要使用代理，小编的小伙伴当时就是代理没有关掉，所以在pip的时候才会报错。</p>
+<p>为什么使用代理会出现这样的错误呢，作者找到了蛛丝马迹：pip的较新的版本有这样的一个要求，就是标记对pip仓库的信任，或者使用https进行数据传输（类似的问题作者在学习linux的时候也遇到过）。而使用代理会导致pip认为你请求的仓库不是安全的，所以安装失败，所以解决方法就是关闭代理，或者在代理中设置相关内容。</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="pip报错"><a href="#pip报错" class="headerlink" title="pip报错"></a>pip报错</h3><p>ERROR: Exception:</p>
+<p>Traceback (most recent call last):<br>File “d:\python\lib\site-packages\pip_internal\cli\base_command.py”, line 180, in _main</p>
+<p>……</p>
+<p>ValueError: check_hostname requires server_hostname</p>
+<h3 id="一个解决办法"><a href="#一个解决办法" class="headerlink" title="一个解决办法"></a>一个解决办法</h3><p>有可能是开启了网络代理的原因，请关闭网络代理尝试重新执行命令。</p>
 
                 
               </div>
@@ -385,7 +379,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" class="category-chain-item">内网渗透</a>
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%92%8C%E7%BD%91%E7%BB%9C%E6%8A%80%E8%83%BD/" class="category-chain-item">计算机和网络技能</a>
   
   
 
@@ -405,8 +399,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>域环境的搭建</div>
-      <div>https://dbii.top/posts/20230605-bbf780e8.html</div>
+      <div>记录使用pip命令的一次踩坑</div>
+      <div>https://dbii.top/posts/20230609-1840438d.html</div>
     </div>
     <div class="license-meta">
       
@@ -418,13 +412,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年6月5日</div>
+          <div>2023年6月9日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年6月5日</div>
+          <div>2023年6月9日</div>
         </div>
       
       
@@ -467,18 +461,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/20230609-1840438d.html" title="记录使用pip命令的一次踩坑">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">记录使用pip命令的一次踩坑</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/20230529-b244341.html" title="Kerberoast攻击分析">
-                        <span class="hidden-mobile">Kerberoast攻击分析</span>
+                      <a href="/posts/20230605-bbf780e8.html" title="域环境的搭建">
+                        <span class="hidden-mobile">域环境的搭建</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
