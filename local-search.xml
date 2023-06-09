@@ -23,44 +23,6 @@
   
   
   <entry>
-    <title>找新歌的姿势</title>
-    <link href="/posts/20230531-ebfb14e4.html"/>
-    <url>/posts/20230531-ebfb14e4.html</url>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="📌前言"><a href="#📌前言" class="headerlink" title="📌前言"></a>📌前言</h2><p>本文讨论的就是如何找到一首我们会喜欢上的新歌。小标题：听歌的姿势一定要正确02</p><h2 id="📌正文"><a href="#📌正文" class="headerlink" title="📌正文"></a>📌正文</h2><h3 id="✨各大音乐平台"><a href="#✨各大音乐平台" class="headerlink" title="✨各大音乐平台"></a>✨各大音乐平台</h3><p>比如我经常用的音乐软件，网易云音乐有一个<strong>私人FM</strong>的功能，我很喜欢用这个来尝试新歌，同时，这种音乐软件也有<strong>每日推荐</strong>，可以帮助我们找到喜欢的新歌。同时还有排行榜，别人的歌单都是比较可靠的方法。</p><h3 id="✨各大短视频平台"><a href="#✨各大短视频平台" class="headerlink" title="✨各大短视频平台"></a>✨各大短视频平台</h3><p>我经常用的就是哔哩哔哩了，偶尔会从某个视频听到让自己心动的新歌。这和找新歌有啥关系呢？</p><p>这种短视频平台都有自己的用户 ，在B站，用户可以成为UP，一部分有音乐天赋和倾向的用户，就会成为音乐UP，然后一些非常优秀和好听的翻唱应运而生。</p><p><strong>翻唱</strong>，就是找到我们喜欢听的新歌的一个重要途径。</p><p>每个人都可能给一首歌赋予一些新的东西，我最喜欢的歌手之一的Westlife，翻唱的Nothing’s Gonna Change My Love for You，我个人更喜欢西城的翻唱。</p><p>而这些音乐UP中一些UP，也会出一些原创歌曲，很小众，但不乏有很巨好听的。</p><hr><p>《热爱105的你》中文版很上头，但是有段时间火了后到处都能听到，听多了不免腻烦，某天突然听到这首歌的中翻日日语填词版，真的被GET到了。</p><script src="https://cdn.jsdelivr.net/npm/hls.js"></script><p><video id="video" controls="" style="height: 100%;width: 100%;object-fit: cover"></video></p><script>  var video = document.getElementById('video');  var videoSrc = 'https://cdn.jsdelivr.net/gh/Honexz/video@5/Love.you.105.degree/ra105dn.m3u8';  if (Hls.isSupported()) {    var hls = new Hls();    hls.loadSource(videoSrc);    hls.attachMedia(video);    hls.on(Hls.Events.MANIFEST_PARSED, function() {      video.removeAttribute('muted'); // 取消静音      video.play(); // 开始播放    });  } else if (video.canPlayType('application/vnd.apple.mpegurl')) {    video.src = videoSrc;    video.addEventListener('loadedmetadata', function() {      video.removeAttribute('muted'); // 取消静音      video.play(); // 开始播放    });  }</script><p>哔哩哔哩 UP主:<strong><a href="https://space.bilibili.com/">早稻叽</a></strong></p><hr><h3 id="✨“花里胡哨”的博客"><a href="#✨“花里胡哨”的博客" class="headerlink" title="✨“花里胡哨”的博客"></a>✨“花里胡哨”的博客</h3><p>有些个人博客，博主喜欢给自己的博客添加一个音乐播放器，歌单当然也就是博主自己很喜欢的歌吧，我就喜欢逛一些博客，听别的博主歌单的歌，偶尔也会有意外收获。</p><hr><h3 id="✨其他语言的歌曲"><a href="#✨其他语言的歌曲" class="headerlink" title="✨其他语言的歌曲"></a>✨其他语言的歌曲</h3><p>比如这首：Aldamadim</p>    <div id="aplayer-FiGevfuF" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="471968366" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="240px" data-preload="auto" data-theme="#555" data-volume="0.5"></div><p>国语、英语歌听腻了，可以试一试越南，韩语，日语歌，说不定会有收获呢。</p><h2 id="📌结语"><a href="#📌结语" class="headerlink" title="📌结语"></a>📌结语</h2><p>真的要去写这篇文章的时候，发现这个主题没啥好写的，说的好像大家都知道，反正写了也就写了，就发出来吧。</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>计算机和网络技能</category>
-      
-    </categories>
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>听歌的姿势一定要正确01</title>
-    <link href="/posts/20230530-2db8aa1.html"/>
-    <url>/posts/20230530-2db8aa1.html</url>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="👀前言"><a href="#👀前言" class="headerlink" title="👀前言"></a>👀前言</h2><p>欣赏音乐的途径有很多，但是如何找到自己想要的欣赏的歌曲呢？国内的各大音乐平台，因为歌曲版权啊或者其他原因，不可能让我们在一个平台可以把想听的歌曲全部听到，这样折腾于各大平台的烦恼，可能大多数人都会有把。我就我找歌的经验，来谈一谈搜寻歌曲的“方法论”。</p><p>本文讨论的主题主要是“如何找到我们要听的歌曲”，区别于“如何找到我们喜欢的歌曲”，区别于“我如何去播放歌曲”，这都是“欣赏音乐”的不同姿势，至于如何“白嫖”我们喜欢的音乐，我也会在本文讨论，但是要说明的是，如果你真的喜欢某首歌，请支持他。有比必要说明作者可是在网易云开通了黑胶VIP的，我可不是“白嫖怪”😜😜😜</p><p>thene:<strong>如何找到我们要听的歌曲和白嫖ta？</strong></p><h2 id="📌移动端"><a href="#📌移动端" class="headerlink" title="📌移动端"></a>📌移动端</h2><h3 id="✨姿势01：平台"><a href="#✨姿势01：平台" class="headerlink" title="✨姿势01：平台"></a>✨姿势01：平台</h3><p>很经典的一个方法，A音乐软件搜不到，到B音乐软件搜索，B音乐软件有，但是收费，到C短视频平台搜索。</p><ul><li>优点：免费</li><li>缺点：不方便听歌</li></ul><p>我喜欢的短视频平台是哔哩哔哩，也就是B站，而且B站还有<strong>听视频</strong>的功能，可以算是一个另类的播放器了。聚合各大音乐平台的音乐的UP主有很多，这里推荐两个：</p><ul><li><a href="https://space.bilibili.com/229733301">音乐私藏馆</a></li><li><a href="https://space.bilibili.com/279180568">零距离音乐</a></li></ul><h3 id="✨姿势02：个人搭建的音乐搜索-amp-分享网站"><a href="#✨姿势02：个人搭建的音乐搜索-amp-分享网站" class="headerlink" title="✨姿势02：个人搭建的音乐搜索&amp;分享网站"></a>✨姿势02：个人搭建的音乐搜索&amp;分享网站</h3><ul><li>优点：免费</li><li>缺点：不稳定，随时可能失效</li></ul><p>这里推荐两个：</p><ul><li><a href="https://music.liuzhijin.cn/">刘志进实验室</a></li><li><a href="https://tools.liumingye.cn/music/#/">音乐分享liumingye</a></li></ul><h3 id="✨姿势03：第三方音乐搜索下载软件"><a href="#✨姿势03：第三方音乐搜索下载软件" class="headerlink" title="✨姿势03：第三方音乐搜索下载软件"></a>✨姿势03：第三方音乐搜索下载软件</h3><p>☘ <a href="https://lxmusic.toside.cn/">洛雪音乐</a></p><ul><li>免费无广告</li><li>多端支持</li><li>开源</li></ul><h3 id="✨姿势04：无损音乐下载站"><a href="#✨姿势04：无损音乐下载站" class="headerlink" title="✨姿势04：无损音乐下载站"></a>✨姿势04：无损音乐下载站</h3><p>百度一下<strong>无损音乐下载</strong>，一大把的无损音乐下载网站，我们可以搜一下想找的歌，没有搜索到也不打紧，多试试不同的下载站，可能有惊喜。</p><h3 id="✨姿势05：国外平台-amp-软件"><a href="#✨姿势05：国外平台-amp-软件" class="headerlink" title="✨姿势05：国外平台&amp;软件"></a>✨姿势05：国外平台&amp;软件</h3><p>这个真没啥说的，只要你会，基本解决90%的找不到歌的问题，这里推荐一个国外的移动端安卓音乐软件，聚合的音乐资源来自油管，提供多种音乐格式下载，提供谷歌登陆方式，当然，国内方IP无法访问。</p><ul><li><a href="https://ymusic.io/">YMusic</a></li></ul><p>​Super convenient music app for you, enjoy music from YouTube with smallest consumed data! </p><h3 id="✨姿势06：一个朋友"><a href="#✨姿势06：一个朋友" class="headerlink" title="✨姿势06：一个朋友"></a>✨姿势06：一个朋友</h3><p>如果你有一个超级会找资源的朋友，干嘛要自己动手呢😂😂</p><hr><h2 id="📌PC端"><a href="#📌PC端" class="headerlink" title="📌PC端"></a>📌PC端</h2><p>电脑和移动端的方法大同小异，比如你可以安卓国产音乐软件，比如可以在浏览器输入<strong>bilibili.com</strong>，也可以在浏览器搜索<strong>音乐</strong>[滑稽.jpg]</p><p>那就说说不一样的吧</p><h3 id="✨姿势01"><a href="#✨姿势01" class="headerlink" title="✨姿势01"></a>✨姿势01</h3><ul><li><a href="https://lxmusic.toside.cn/">洛雪音乐</a></li></ul><p>安装洛雪音乐这种开源无广告的聚合搜索软件，配置费点心思，使用体验超过很多国产软件。</p><h3 id="✨姿势02"><a href="#✨姿势02" class="headerlink" title="✨姿势02"></a>✨姿势02</h3><ul><li><a href="https://music.liuzhijin.cn/">刘志进实验室</a></li><li><a href="https://tools.liumingye.cn/music/#/">音乐分享liumingye</a></li></ul><p>使用以上这种音乐站来搜索你想找的歌，同时也可以听歌，不需要安装额外的软件，只需要收藏一下音乐网址。</p><h3 id="✨姿势03"><a href="#✨姿势03" class="headerlink" title="✨姿势03"></a>✨姿势03</h3><p>安装浏览器插件，这里推荐一个浏览器插件Listen 1</p><p>官方网站：<a href="https://listen1.github.io/listen1/">https://listen1.github.io/listen1/</a></p><p>github: <a href="https://github.com/listen1">https://github.com/listen1</a></p><p>使用方法在下载界面就可以看到，同时，你在网页登陆了网易云音乐，Listen 1上可以看到你的歌单，很方便。</p><p>Listen 1也是聚合搜索，可以从国内各大音乐平台搜索你想要的歌，基本解决95%的问题。</p><hr><h2 id="📌结语："><a href="#📌结语：" class="headerlink" title="📌结语："></a>📌结语：</h2><p>通过以上的方式，基本你想听的歌都可以找到，可能有些歌因为版权原因不能搜索到，不能试听，这很正常，想要免费听歌，我也可以给以下建议：</p><ul><li>使用朋友的音乐会员</li><li>在互联网上搜索音乐资源，下载音乐资源，如百度网盘，阿里网盘</li><li>在短视频平台搜索自己想要听的歌</li><li>在国外的音乐、视频平台搜索想听的歌</li></ul><p>最后，我想说，不听付费音乐就是最合理的免费，可能会省你的钱，可能会省你的时间……</p><hr><p>以上的找歌方法我基本想听的歌都能找到，一些小众的、某些翻唱搜不到就需要自己多花点时间和心思了，希望这篇文章可以帮助到有需要的人吧。</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>计算机和网络技能</category>
-      
-    </categories>
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>Kerberoast攻击分析</title>
     <link href="/posts/20230529-b244341.html"/>
     <url>/posts/20230529-b244341.html</url>
@@ -71,25 +33,6 @@
     <categories>
       
       <category>内网渗透</category>
-      
-    </categories>
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>做人就是要要要要听歌！</title>
-    <link href="/posts/20230528-1f757a4a.html"/>
-    <url>/posts/20230528-1f757a4a.html</url>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote><p>音乐是一种艺术形式，通过声音的有序排列组合来表达情感、想法或意义。音乐通常包括旋律、节奏、和声和歌词等元素，并用不同的乐器、歌唱和其他声音效果进行演奏或表演。</p></blockquote><h3 id="爱厌"><a href="#爱厌" class="headerlink" title="爱厌"></a>爱厌</h3><p>很小很小就和音乐结缘，穷人家孩子，没什么艺术熏陶，在我的认知里，音乐就是听歌，对音乐的鉴赏也止步于….唔，就是好听和不好听。</p><p>规则很简单，但很好用。</p><p>从此我听歌，只听歌。不因为某个歌手的某首歌好听，而偏爱该歌手的其它歌曲，仅仅只是会增加自己尝试试听该歌手的其它歌曲的可能。</p><p>每首歌的”歌生”也是充满了变数，因为我评判好听的标准十分不公平，完全取决于自己某一时刻的主观感受。经常会发生这样的事，在B站听到某首歌好听，去网易云一搜索，提示我将该歌曲已经加入了黑名单，冤枉啊！因为我喜欢用网易云的”私人FM”来尝试新歌，某些欢快些的歌可能就在我心情差的时候直接被拉黑了。虽然“冤案”时有发生，但是对大多数歌来说，它们是幸运的，因为我不会因为其他因素，来评价它们。它的创作者、演唱者有什么生活作风问题，我不会关心，也不会因此对它有什么看法。就像是今天早上买早餐时买了一个卤蛋，味道格外的好，超级好吃，但是我可能不会去关心下这个蛋的母鸡，是被饲养还是放养。</p><p>小众的，欧美的，国风的，越南的，非主流的，我觉得喜欢的歌我都听，A演唱的某首歌不好听，B唱这首歌我觉得好听，我也听，音乐在我的世界，作用很简单，也很重要，音乐，或者说的更准确一点，听歌已经成为我生活中和吃饭一样普通的事情了。</p><p>如果用一句话来形容我对听歌的需要，那就是：今天可以不吃早饭，但是必须吃午饭。</p><hr><h3 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h3><p>我对音乐也有自己的见解，这很显然，十几年如一日的事情做多了，谁没点自我的见解呢。</p><p>听歌啊，我觉得呢，有昨天，今天，明天的作用：</p><h4 id="昨天"><a href="#昨天" class="headerlink" title="昨天"></a>昨天</h4><p>什么是昨天呢，那就是音乐可以承载记忆，也可以说是唤起自己对昨天的记忆，昨天，也就是曾经过去的日子。</p><p>“我有勇气我都不怕，管他寒冬炎夏……”，我想起那个趴在凳子上看着动画片的小学生。</p><p>“想问天你在哪里，我想问问我自己……”，我想起侧躺在床上半夜听歌看小说的初中生。</p><p>现在重新听到某些歌，感受呢，就像是小时候想吃糖，大人又不给多吃，就用白糖兑开水给我喝，就是那种一壶水才放了一勺糖的比例，和开水没啥区别，但是又有甜味….很淡很淡的甜，很温馨很温馨的甜。</p><p>或许我已经不再喜欢听曾经喜欢听的某首歌，但是也会耐心的听完。</p><h4 id="现在"><a href="#现在" class="headerlink" title="现在"></a>现在</h4><p>什么是现在呢？如果让我来说，现在就是在码代码，等车，晚间散步……，现在就是我每天可能会听歌的时间，这个时候，我可能会用网易云的私人FM来尝试新歌，切到不喜欢的歌就丢到垃圾桶里，让网易云不要再推过我，当然也又可能无脑循环某一首歌，比如我现在在码这篇文章的时候，就在无脑循环<a href="https://space.bilibili.com/651386960">浅影阿_</a>唱的“不怕”，她的声音很好听，我很喜欢白嫖，不投币就是听🤣🤣🤣</p><p>现在听的音乐呢，也会有一些“因地制宜”，我在码字的时候听歌，就不喜欢太吵的音乐，有时候会听纯音乐，反正就是反正了。</p><h4 id="未来"><a href="#未来" class="headerlink" title="未来"></a>未来</h4><p>最后是未来，什么是未来呢，未来就是最适合听歌的时候，什么是最适合听歌的时候呢，那就是躺在床上，什么都不做，只戴耳机听歌的，夜深人静的夜晚和万籁俱寂的清晨，当然，这个时候也不能听太吵的歌，耳机声音也一定要小，耳机不好还可能会漏音，也需要注意吵到别人。</p><p>这个时候听歌，如果觉得无聊的话，晚上就想今天做了什么，晚上就是今天早上的未来嘛，好的坏的都往没的想，不然一会儿就会失眠捏<del>(￣▽￣)</del>*，早上嘛，当然就可以想今天可以做什么，往有的了想，想做了就起床，如果你不能在别人和闹钟响起之前醒来，肯定体验不到这种感觉了。</p><p>在未来听歌，最适合的做法就是什么都不要想，跟着歌的旋律，节奏，感受歌曲的声音，也不要去记歌词，不要跟着歌词走，就会感觉到放松，愉悦，感觉合适了就不听了。无论是一个可以熬夜的晚上还是可以赖床的早晨，都不要一直听歌，听久了会累。没有喜欢的或者说是适合的歌，躺着就不要动，不动当然就不能切歌，就有可以听的歌了。</p><hr><p>###结语<br>不知不觉，就写了两个小时了，文字可能不多，但都是一点一点，一边想一边写的，本来该睡午觉的，写着写着忘了，现在有点头大，老了，再也没有曾经高中晚上12点睡，早上6点起床，整天生龙活虎的精力了。</p><p>对听歌本人真的有一种特别的，独立的，独特的情感，我在开心的时候听歌，在不开心的时候听歌，在闲暇的时候听歌，在高中的晚自习偷偷听歌，在一个清爽的夏天拿大人手机听歌…….</p><p>听歌的过程就像是和最好的一个朋友说话，聊天，谈心，他无话不说，我永远沉默，他乐此不疲，我乐此不彼。</p><p>他说他喜欢我，哈哈哈，我可不是男同捏，伴随着自己莫名其妙的念头，自己会莫名其妙的姨母笑。</p><p>烦恼，焦虑，压力，我是谁，全忘了，只有思绪在脑海里，世界里，宇宙中，飘飞翻滚，来，去，我以此为食。</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>生活随笔</category>
       
     </categories>
     
