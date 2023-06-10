@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>简记一次对burpsuite的更新</title>
+    <link href="/posts/20230610-963d4df1.html"/>
+    <url>/posts/20230610-963d4df1.html</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>简记一次对burpsuite的更新</p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>以前安装注册的BP是在国光的博客里找的教程和资源，有英文和汉化版本，版本是v2020.9.2，但是有个问题，就是光标和文字有两个文字的误差，用起来很别扭，我一直以为是版本或者汉化问题，就没有继续折腾了。今天又用到BP，实在是受不了了，打算换个新版本的BP。</p><p>我在升级BP的过程中，偶尔看到有人问显示问题，才发现以上问题是BP缩放导致的，我哭死。</p><h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>资源链接：<a href="https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=1544866">吾爱</a>，同时也十分感谢作者的无私分享！</p><h2 id="激活"><a href="#激活" class="headerlink" title="激活"></a>激活</h2><p>这里看了下更新列表，选择了 BPv2022.9.2版本，下载解压，注意不要修改文件名。可阅读解压目录下的帮助文件， “说明.txt”。</p><p>重置激活状态bat:</p><figure class="highlight vim"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs vim">@echo off<br><span class="hljs-keyword">echo</span> Reset the activation status of burpsuite<br><span class="hljs-keyword">echo</span>.<br><span class="hljs-keyword">echo</span> deleting roaming <span class="hljs-keyword">profile</span> data..<br>rd /s /q <span class="hljs-string">"%userprofile%\AppData\Roaming\BurpSuite\"</span><br><span class="hljs-keyword">echo</span>.<br><span class="hljs-keyword">echo</span> deleting javasoft registry <span class="hljs-built_in">keys</span>..<br><span class="hljs-keyword">reg</span> <span class="hljs-keyword">delete</span> <span class="hljs-string">"HKEY_CURRENT_USER\SOFTWARE\JavaSoft\Prefs\burp"</span> /<span class="hljs-keyword">f</span><br><span class="hljs-keyword">echo</span>.<br><span class="hljs-keyword">echo</span> done!<br><span class="hljs-keyword">echo</span>.<br>pause<br></code></pre></td></tr></tbody></table></figure><p>也就是说，会删除配置文件，如果有需要，请备份C盘下%userprofile%\AppData\Roaming\BurpSuite\目录下的文件。</p><p>然后就是选择解压目录下的<strong>EN-JRE Burp.bat</strong>文件来注册激活BP。资源链接里有一个激活教程。</p><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>新建一个vbs文件，编辑以下内容：</p><figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">CreateObject</span><span class="hljs-params">(<span class="hljs-string">"WScript.Shell"</span>)</span></span><span class="hljs-selector-class">.Run</span> <span class="hljs-string">""</span><span class="hljs-string">"java"</span><span class="hljs-string">" --illegal-access=permit -Dsun.java2d.uiScale=1 -javaagent:BurpSuiteChs.jar -Dfile.encoding=utf-8 -noverify -javaagent:BurpSuiteLoader.jar -jar burpsuite_pro_org.jar"</span>, <span class="hljs-number">0</span><br></code></pre></td></tr></tbody></table></figure><p>保存后发送快捷方式到桌面，就可以快速启动BP了。</p><h3 id="参数说明："><a href="#参数说明：" class="headerlink" title="参数说明："></a>参数说明：</h3><p>-javaagent:BurpSuiteChs.jar：用于启动 BurpSuite 的汉化 jar 包</p><p>-Dsun.java2d.uiScale=1：强制BurpSuite缩放比为100%</p><h2 id="ISSUE"><a href="#ISSUE" class="headerlink" title="ISSUE"></a>ISSUE</h2><p>BurpSuite文本框里的光标和文字存在偏移</p><h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>在启动BP的脚本加上参数-Dsun.java2d.uiScale=1，设置后，BP字体会很小，可以在BP的user options中的display设置字体大小。</p><p><img src="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230610155157246.png" alt="image-20230610155157246"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机和网络技能</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>记录使用pip命令的一次踩坑</title>
     <link href="/posts/20230609-1840438d.html"/>
     <url>/posts/20230609-1840438d.html</url>
