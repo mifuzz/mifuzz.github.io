@@ -18,7 +18,7 @@
   
     <meta name="description" content="欢迎使用Nuxoria本文介绍 密码管理器-Nuxoria 如何配置 数据备份和恢复的仓库。 注意事项1.自动备份默认关闭，需要你正确配置备份仓库后才能开启自动备份。 2.开启自动备份后，新建记录、删除记录都会实时更新云端数据，因此会卡那么一下下，如果觉得很难受，可以关闭自动更新，而改为手动更新。 3.程序只处理了部分异常情况，其他异常都是直接抛出，比如你的设备没有网络，可能会抛出非常奇怪的、看不">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nuxoria 配置自定义仓库">
+<meta property="og:title" content="nuxoria的自定义仓库如何配置？">
 <meta property="og:url" content="https://dbii.top/posts/c77f9970/index.html">
 <meta property="og:site_name" content="MiFuzz&#39;s blog">
 <meta property="og:description" content="欢迎使用Nuxoria本文介绍 密码管理器-Nuxoria 如何配置 数据备份和恢复的仓库。 注意事项1.自动备份默认关闭，需要你正确配置备份仓库后才能开启自动备份。 2.开启自动备份后，新建记录、删除记录都会实时更新云端数据，因此会卡那么一下下，如果觉得很难受，可以关闭自动更新，而改为手动更新。 3.程序只处理了部分异常情况，其他异常都是直接抛出，比如你的设备没有网络，可能会抛出非常奇怪的、看不">
@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316234701059.png">
 <meta property="og:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316235054970.png">
 <meta property="article:published_time" content="2024-03-16T14:16:36.000Z">
-<meta property="article:modified_time" content="2024-03-16T16:28:25.061Z">
+<meta property="article:modified_time" content="2024-03-17T03:52:32.368Z">
 <meta property="article:author" content="MiFuzz">
 <meta property="article:tag" content="nuxoria">
 <meta name="twitter:card" content="summary_large_image">
@@ -41,7 +41,7 @@
   
   
   
-  <title>nuxoria 配置自定义仓库 - MiFuzz&#39;s blog</title>
+  <title>nuxoria的自定义仓库如何配置？ - MiFuzz&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -111,7 +111,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>Fraxdeo&#39;s blog</strong>
+      <strong>迷糊</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -225,7 +225,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">nuxoria 配置自定义仓库</span>
+            <span id="subtitle">nuxoria的自定义仓库如何配置？</span>
           
         </div>
 
@@ -248,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          965 字
+          959 字
         
       </span>
     
@@ -259,7 +259,7 @@
         
         
         
-          9 分钟
+          8 分钟
         
       </span>
     
@@ -297,7 +297,7 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">nuxoria 配置自定义仓库</h1>
+            <h1 style="display: none">nuxoria的自定义仓库如何配置？</h1>
             
             
               <div class="markdown-body">
@@ -309,15 +309,13 @@
 <h3 id="非常重要的事情"><a href="#非常重要的事情" class="headerlink" title="非常重要的事情"></a>非常重要的事情</h3><p>可以参考一下程序的密码存储设计</p>
 <p><img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316223708207.png" srcset="/img/loading.gif" lazyload alt="image-20240316223708207"></p>
 <p>图中的salt值是在初次使用程序时随机生成的，不同的使用者、使用环境都会产生新的salt值，数据的加密存储使用到了这个随机值，因此拥有<strong>主密码</strong>并不足以解密数据，还需要<strong>salt值</strong>，因此，只需要保存好salt值、主密码(安全问题)、数据文件就可以恢复数据，三者丢失其一数据不可恢复，注意注意。</p>
-<h3 id="配置仓库"><a href="#配置仓库" class="headerlink" title="配置仓库"></a>配置仓库</h3><h4 id="注册-x2F-登录-gitee-码云"><a href="#注册-x2F-登录-gitee-码云" class="headerlink" title="注册/登录 gitee(码云)"></a>注册/登录 gitee(码云)</h4><p>1.首先我们需要一个码云账户，如果没有码云账户，那么需要注册一个,地址：<a target="_blank" rel="noopener" href="https://gitee.com/signup">点这里</a></p>
+<h3 id="配置仓库"><a href="#配置仓库" class="headerlink" title="配置仓库"></a>配置仓库</h3><h4 id="1-注册-x2F-登录-gitee-码云"><a href="#1-注册-x2F-登录-gitee-码云" class="headerlink" title="1.注册/登录 gitee(码云)"></a>1.注册/登录 gitee(码云)</h4><p>首先我们需要一个码云账户，如果没有码云账户，那么需要注册一个，地址：<a target="_blank" rel="noopener" href="https://gitee.com/signup">点这里</a></p>
 <img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316230045679.png" srcset="/img/loading.gif" lazyload alt="image-20240316230045679" style="zoom:67%;">
 
 <p>注册后登录，不需要实名。</p>
-<p>2.新建仓库</p>
-<p>在右上角找到(+)，然后选择<strong>新建仓库</strong>。</p>
+<h4 id="2-新建仓库"><a href="#2-新建仓库" class="headerlink" title="2.新建仓库"></a>2.新建仓库</h4><p>在右上角找到(+)，然后选择<strong>新建仓库</strong>。</p>
 <p><img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316230943946.png" srcset="/img/loading.gif" lazyload alt="image-20240316230943946"></p>
-<p>3.填写相关</p>
-<ul>
+<h3 id="3-填写相关数据"><a href="#3-填写相关数据" class="headerlink" title="3.填写相关数据"></a>3.填写相关数据</h3><ul>
 <li>设置仓库名，输入一个任意的你想要新建的仓库名称。</li>
 <li>选择开源/私有。</li>
 <li>设置模板，选择Readme文件。</li>
@@ -325,20 +323,17 @@
 </ul>
 <img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316231554708.png" srcset="/img/loading.gif" lazyload alt="image-20240316231554708" style="zoom:80%;">
 
-<p>5.获取私密令牌</p>
-<p>在 <strong>设置-安全设置-私人令牌</strong> 里创建私人令牌。</p>
+<h4 id="4-获取私密令牌"><a href="#4-获取私密令牌" class="headerlink" title="4.获取私密令牌"></a>4.获取私密令牌</h4><p>在 <strong>设置-安全设置-私人令牌</strong> 里创建私人令牌。</p>
 <p><img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316232236509.png" srcset="/img/loading.gif" lazyload alt="image-20240316232236509"></p>
 <p>设置令牌的描述文字，选择令牌的权限-projects，私人令牌只显示一次，记得保存好。</p>
 <p><img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316232528948.png" srcset="/img/loading.gif" lazyload alt="image-20240316232528948"></p>
-<p>6.在Noxoria保存配置</p>
-<p>打开Noxoria，进入界面后，在 <strong>设置-备份设置</strong> 中设置备份仓库。</p>
+<h4 id="5-保存配置"><a href="#5-保存配置" class="headerlink" title="5.保存配置"></a>5.保存配置</h4><p>打开Noxoria，进入界面后，在 <strong>设置-备份设置</strong> 中设置备份仓库。</p>
 <p>需要三个参数：</p>
 <p>用户名：gitee的个人空间地址名，一般为设置的用户名。</p>
 <p><img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316234302872.png" srcset="/img/loading.gif" lazyload alt="image-20240316234302872"></p>
 <p>仓库名：刚才新建仓库时设置的仓库名。</p>
 <p>私人令牌：填写我们刚才获取的私人令牌。</p>
-<p>7.保存配置</p>
-<p>保存配置后，如果配置正确，会提示<strong>参数正确，配置已保持</strong>，那么配置备份仓库就完成了，数据备份和恢复功能就可以使用了。</p>
+<h4 id="6-等待结果"><a href="#6-等待结果" class="headerlink" title="6.等待结果"></a>6.等待结果</h4><p>保存配置后，如果配置正确，会提示<strong>参数正确，配置已保持</strong>，那么配置备份仓库就完成了，数据备份和恢复功能就可以使用了。</p>
 <p><img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316234701059.png" srcset="/img/loading.gif" lazyload alt="image-20240316234701059"></p>
 <p>如果不正确，会有一定的提示，根据提示判断下错误的位置：</p>
 <p>下面的例子是用户名少了字符，但是也有特殊情况无法判断，比如你的用户名为：aabbcc,码云存在一个aabbc的用户，你们都有一个名为data的仓库，如果输错用户名，则会提示令牌不正确或无权限。</p>
@@ -389,7 +384,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>nuxoria 配置自定义仓库</div>
+      <div>nuxoria的自定义仓库如何配置？</div>
       <div>https://dbii.top/posts/c77f9970/</div>
     </div>
     <div class="license-meta">
