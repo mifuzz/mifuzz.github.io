@@ -24,18 +24,18 @@
 <meta property="og:description" content="微信小程序抓包Burpsuite + Proxifter 抓取小程序数据包(HTTPS) 环境微信：3.9.9.43 burpsuite: v2022.9.2 Proxifter: 汉化破解版 v3.28 （资源在下面） 配置证书访问burpsuite 设置的代理监听器的地址，一般为 http:127.0.0.1:port，下载CA证书进行安装。 这一步的监听端口，可以设置一个新的，也可以使用原来">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319145813397.png">
-<meta property="og:image" content="c:\Users\book\AppData\Roaming\Typora\typora-user-images\image-20240319150427493.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319150642963.png">
 <meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319150642963.png">
 <meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319150943015.png">
 <meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319154113407.png">
 <meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319154239824.png">
 <meta property="og:image" content="c:\Users\book\AppData\Roaming\Typora\typora-user-images\image-20240319154723229.png">
-<meta property="og:image" content="c:\Users\book\AppData\Roaming\Typora\typora-user-images\image-20240319154950959.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319154950959.png">
 <meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319155741930.png">
 <meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319155843213.png">
 <meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319160308459.png">
 <meta property="article:published_time" content="2024-03-19T08:12:56.000Z">
-<meta property="article:modified_time" content="2024-03-19T08:14:44.310Z">
+<meta property="article:modified_time" content="2024-03-19T08:24:32.019Z">
 <meta property="article:author" content="MiFuzz">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319145813397.png">
@@ -311,7 +311,7 @@
 <p>这一步的监听端口，可以设置一个新的，也可以使用原来的。</p>
 <p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319145813397.png" srcset="/img/loading.gif" lazyload alt="image-20240319145813397"></p>
 <p>接下来，在<strong>证书-常规</strong>中，选择<strong>安装证书</strong>，存储位置可选<strong>当前用户</strong>，</p>
-<p><img src="C:\Users\book\AppData\Roaming\Typora\typora-user-images\image-20240319150427493.png" srcset="/img/loading.gif" lazyload alt="image-20240319150427493"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319150642963.png" srcset="/img/loading.gif" lazyload alt="image-20240319150642963"></p>
 <p>接下来的证书存储中，选择<strong>将所有的证书都放入下列存储(P)</strong>,之后选择<strong>受信任的根证书颁发机构</strong>。</p>
 <p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319150642963.png" srcset="/img/loading.gif" lazyload alt="image-20240319150642963"></p>
 <p>接下来点确定就好，安装完成后，可以使用 Win + R  打开 <strong>certmgr.msc</strong>，查看我们安装的证书。</p>
@@ -327,7 +327,7 @@
 <p>在安装Proxifter完成后，打开可看到如下界面：然后我们依次配置<strong>代理服务器</strong>和<strong>代理规则</strong>。</p>
 <p><img src="C:\Users\book\AppData\Roaming\Typora\typora-user-images\image-20240319154723229.png" srcset="/img/loading.gif" lazyload alt="image-20240319154723229"></p>
 <p>我们选择<strong>配置文件-代理服务器</strong>，然后选择<strong>添加</strong>，填写<strong>服务器地址</strong>，端口，选择<strong>协议</strong>，这里选择HTTPS。</p>
-<p><img src="C:\Users\book\AppData\Roaming\Typora\typora-user-images\image-20240319154950959.png" srcset="/img/loading.gif" lazyload alt="image-20240319154950959"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319154950959.png" srcset="/img/loading.gif" lazyload alt="image-20240319154950959"></p>
 <p>之后配置<strong>代理规则</strong>，第一次添加代理服务器也会提示你添加代理规则。</p>
 <p>打开代理规则后，选择添加，接着设置规则名称，接下来的<strong>应用程序</strong>，就需要使用上面的WechatAPPEx<strong>路径</strong>。</p>
 <p>选择浏览，在打开的文件资源管理器里粘贴我们上面保存的路径，选择<strong>WechatAPPEx.exe</strong>，然后确定。</p>
