@@ -13,27 +13,24 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="MiFuzz">
+  <meta name="author" content="mifuzz">
   <meta name="keywords" content="">
   
-    <meta name="description" content="ISSUE解决博客aplayer插件音乐失效问题 前言前几天发现博客音乐失效了，找找原因，解决下失效问题。 如果你只想知道关于aplayer插件音乐失效问题的内容，请在目录中找到需要的内容。 Aplayer使用音乐插件:hexo-tag-aplayer 官网：链接 安装执行以下命令： 1npm install --save hexo-tag-aplayer  因为最新的aplayer版本已经支持M">
+    <meta name="description" content="域环境的搭建前言当你需要搭建域环境，那么说明应该对什么是域已经有一定的了解，不细说，随便找了一篇介绍搭建域环境的文章，时效性自行验证，本文主要讨论搭建域环境需要注意的事情，帮助那些在搭建域环境和我一样踩坑的人。 虚拟机软件：VMware Workstation Pro IOS镜像：MSDN ​		tips：小米手机自带浏览器就可以新建ed2k类型(ED2K可视为P2P下载链接)的下载任务. 虚拟机">
 <meta property="og:type" content="article">
-<meta property="og:title" content="解决博客aplayer插件音乐失效问题">
-<meta property="og:url" content="https://blog.dbii.top/posts/739f3d10/index.html">
-<meta property="og:site_name" content="MiFuzz&#39;s blog">
-<meta property="og:description" content="ISSUE解决博客aplayer插件音乐失效问题 前言前几天发现博客音乐失效了，找找原因，解决下失效问题。 如果你只想知道关于aplayer插件音乐失效问题的内容，请在目录中找到需要的内容。 Aplayer使用音乐插件:hexo-tag-aplayer 官网：链接 安装执行以下命令： 1npm install --save hexo-tag-aplayer  因为最新的aplayer版本已经支持M">
+<meta property="og:title" content="Windows 域环境的搭建">
+<meta property="og:url" content="https://blog.dbii.top/posts/bbf780e8">
+<meta property="og:site_name" content="mifuzz&#39;s blog">
+<meta property="og:description" content="域环境的搭建前言当你需要搭建域环境，那么说明应该对什么是域已经有一定的了解，不细说，随便找了一篇介绍搭建域环境的文章，时效性自行验证，本文主要讨论搭建域环境需要注意的事情，帮助那些在搭建域环境和我一样踩坑的人。 虚拟机软件：VMware Workstation Pro IOS镜像：MSDN ​		tips：小米手机自带浏览器就可以新建ed2k类型(ED2K可视为P2P下载链接)的下载任务. 虚拟机">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230613145703665.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230613150050677.png">
-<meta property="article:published_time" content="2023-06-13T07:04:59.000Z">
-<meta property="article:modified_time" content="2023-06-15T02:32:11.231Z">
-<meta property="article:author" content="MiFuzz">
+<meta property="article:published_time" content="2023-06-05T06:14:03.000Z">
+<meta property="article:modified_time" content="2024-03-16T14:18:25.868Z">
+<meta property="article:author" content="mifuzz">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230613145703665.png">
   
   
   
-  <title>解决博客aplayer插件音乐失效问题 - MiFuzz&#39;s blog</title>
+  <title>Windows 域环境的搭建 - mifuzz&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -75,7 +72,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"blog.dbii.top","root":"/","version":"1.9.4","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"Markdown"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"blog.dbii.top","root":"/","version":"1.9.4","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":false,"default":"Markdown"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -90,9 +87,6 @@
   
 <meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
-<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
-<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
 </head>
 
 
@@ -220,7 +214,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">解决博客aplayer插件音乐失效问题</span>
+            <span id="subtitle">Windows 域环境的搭建</span>
           
         </div>
 
@@ -231,8 +225,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-06-13 15:04" pubdate>
-          2023年6月13日 下午
+        <time datetime="2023-06-05 14:14" pubdate>
+          2023年6月5日 下午
         </time>
       </span>
     
@@ -243,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.5k 字
+          2.8k 字
         
       </span>
     
@@ -254,7 +248,7 @@
         
         
         
-          21 分钟
+          24 分钟
         
       </span>
     
@@ -292,181 +286,87 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">解决博客aplayer插件音乐失效问题</h1>
+            <h1 style="display: none">Windows 域环境的搭建</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="ISSUE"><a href="#ISSUE" class="headerlink" title="ISSUE"></a>ISSUE</h2><p>解决博客aplayer插件音乐失效问题</p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前几天发现博客音乐失效了，找找原因，解决下失效问题。</p>
-<p>如果你只想知道关于aplayer插件音乐失效问题的内容，请在目录中找到需要的内容。</p>
-<h2 id="Aplayer使用"><a href="#Aplayer使用" class="headerlink" title="Aplayer使用"></a>Aplayer使用</h2><p>音乐插件:hexo-tag-aplayer 官网：<a target="_blank" rel="noopener" href="https://aplayer.js.org/#/">链接</a></p>
-<p>安装执行以下命令：</p>
-<figure class="highlight ada"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">npm install <span class="hljs-comment">--save hexo-tag-aplayer</span><br></code></pre></td></tr></tbody></table></figure>
+                <h1 id="域环境的搭建"><a href="#域环境的搭建" class="headerlink" title="域环境的搭建"></a>域环境的搭建</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当你需要搭建域环境，那么说明应该对什么是域已经有一定的了解，不细说，随便找了一篇介绍搭建域环境的<a target="_blank" rel="noopener" href="https://www.cnblogs.com/romatic/p/13284787.html">文章</a>，时效性自行验证，本文主要讨论搭建域环境需要注意的事情，帮助那些在搭建域环境和我一样踩坑的人。</p>
+<p>虚拟机软件：VMware Workstation Pro</p>
+<p>IOS镜像：<a target="_blank" rel="noopener" href="https://msdn.itellyou.cn/">MSDN</a></p>
+<p>​		tips：小米手机自带浏览器就可以新建ed2k类型(ED2K可视为P2P下载链接)的下载任务.</p>
+<h2 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h2><p>在虚拟机的菜单栏可以选择“编辑-&gt;虚拟网络编辑器”，可以看到我们的虚拟网络适配器，一般情况下：</p>
+<ul>
+<li>虚拟网络适配器VMnet1是 <strong>仅主机模式</strong> 默认的虚拟网络适配器</li>
+<li>虚拟网络适配器VMnet8是 <strong>NAT模式</strong> 默认的虚拟网络适配器</li>
+</ul>
+<p>在后文，我们将虚拟网络适配器理解为网卡。我为域环境内的计算机添加的网卡选择的模式就是仅主机模式，在搭建域环境的时候比较重要的是选择合适的网段，我的VMnet1子网IP段为192.168.10.0/24，掩码255.255.255.0，因为我不希望我的计算机的IP地址是随机的，因此取消勾选使用DHCP将IP分给虚拟机，这就是说我们要手动给计算机分配IP，这里是否取消勾选是不重要的。</p>
+<p>设置了子网IP段后，也就是说我们的域内计算机所在的内网IP段已经确定，在手动给域内计算机分配IP时，IP要属于这一网段。</p>
+<h2 id="计算机IP设置"><a href="#计算机IP设置" class="headerlink" title="计算机IP设置"></a>计算机IP设置</h2><p>虚拟机的网段设置好后，我们要为我们的域内计算机手动分配静态IP。</p>
+<h3 id="Windows操作系统"><a href="#Windows操作系统" class="headerlink" title="Windows操作系统"></a>Windows操作系统</h3><p>在window操作系统的图形界面中，找到网络适配器，更改适配器设置，在属性里，修改IPV4的设置，选择合适的IP作为静态IP，DNS的设置为你部署DNS服务的计算机的IP，一般在域控部署DNS服务，那么不论是域控还是域用户的计算机，DNS都可以设置为域控的IP地址。</p>
+<p>然后在cmd中，重启网卡后，可以使用ipconfig查看网卡对应的IP地址。</p>
+<h3 id="Linux操作系统"><a href="#Linux操作系统" class="headerlink" title="Linux操作系统"></a>Linux操作系统</h3><p>Linux操作系统是不方便加入Windows域中的，在搭建域环境，尽量不要打算使用Linux系统的计算机入域。这里来讲一下如何给Linux系统的计算机设置静态IP的步骤：</p>
+<p>要给Linux计算机设置静态IP地址，需要进行以下步骤：</p>
+<ol>
+<li><p>打开终端窗口，使用文本编辑器打开网络配置文件。在大多数Linux发行版中，网络配置文件位于“/etc/network/interfaces”或“/etc/sysconfig/network-scripts/”目录下，具体路径可能会有所不同。</p>
+</li>
+<li><p>找到需要设置静态IP地址的网络接口，例如eth0。在接口配置块中添加以下内容：</p>
+</li>
+</ol>
+<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">auto</span> eth0<br>iface eth0 inet static<br>address <span class="hljs-number">192.168.1.100</span>     <span class="hljs-comment"># 设置静态IP地址</span><br>netmask <span class="hljs-number">255.255.255.0</span>    <span class="hljs-comment"># 设置子网掩码</span><br>gateway <span class="hljs-number">192.168.1.1</span>      <span class="hljs-comment"># 设置网关地址</span><br>dns-nameservers <span class="hljs-number">8.8.8.8</span>  <span class="hljs-comment"># 设置DNS服务器地址</span><br></code></pre></td></tr></tbody></table></figure>
 
-<p>因为最新的aplayer版本已经支持MetingJS,往文章插入音乐使用起来更为方便，在aplayer启用MetingJS：</p>
-<p>打开博客配置文件_config.yml，编辑以下内容：</p>
-<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">aplayer:</span><br>  <span class="hljs-attr">meting:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></tbody></table></figure>
+<p>在上述配置中，address为需要设置的静态IP地址，netmask为子网掩码，gateway为网关地址，dns-nameservers为DNS服务器地址。这些信息需要根据实际情况进行修改。</p>
+<ol start="3">
+<li>保存文件并关闭文本编辑器。然后，使用以下命令重启网络服务，使配置生效：</li>
+</ol>
+<figure class="highlight ebnf"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo systemctl restart networking</span><br></code></pre></td></tr></tbody></table></figure>
 
-<p>文章插入音乐的方式：</p>
-<figure class="highlight mel"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mel">{% meting <span class="hljs-string">"歌曲ID"</span> <span class="hljs-string">"服务器"</span> <span class="hljs-string">"类型"</span> <span class="hljs-string">"theme:#555"</span> <span class="hljs-string">"mutex:true"</span> <span class="hljs-string">"listmaxheight:340px"</span> <span class="hljs-string">"preload:auto"</span> %}<br></code></pre></td></tr></tbody></table></figure>
-
-<p>在文章添加以上代码就可以在文章任何位置添加音乐了。</p>
-<p>参数说明：</p>
-<p>server指音乐平台，netease指网易云音乐，tencent指的是QQ音乐</p>
-<p>一个完整的播放器至少指定音乐平台，类型和标识资源的ID</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>默认</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id(编号)</td>
-<td>必须</td>
-<td>歌曲ID /播放列表ID /专辑ID /搜索关键字</td>
-</tr>
-<tr>
-<td>server(平台)</td>
-<td>必须</td>
-<td>音乐平台：netease，tencent，kugou，xiami，baidu</td>
-</tr>
-<tr>
-<td>type（类型）</td>
-<td>必须</td>
-<td>song，playlist，album，search，artist</td>
-</tr>
-<tr>
-<td>auto（支持类种 类）</td>
-<td>options</td>
-<td>音乐链接，支持：netease，tencent，xiami</td>
-</tr>
-<tr>
-<td>fixed（固定模式）</td>
-<td>false</td>
-<td>启用固定模式，默认false</td>
-</tr>
-<tr>
-<td>mini（迷你模式）</td>
-<td>false</td>
-<td>启用迷你模式,默认false</td>
-</tr>
-<tr>
-<td>autoplay（自动播放）</td>
-<td>false</td>
-<td>音频自动播放，默认false</td>
-</tr>
-<tr>
-<td>theme(主题颜色)</td>
-<td>#2980b9</td>
-<td>默认#2980b9</td>
-</tr>
-<tr>
-<td>loop（循环）</td>
-<td>all</td>
-<td>播放器循环播放，值：“all”，one”，“none”</td>
-</tr>
-<tr>
-<td>order(顺序)</td>
-<td>list</td>
-<td>播放器播放顺序，值：“list”，“random”</td>
-</tr>
-<tr>
-<td>preload(加载)</td>
-<td>auto</td>
-<td>值：“none”，“metadata”，“’auto”</td>
-</tr>
-<tr>
-<td>volume（声量）</td>
-<td>0.7</td>
-<td>默认音量，请注意播放器会记住用户设置，用户自己设置音量后默认音量将不起作用</td>
-</tr>
-<tr>
-<td>mutex（限制）</td>
-<td>true</td>
-<td>防止同时播放多个玩家，在该玩家开始播放时暂停其他玩家</td>
-</tr>
-<tr>
-<td>lrc-type（歌词）</td>
-<td>0</td>
-<td>歌词显示</td>
-</tr>
-<tr>
-<td>list-folded（列表折叠）</td>
-<td>false</td>
-<td>指示列表是否应该首先折叠</td>
-</tr>
-<tr>
-<td>list-max-height（最大高度）</td>
-<td>340px</td>
-<td>列出最大高度</td>
-</tr>
-<tr>
-<td>storage-name（储存名称）</td>
-<td>metingjs</td>
-<td>存储播放器设置的localStorage键</td>
-</tr>
-</tbody></table>
-<p>下面我以MetingJS在文章插入网易云音乐中的音乐来说明使用方法。</p>
-<h3 id="使用示例：网易云音乐"><a href="#使用示例：网易云音乐" class="headerlink" title="使用示例：网易云音乐"></a>使用示例：网易云音乐</h3><p>1.进入网易云音乐网页版</p>
-<p>​	<a target="_blank" rel="noopener" href="https://music.163.com/">网易云音乐网页版链接</a></p>
-<p>2.找到资源的ID</p>
-<p>如谭晶的《爱的神话》，在网易云音乐的链接是<code>https://music.163.com/#/song?id=26217047</code></p>
-<p>26217047就是标识这首歌资源的唯一ID，类型就是song</p>
-<p>插入文章的代码的一个示例：</p>
-<figure class="highlight mel"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mel">{% meting <span class="hljs-string">"26217047"</span> <span class="hljs-string">"netease"</span> <span class="hljs-string">"song"</span> <span class="hljs-string">"theme:#555"</span> <span class="hljs-string">"mutex:true"</span> <span class="hljs-string">"listmaxheight:340px"</span> <span class="hljs-string">"preload:auto"</span> %}<br></code></pre></td></tr></tbody></table></figure>
-
-
-    <div id="aplayer-ImChKvAw" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="26217047" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"></div>
-
-<p>如果是想引用歌单到文章中：</p>
-<p>某个歌单的链接：<code>https://music.163.com/#/playlist?id=2983726621</code></p>
-<p>歌单ID就是2983726621，类型是playlist</p>
-<p>插入文章的代码的一个示例：</p>
-<figure class="highlight mel"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mel">{% meting <span class="hljs-string">"2983726621"</span> <span class="hljs-string">"netease"</span> <span class="hljs-string">"playlist"</span> <span class="hljs-string">"theme:#555"</span> <span class="hljs-string">"mutex:true"</span> <span class="hljs-string">"listmaxheight:340px"</span> <span class="hljs-string">"preload:auto"</span> %}<br></code></pre></td></tr></tbody></table></figure>
-
-<h2 id="音乐失效问题"><a href="#音乐失效问题" class="headerlink" title="音乐失效问题"></a>音乐失效问题</h2><h3 id="原因和解决方法"><a href="#原因和解决方法" class="headerlink" title="原因和解决方法"></a>原因和解决方法</h3><p>Aplayer用来解析的API失效了，在博客目录下<strong>Blog\Hexo\node_modules\meting\dist</strong>下可以找到用来解析的API:</p>
-<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>api.i-meto.com<span class="hljs-regexp">/meting/</span>api<br></code></pre></td></tr></tbody></table></figure>
-
-<p>因此只要替换掉失效的API就可以了，从网络中找到的一个API:</p>
-<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>api.injahow.cn<span class="hljs-regexp">/meting/</span><br></code></pre></td></tr></tbody></table></figure>
-
-<p>尝试在网页中调用API:</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230613145703665.png" srcset="/img/loading.gif" lazyload alt="image-20230613145703665"></p>
-<p>成功解析，但是这个api的链接有些奇怪了🤦‍♂️</p>
-<p>替换<strong>Blog\Hexo\node_modules\meting\dist</strong>目录下的Meting.min.js文件内容：</p>
-<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>api.i-meto.com<span class="hljs-regexp">/meting/</span>api --&gt; https:<span class="hljs-regexp">//</span>api.injahow.cn<span class="hljs-regexp">/meting/</span><br></code></pre></td></tr></tbody></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230613150050677.png" srcset="/img/loading.gif" lazyload alt="image-20230613150050677"></p>
-<p>最后刷新缓存，就可以看到文章中的音乐已经重新解析成功了。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>分享一首好听的歌</p>
-<script src="https://cdn.jsdelivr.net/npm/hls.js"></script>
-<p><video id="video" controls="" style="height: 100%;width: 100%;object-fit: cover"></video></p>
-<script>
-  var video = document.getElementById('video');
-  var videoSrc = 'https://cdn.jsdelivr.net/gh/Honexz/video@5/Love.you.105.degree/ra105dn.m3u8';
-  if (Hls.isSupported()) {
-    var hls = new Hls();
-    hls.loadSource(videoSrc);
-    hls.attachMedia(video);
-    hls.on(Hls.Events.MANIFEST_PARSED, function() {
-      video.removeAttribute('muted'); // 取消静音
-      video.play(); // 开始播放
-    });
-  } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-    video.src = videoSrc;
-    video.addEventListener('loadedmetadata', function() {
-      video.removeAttribute('muted'); // 取消静音
-      video.play(); // 开始播放
-    });
-  }
-</script>
-
-
-
-<p>哔哩哔哩 UP主:<strong><a target="_blank" rel="noopener" href="https://space.bilibili.com/1950658">早稻叽</a></strong></p>
+<p>执行完上述命令后，静态IP地址就会生效。可以使用ifconfig命令或ip addr命令检查网络接口的IP地址是否已经改变。</p>
+<p>需要注意的是，在设置静态IP地址时，需要确保该IP地址没有被其他设备使用，并且与所在网络的IP地址段、子网掩码、网关地址等参数相匹配，否则网络连接可能会出现问题。</p>
+<h3 id="域控的搭建"><a href="#域控的搭建" class="headerlink" title="域控的搭建"></a>域控的搭建</h3><p>搭建域控根据网上靠谱的教程都是没有问题的，但这里要列一下注意点：</p>
+<ul>
+<li>部署DC时，如果教程没有让你同时勾选DNS服务器，如果没有别的要求，即DNS可以和域控在同一计算机，勾选DNS服务器！</li>
+<li>.net formwork3.5和.net formwork4.6最好一起勾选</li>
+<li>域控设置域名时，不要离谱，尽量符合域名的命名格式，同时也要避免选择的域名为已经在互联网已经被频繁使用。</li>
+</ul>
+<h3 id="计算机入域"><a href="#计算机入域" class="headerlink" title="计算机入域"></a>计算机入域</h3><p>假设我们已经在windows server 2016部署了域控和DNS服务器，域名为fraxdeo.web,另一台计算机win 7要入域，那么这些工作是必须的：</p>
+<p>win 7的DNS服务器地址为：DNS服务器所在计算机的IP地址，一般为域控的IP地址。</p>
+<p>已经为入域的计算机选择了合适的域内用户，并设置了账户名和密码。</p>
+<p>win 7可以ping通域名。</p>
+<h2 id="踩过的坑"><a href="#踩过的坑" class="headerlink" title="踩过的坑"></a>踩过的坑</h2><p>1.计算机不能加入域</p>
+<p>在域内，win 7可以ping通域控域名，也可以ping通域控域名，回复的IP是域控在内网的静态IP，但是加域时依旧报错，信息如下：</p>
+<blockquote>
+<p>已成功查询 DNS，获取服务位置(SRV)资源记录(此资源记录用于查找域“feaxdeo.web”的域控制器):</p>
+<p>此查询用于查找 _ldap._tcp.dc._msdcs.feaxdeo.web 的 SRV 记录</p>
+<p>下列域控制器由查询识别:<br>        DC.feaxdeo.web</p>
+<p>但是无法连接到域控制器。</p>
+<p>此错误的常见原因包括:</p>
+<ul>
+<li>将域控制器的名称映射到其 IP 地址的主机(A)或主机(AAAA)记录丢失或包含错误地址。</li>
+<li>在 DNS 中注册的域控制器没有连接到网络上，或没有运行。<br>报错如上，请分析</li>
+</ul>
+</blockquote>
+<p>原因：因为一些原因，给域控添加了两张网卡，一张仅主机模式在内网，一张NAT模式连接外网，导致加域失败。</p>
+<p>解决办法：删除多余的网卡</p>
+<p>2.加域后计算机登陆问题</p>
+<p>比如我们加域前一直用用户fraxdeo登陆win 7，加域时使用的用户是abc，win 7加域后登陆时的用户一般就是fraxdeo/abc,前面的fraxdeo是域名，如果要登陆到自己的计算机，登陆名应该是<strong>计算机名/用户名。</strong></p>
+<p>3.ping不通域名</p>
+<p>要加域的计算机可以ping通域控的IP，但是ping不同域名，也就是DNS问题，除了常见问题，如DNS地址设置不正确，还可以手动配置域控制器的主机记录(A/AAAA)。</p>
+<blockquote>
+<p>要配置域控制器的主机记录(A/AAAA)，以确保正确的 DNS 解析，可以按照以下步骤进行操作：</p>
+<ol>
+<li>登录到域控制器服务器上，打开“DNS 管理器”，并展开相应的 DNS 区域。</li>
+<li>在左侧窗格中找到要添加或修改主机记录的主机名，右键单击它，并选择“新建记录”选项。</li>
+<li>在“新建记录”对话框中，选择记录类型为“主机(A)”或“主机(AAAA)”，并填写以下信息：<ul>
+<li>名称：填写要添加或修改主机记录的主机名。</li>
+<li>IP 地址：填写要映射到该主机名的 IP 地址。</li>
+<li>时间到期：根据需要设置记录的到期时间。</li>
+</ul>
+</li>
+<li>单击“确定”按钮，以创建或修改主机记录。现在，在 DNS 区域中，您应该能够看到新添加或修改的主机记录。</li>
+</ol>
+<p>请注意，在添加或修改主机记录时，请确保填写正确的主机名和 IP 地址。如果主机名或 IP 地址填写错误，可能会导致DNS 解析失败。此外，如果您在添加或修改主机记录时遇到任何问题，请参考相关的技术文档和教程，或者咨询专业的 IT 技术人员，以获取更多帮助和支持。</p>
+</blockquote>
 
                 
               </div>
@@ -485,7 +385,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%92%8C%E7%BD%91%E7%BB%9C%E6%8A%80%E8%83%BD/" class="category-chain-item">计算机和网络技能</a>
+  <a href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" class="category-chain-item">内网渗透</a>
   
   
 
@@ -505,26 +405,26 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>解决博客aplayer插件音乐失效问题</div>
-      <div>https://blog.dbii.top/posts/739f3d10/</div>
+      <div>Windows 域环境的搭建</div>
+      <div>https://blog.dbii.top/posts/bbf780e8</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>MiFuzz</div>
+          <div>mifuzz</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年6月13日</div>
+          <div>2023年6月5日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年6月15日</div>
+          <div>2024年3月16日</div>
         </div>
       
       
@@ -567,9 +467,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/cf64b99a/" title="命令执行">
+                      <a href="/posts/1840438d" title="记录使用pip命令的一次踩坑">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">命令执行</span>
+                        <span class="hidden-mobile">记录使用pip命令的一次踩坑</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -577,8 +477,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/963d4df1/" title="简记一次对burpsuite的更新">
-                        <span class="hidden-mobile">简记一次对burpsuite的更新</span>
+                      <a href="/posts/b244341" title="Kerberoast攻击分析">
+                        <span class="hidden-mobile">Kerberoast攻击分析</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -681,7 +581,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a>© 2023  </a> <i class="iconfont icon-love"></i> <a href="https://blog.dbii.top/about" target="_blank" rel="nofollow noopener"><span>MiFuzz</span></a> </br> <a>最难开口的事情就是 初次的问好 和最终的道别</a> 
+       <a>© 2023  </a> <i class="iconfont icon-love"></i> <a href="https://blog.dbii.top/about" target="_blank" rel="nofollow noopener"><span>mifuzz</span></a> </br> <a>最难开口的事情就是 初次的问好 和最终的道别</a> 
     </div>
   
   

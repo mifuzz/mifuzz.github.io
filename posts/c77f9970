@@ -13,24 +13,35 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="MiFuzz">
+  <meta name="author" content="mifuzz">
   <meta name="keywords" content="">
   
-    <meta name="description" content="域环境的搭建前言当你需要搭建域环境，那么说明应该对什么是域已经有一定的了解，不细说，随便找了一篇介绍搭建域环境的文章，时效性自行验证，本文主要讨论搭建域环境需要注意的事情，帮助那些在搭建域环境和我一样踩坑的人。 虚拟机软件：VMware Workstation Pro IOS镜像：MSDN ​		tips：小米手机自带浏览器就可以新建ed2k类型(ED2K可视为P2P下载链接)的下载任务. 虚拟机">
+    <meta name="description" content="欢迎使用Nuxoria本文介绍 密码管理器-Nuxoria 如何配置 数据备份和恢复的仓库。 注意事项1.自动备份默认关闭，需要你正确配置备份仓库后才能开启自动备份。 2.开启自动备份后，新建记录、删除记录都会实时更新云端数据，因此会卡那么一下下，如果觉得很难受，可以关闭自动更新，而改为手动更新。 3.程序只处理了部分异常情况，其他异常都是直接抛出，比如你的设备没有网络，可能会抛出非常奇怪的、看不">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Windows 域环境的搭建">
-<meta property="og:url" content="https://blog.dbii.top/posts/bbf780e8/index.html">
-<meta property="og:site_name" content="MiFuzz&#39;s blog">
-<meta property="og:description" content="域环境的搭建前言当你需要搭建域环境，那么说明应该对什么是域已经有一定的了解，不细说，随便找了一篇介绍搭建域环境的文章，时效性自行验证，本文主要讨论搭建域环境需要注意的事情，帮助那些在搭建域环境和我一样踩坑的人。 虚拟机软件：VMware Workstation Pro IOS镜像：MSDN ​		tips：小米手机自带浏览器就可以新建ed2k类型(ED2K可视为P2P下载链接)的下载任务. 虚拟机">
+<meta property="og:title" content="nuxoria的自定义仓库如何配置？">
+<meta property="og:url" content="https://blog.dbii.top/posts/c77f9970">
+<meta property="og:site_name" content="mifuzz&#39;s blog">
+<meta property="og:description" content="欢迎使用Nuxoria本文介绍 密码管理器-Nuxoria 如何配置 数据备份和恢复的仓库。 注意事项1.自动备份默认关闭，需要你正确配置备份仓库后才能开启自动备份。 2.开启自动备份后，新建记录、删除记录都会实时更新云端数据，因此会卡那么一下下，如果觉得很难受，可以关闭自动更新，而改为手动更新。 3.程序只处理了部分异常情况，其他异常都是直接抛出，比如你的设备没有网络，可能会抛出非常奇怪的、看不">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-06-05T06:14:03.000Z">
-<meta property="article:modified_time" content="2024-03-16T14:18:25.868Z">
-<meta property="article:author" content="MiFuzz">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316223708207.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316230045679.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316230943946.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316231554708.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316232236509.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316232528948.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316234302872.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316234701059.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316235054970.png">
+<meta property="article:published_time" content="2024-03-16T14:16:36.000Z">
+<meta property="article:modified_time" content="2024-03-17T03:52:32.368Z">
+<meta property="article:author" content="mifuzz">
+<meta property="article:tag" content="nuxoria">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316223708207.png">
   
   
   
-  <title>Windows 域环境的搭建 - MiFuzz&#39;s blog</title>
+  <title>nuxoria的自定义仓库如何配置？ - mifuzz&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -72,7 +83,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"blog.dbii.top","root":"/","version":"1.9.4","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"Markdown"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"blog.dbii.top","root":"/","version":"1.9.4","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":false,"default":"Markdown"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -214,7 +225,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">Windows 域环境的搭建</span>
+            <span id="subtitle">nuxoria的自定义仓库如何配置？</span>
           
         </div>
 
@@ -225,8 +236,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-06-05 14:14" pubdate>
-          2023年6月5日 下午
+        <time datetime="2024-03-16 22:16" pubdate>
+          2024年3月16日 晚上
         </time>
       </span>
     
@@ -237,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.8k 字
+          959 字
         
       </span>
     
@@ -248,7 +259,7 @@
         
         
         
-          24 分钟
+          8 分钟
         
       </span>
     
@@ -286,87 +297,48 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Windows 域环境的搭建</h1>
+            <h1 style="display: none">nuxoria的自定义仓库如何配置？</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="域环境的搭建"><a href="#域环境的搭建" class="headerlink" title="域环境的搭建"></a>域环境的搭建</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当你需要搭建域环境，那么说明应该对什么是域已经有一定的了解，不细说，随便找了一篇介绍搭建域环境的<a target="_blank" rel="noopener" href="https://www.cnblogs.com/romatic/p/13284787.html">文章</a>，时效性自行验证，本文主要讨论搭建域环境需要注意的事情，帮助那些在搭建域环境和我一样踩坑的人。</p>
-<p>虚拟机软件：VMware Workstation Pro</p>
-<p>IOS镜像：<a target="_blank" rel="noopener" href="https://msdn.itellyou.cn/">MSDN</a></p>
-<p>​		tips：小米手机自带浏览器就可以新建ed2k类型(ED2K可视为P2P下载链接)的下载任务.</p>
-<h2 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h2><p>在虚拟机的菜单栏可以选择“编辑-&gt;虚拟网络编辑器”，可以看到我们的虚拟网络适配器，一般情况下：</p>
-<ul>
-<li>虚拟网络适配器VMnet1是 <strong>仅主机模式</strong> 默认的虚拟网络适配器</li>
-<li>虚拟网络适配器VMnet8是 <strong>NAT模式</strong> 默认的虚拟网络适配器</li>
-</ul>
-<p>在后文，我们将虚拟网络适配器理解为网卡。我为域环境内的计算机添加的网卡选择的模式就是仅主机模式，在搭建域环境的时候比较重要的是选择合适的网段，我的VMnet1子网IP段为192.168.10.0/24，掩码255.255.255.0，因为我不希望我的计算机的IP地址是随机的，因此取消勾选使用DHCP将IP分给虚拟机，这就是说我们要手动给计算机分配IP，这里是否取消勾选是不重要的。</p>
-<p>设置了子网IP段后，也就是说我们的域内计算机所在的内网IP段已经确定，在手动给域内计算机分配IP时，IP要属于这一网段。</p>
-<h2 id="计算机IP设置"><a href="#计算机IP设置" class="headerlink" title="计算机IP设置"></a>计算机IP设置</h2><p>虚拟机的网段设置好后，我们要为我们的域内计算机手动分配静态IP。</p>
-<h3 id="Windows操作系统"><a href="#Windows操作系统" class="headerlink" title="Windows操作系统"></a>Windows操作系统</h3><p>在window操作系统的图形界面中，找到网络适配器，更改适配器设置，在属性里，修改IPV4的设置，选择合适的IP作为静态IP，DNS的设置为你部署DNS服务的计算机的IP，一般在域控部署DNS服务，那么不论是域控还是域用户的计算机，DNS都可以设置为域控的IP地址。</p>
-<p>然后在cmd中，重启网卡后，可以使用ipconfig查看网卡对应的IP地址。</p>
-<h3 id="Linux操作系统"><a href="#Linux操作系统" class="headerlink" title="Linux操作系统"></a>Linux操作系统</h3><p>Linux操作系统是不方便加入Windows域中的，在搭建域环境，尽量不要打算使用Linux系统的计算机入域。这里来讲一下如何给Linux系统的计算机设置静态IP的步骤：</p>
-<p>要给Linux计算机设置静态IP地址，需要进行以下步骤：</p>
-<ol>
-<li><p>打开终端窗口，使用文本编辑器打开网络配置文件。在大多数Linux发行版中，网络配置文件位于“/etc/network/interfaces”或“/etc/sysconfig/network-scripts/”目录下，具体路径可能会有所不同。</p>
-</li>
-<li><p>找到需要设置静态IP地址的网络接口，例如eth0。在接口配置块中添加以下内容：</p>
-</li>
-</ol>
-<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">auto</span> eth0<br>iface eth0 inet static<br>address <span class="hljs-number">192.168.1.100</span>     <span class="hljs-comment"># 设置静态IP地址</span><br>netmask <span class="hljs-number">255.255.255.0</span>    <span class="hljs-comment"># 设置子网掩码</span><br>gateway <span class="hljs-number">192.168.1.1</span>      <span class="hljs-comment"># 设置网关地址</span><br>dns-nameservers <span class="hljs-number">8.8.8.8</span>  <span class="hljs-comment"># 设置DNS服务器地址</span><br></code></pre></td></tr></tbody></table></figure>
+                <h2 id="欢迎使用Nuxoria"><a href="#欢迎使用Nuxoria" class="headerlink" title="欢迎使用Nuxoria"></a>欢迎使用Nuxoria</h2><p>本文介绍 密码管理器-Nuxoria 如何配置 数据备份和恢复的仓库。</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>1.自动备份默认关闭，需要你正确配置备份仓库后才能开启自动备份。</p>
+<p>2.开启自动备份后，新建记录、删除记录都会<strong>实时</strong>更新云端数据，因此会卡那么一下下，如果觉得很难受，可以关闭自动更新，而改为手动更新。</p>
+<p>3.程序只处理了部分异常情况，其他异常都是直接抛出，比如你的设备没有网络，可能会抛出非常奇怪的、看不懂的异常，这个时候就需要自己解决问题了，如果你找不到原因，麻烦联系我。</p>
+<h3 id="非常重要的事情"><a href="#非常重要的事情" class="headerlink" title="非常重要的事情"></a>非常重要的事情</h3><p>可以参考一下程序的密码存储设计</p>
+<p><img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316223708207.png" srcset="/img/loading.gif" lazyload alt="image-20240316223708207"></p>
+<p>图中的salt值是在初次使用程序时随机生成的，不同的使用者、使用环境都会产生新的salt值，数据的加密存储使用到了这个随机值，因此拥有<strong>主密码</strong>并不足以解密数据，还需要<strong>salt值</strong>，因此，只需要保存好salt值、主密码(安全问题)、数据文件就可以恢复数据，三者丢失其一数据不可恢复，注意注意。</p>
+<h3 id="配置仓库"><a href="#配置仓库" class="headerlink" title="配置仓库"></a>配置仓库</h3><h4 id="1-注册-x2F-登录-gitee-码云"><a href="#1-注册-x2F-登录-gitee-码云" class="headerlink" title="1.注册/登录 gitee(码云)"></a>1.注册/登录 gitee(码云)</h4><p>首先我们需要一个码云账户，如果没有码云账户，那么需要注册一个，地址：<a target="_blank" rel="noopener" href="https://gitee.com/signup">点这里</a></p>
+<img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316230045679.png" srcset="/img/loading.gif" lazyload alt="image-20240316230045679" style="zoom:67%;">
 
-<p>在上述配置中，address为需要设置的静态IP地址，netmask为子网掩码，gateway为网关地址，dns-nameservers为DNS服务器地址。这些信息需要根据实际情况进行修改。</p>
-<ol start="3">
-<li>保存文件并关闭文本编辑器。然后，使用以下命令重启网络服务，使配置生效：</li>
-</ol>
-<figure class="highlight ebnf"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo systemctl restart networking</span><br></code></pre></td></tr></tbody></table></figure>
+<p>注册后登录，不需要实名。</p>
+<h4 id="2-新建仓库"><a href="#2-新建仓库" class="headerlink" title="2.新建仓库"></a>2.新建仓库</h4><p>在右上角找到(+)，然后选择<strong>新建仓库</strong>。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316230943946.png" srcset="/img/loading.gif" lazyload alt="image-20240316230943946"></p>
+<h3 id="3-填写相关数据"><a href="#3-填写相关数据" class="headerlink" title="3.填写相关数据"></a>3.填写相关数据</h3><ul>
+<li>设置仓库名，输入一个任意的你想要新建的仓库名称。</li>
+<li>选择开源/私有。</li>
+<li>设置模板，选择Readme文件。</li>
+<li>设置分支，可以选择单分支模型。</li>
+</ul>
+<img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316231554708.png" srcset="/img/loading.gif" lazyload alt="image-20240316231554708" style="zoom:80%;">
 
-<p>执行完上述命令后，静态IP地址就会生效。可以使用ifconfig命令或ip addr命令检查网络接口的IP地址是否已经改变。</p>
-<p>需要注意的是，在设置静态IP地址时，需要确保该IP地址没有被其他设备使用，并且与所在网络的IP地址段、子网掩码、网关地址等参数相匹配，否则网络连接可能会出现问题。</p>
-<h3 id="域控的搭建"><a href="#域控的搭建" class="headerlink" title="域控的搭建"></a>域控的搭建</h3><p>搭建域控根据网上靠谱的教程都是没有问题的，但这里要列一下注意点：</p>
-<ul>
-<li>部署DC时，如果教程没有让你同时勾选DNS服务器，如果没有别的要求，即DNS可以和域控在同一计算机，勾选DNS服务器！</li>
-<li>.net formwork3.5和.net formwork4.6最好一起勾选</li>
-<li>域控设置域名时，不要离谱，尽量符合域名的命名格式，同时也要避免选择的域名为已经在互联网已经被频繁使用。</li>
-</ul>
-<h3 id="计算机入域"><a href="#计算机入域" class="headerlink" title="计算机入域"></a>计算机入域</h3><p>假设我们已经在windows server 2016部署了域控和DNS服务器，域名为fraxdeo.web,另一台计算机win 7要入域，那么这些工作是必须的：</p>
-<p>win 7的DNS服务器地址为：DNS服务器所在计算机的IP地址，一般为域控的IP地址。</p>
-<p>已经为入域的计算机选择了合适的域内用户，并设置了账户名和密码。</p>
-<p>win 7可以ping通域名。</p>
-<h2 id="踩过的坑"><a href="#踩过的坑" class="headerlink" title="踩过的坑"></a>踩过的坑</h2><p>1.计算机不能加入域</p>
-<p>在域内，win 7可以ping通域控域名，也可以ping通域控域名，回复的IP是域控在内网的静态IP，但是加域时依旧报错，信息如下：</p>
-<blockquote>
-<p>已成功查询 DNS，获取服务位置(SRV)资源记录(此资源记录用于查找域“feaxdeo.web”的域控制器):</p>
-<p>此查询用于查找 _ldap._tcp.dc._msdcs.feaxdeo.web 的 SRV 记录</p>
-<p>下列域控制器由查询识别:<br>        DC.feaxdeo.web</p>
-<p>但是无法连接到域控制器。</p>
-<p>此错误的常见原因包括:</p>
-<ul>
-<li>将域控制器的名称映射到其 IP 地址的主机(A)或主机(AAAA)记录丢失或包含错误地址。</li>
-<li>在 DNS 中注册的域控制器没有连接到网络上，或没有运行。<br>报错如上，请分析</li>
-</ul>
-</blockquote>
-<p>原因：因为一些原因，给域控添加了两张网卡，一张仅主机模式在内网，一张NAT模式连接外网，导致加域失败。</p>
-<p>解决办法：删除多余的网卡</p>
-<p>2.加域后计算机登陆问题</p>
-<p>比如我们加域前一直用用户fraxdeo登陆win 7，加域时使用的用户是abc，win 7加域后登陆时的用户一般就是fraxdeo/abc,前面的fraxdeo是域名，如果要登陆到自己的计算机，登陆名应该是<strong>计算机名/用户名。</strong></p>
-<p>3.ping不通域名</p>
-<p>要加域的计算机可以ping通域控的IP，但是ping不同域名，也就是DNS问题，除了常见问题，如DNS地址设置不正确，还可以手动配置域控制器的主机记录(A/AAAA)。</p>
-<blockquote>
-<p>要配置域控制器的主机记录(A/AAAA)，以确保正确的 DNS 解析，可以按照以下步骤进行操作：</p>
-<ol>
-<li>登录到域控制器服务器上，打开“DNS 管理器”，并展开相应的 DNS 区域。</li>
-<li>在左侧窗格中找到要添加或修改主机记录的主机名，右键单击它，并选择“新建记录”选项。</li>
-<li>在“新建记录”对话框中，选择记录类型为“主机(A)”或“主机(AAAA)”，并填写以下信息：<ul>
-<li>名称：填写要添加或修改主机记录的主机名。</li>
-<li>IP 地址：填写要映射到该主机名的 IP 地址。</li>
-<li>时间到期：根据需要设置记录的到期时间。</li>
-</ul>
-</li>
-<li>单击“确定”按钮，以创建或修改主机记录。现在，在 DNS 区域中，您应该能够看到新添加或修改的主机记录。</li>
-</ol>
-<p>请注意，在添加或修改主机记录时，请确保填写正确的主机名和 IP 地址。如果主机名或 IP 地址填写错误，可能会导致DNS 解析失败。此外，如果您在添加或修改主机记录时遇到任何问题，请参考相关的技术文档和教程，或者咨询专业的 IT 技术人员，以获取更多帮助和支持。</p>
-</blockquote>
+<h4 id="4-获取私密令牌"><a href="#4-获取私密令牌" class="headerlink" title="4.获取私密令牌"></a>4.获取私密令牌</h4><p>在 <strong>设置-安全设置-私人令牌</strong> 里创建私人令牌。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316232236509.png" srcset="/img/loading.gif" lazyload alt="image-20240316232236509"></p>
+<p>设置令牌的描述文字，选择令牌的权限-projects，私人令牌只显示一次，记得保存好。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316232528948.png" srcset="/img/loading.gif" lazyload alt="image-20240316232528948"></p>
+<h4 id="5-保存配置"><a href="#5-保存配置" class="headerlink" title="5.保存配置"></a>5.保存配置</h4><p>打开Noxoria，进入界面后，在 <strong>设置-备份设置</strong> 中设置备份仓库。</p>
+<p>需要三个参数：</p>
+<p>用户名：gitee的个人空间地址名，一般为设置的用户名。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316234302872.png" srcset="/img/loading.gif" lazyload alt="image-20240316234302872"></p>
+<p>仓库名：刚才新建仓库时设置的仓库名。</p>
+<p>私人令牌：填写我们刚才获取的私人令牌。</p>
+<h4 id="6-等待结果"><a href="#6-等待结果" class="headerlink" title="6.等待结果"></a>6.等待结果</h4><p>保存配置后，如果配置正确，会提示<strong>参数正确，配置已保持</strong>，那么配置备份仓库就完成了，数据备份和恢复功能就可以使用了。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316234701059.png" srcset="/img/loading.gif" lazyload alt="image-20240316234701059"></p>
+<p>如果不正确，会有一定的提示，根据提示判断下错误的位置：</p>
+<p>下面的例子是用户名少了字符，但是也有特殊情况无法判断，比如你的用户名为：aabbcc,码云存在一个aabbc的用户，你们都有一个名为data的仓库，如果输错用户名，则会提示令牌不正确或无权限。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316235054970.png" srcset="/img/loading.gif" lazyload alt="image-20240316235054970"></p>
+<p>如图所示，我在演示时，nuxoria误打成noxoria 了🤣~~</p>
 
                 
               </div>
@@ -385,7 +357,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" class="category-chain-item">内网渗透</a>
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%92%8C%E7%BD%91%E7%BB%9C%E6%8A%80%E8%83%BD/" class="category-chain-item">计算机和网络技能</a>
   
   
 
@@ -397,6 +369,13 @@
     </div>
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/nuxoria/">#nuxoria</a>
+      
+    </div>
+  
 </div>
 
 
@@ -405,26 +384,26 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Windows 域环境的搭建</div>
-      <div>https://blog.dbii.top/posts/bbf780e8/</div>
+      <div>nuxoria的自定义仓库如何配置？</div>
+      <div>https://blog.dbii.top/posts/c77f9970</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>MiFuzz</div>
+          <div>mifuzz</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年6月5日</div>
+          <div>2024年3月16日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年3月16日</div>
+          <div>2024年3月17日</div>
         </div>
       
       
@@ -467,9 +446,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/1840438d/" title="记录使用pip命令的一次踩坑">
+                      <a href="/posts/9550038b" title="微信小程序抓包教程">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">记录使用pip命令的一次踩坑</span>
+                        <span class="hidden-mobile">微信小程序抓包教程</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -477,8 +456,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/b244341/" title="Kerberoast攻击分析">
-                        <span class="hidden-mobile">Kerberoast攻击分析</span>
+                      <a href="/posts/44659fec" title="PHP特性">
+                        <span class="hidden-mobile">PHP特性</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -581,7 +560,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a>© 2023  </a> <i class="iconfont icon-love"></i> <a href="https://blog.dbii.top/about" target="_blank" rel="nofollow noopener"><span>MiFuzz</span></a> </br> <a>最难开口的事情就是 初次的问好 和最终的道别</a> 
+       <a>© 2023  </a> <i class="iconfont icon-love"></i> <a href="https://blog.dbii.top/about" target="_blank" rel="nofollow noopener"><span>mifuzz</span></a> </br> <a>最难开口的事情就是 初次的问好 和最终的道别</a> 
     </div>
   
   

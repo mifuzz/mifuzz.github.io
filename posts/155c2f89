@@ -13,35 +13,24 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="MiFuzz">
+  <meta name="author" content="mifuzz">
   <meta name="keywords" content="">
   
-    <meta name="description" content="欢迎使用Nuxoria本文介绍 密码管理器-Nuxoria 如何配置 数据备份和恢复的仓库。 注意事项1.自动备份默认关闭，需要你正确配置备份仓库后才能开启自动备份。 2.开启自动备份后，新建记录、删除记录都会实时更新云端数据，因此会卡那么一下下，如果觉得很难受，可以关闭自动更新，而改为手动更新。 3.程序只处理了部分异常情况，其他异常都是直接抛出，比如你的设备没有网络，可能会抛出非常奇怪的、看不">
+    <meta name="description" content="作者在已经使用默认私钥连接某个github账户后，现在需要在另一个github账户上搭建Hexo博客，那么就需要配置两个私钥，下面就是配置过程的一些细节。 配置SSH密钥：只有配置好 SSH 密钥后，我们才可以通过 git 操作实现本地代码库与 Github 代码库同步，在你第一次新建的文件夹里面（如：我的文件夹为：F:\Hnkey\Blog），右键Git Bash Here 输入以下命令： 12">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nuxoria的自定义仓库如何配置？">
-<meta property="og:url" content="https://blog.dbii.top/posts/c77f9970/index.html">
-<meta property="og:site_name" content="MiFuzz&#39;s blog">
-<meta property="og:description" content="欢迎使用Nuxoria本文介绍 密码管理器-Nuxoria 如何配置 数据备份和恢复的仓库。 注意事项1.自动备份默认关闭，需要你正确配置备份仓库后才能开启自动备份。 2.开启自动备份后，新建记录、删除记录都会实时更新云端数据，因此会卡那么一下下，如果觉得很难受，可以关闭自动更新，而改为手动更新。 3.程序只处理了部分异常情况，其他异常都是直接抛出，比如你的设备没有网络，可能会抛出非常奇怪的、看不">
+<meta property="og:title" content="一台电脑SSH连接多个github账户的配置细节">
+<meta property="og:url" content="https://blog.dbii.top/posts/155c2f89">
+<meta property="og:site_name" content="mifuzz&#39;s blog">
+<meta property="og:description" content="作者在已经使用默认私钥连接某个github账户后，现在需要在另一个github账户上搭建Hexo博客，那么就需要配置两个私钥，下面就是配置过程的一些细节。 配置SSH密钥：只有配置好 SSH 密钥后，我们才可以通过 git 操作实现本地代码库与 Github 代码库同步，在你第一次新建的文件夹里面（如：我的文件夹为：F:\Hnkey\Blog），右键Git Bash Here 输入以下命令： 12">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316223708207.png">
-<meta property="og:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316230045679.png">
-<meta property="og:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316230943946.png">
-<meta property="og:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316231554708.png">
-<meta property="og:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316232236509.png">
-<meta property="og:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316232528948.png">
-<meta property="og:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316234302872.png">
-<meta property="og:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316234701059.png">
-<meta property="og:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316235054970.png">
-<meta property="article:published_time" content="2024-03-16T14:16:36.000Z">
-<meta property="article:modified_time" content="2024-03-17T03:52:32.368Z">
-<meta property="article:author" content="MiFuzz">
-<meta property="article:tag" content="nuxoria">
+<meta property="article:published_time" content="2023-05-26T15:26:04.667Z">
+<meta property="article:modified_time" content="2023-05-28T08:47:28.217Z">
+<meta property="article:author" content="mifuzz">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316223708207.png">
   
   
   
-  <title>nuxoria的自定义仓库如何配置？ - MiFuzz&#39;s blog</title>
+  <title>一台电脑SSH连接多个github账户的配置细节 - mifuzz&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -83,7 +72,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"blog.dbii.top","root":"/","version":"1.9.4","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"Markdown"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"blog.dbii.top","root":"/","version":"1.9.4","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":false,"default":"Markdown"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -225,7 +214,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">nuxoria的自定义仓库如何配置？</span>
+            <span id="subtitle">一台电脑SSH连接多个github账户的配置细节</span>
           
         </div>
 
@@ -236,8 +225,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-16 22:16" pubdate>
-          2024年3月16日 晚上
+        <time datetime="2023-05-26 23:26" pubdate>
+          2023年5月26日 晚上
         </time>
       </span>
     
@@ -248,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          959 字
+          1.8k 字
         
       </span>
     
@@ -259,7 +248,7 @@
         
         
         
-          8 分钟
+          16 分钟
         
       </span>
     
@@ -297,48 +286,52 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">nuxoria的自定义仓库如何配置？</h1>
+            <h1 style="display: none">一台电脑SSH连接多个github账户的配置细节</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="欢迎使用Nuxoria"><a href="#欢迎使用Nuxoria" class="headerlink" title="欢迎使用Nuxoria"></a>欢迎使用Nuxoria</h2><p>本文介绍 密码管理器-Nuxoria 如何配置 数据备份和恢复的仓库。</p>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>1.自动备份默认关闭，需要你正确配置备份仓库后才能开启自动备份。</p>
-<p>2.开启自动备份后，新建记录、删除记录都会<strong>实时</strong>更新云端数据，因此会卡那么一下下，如果觉得很难受，可以关闭自动更新，而改为手动更新。</p>
-<p>3.程序只处理了部分异常情况，其他异常都是直接抛出，比如你的设备没有网络，可能会抛出非常奇怪的、看不懂的异常，这个时候就需要自己解决问题了，如果你找不到原因，麻烦联系我。</p>
-<h3 id="非常重要的事情"><a href="#非常重要的事情" class="headerlink" title="非常重要的事情"></a>非常重要的事情</h3><p>可以参考一下程序的密码存储设计</p>
-<p><img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316223708207.png" srcset="/img/loading.gif" lazyload alt="image-20240316223708207"></p>
-<p>图中的salt值是在初次使用程序时随机生成的，不同的使用者、使用环境都会产生新的salt值，数据的加密存储使用到了这个随机值，因此拥有<strong>主密码</strong>并不足以解密数据，还需要<strong>salt值</strong>，因此，只需要保存好salt值、主密码(安全问题)、数据文件就可以恢复数据，三者丢失其一数据不可恢复，注意注意。</p>
-<h3 id="配置仓库"><a href="#配置仓库" class="headerlink" title="配置仓库"></a>配置仓库</h3><h4 id="1-注册-x2F-登录-gitee-码云"><a href="#1-注册-x2F-登录-gitee-码云" class="headerlink" title="1.注册/登录 gitee(码云)"></a>1.注册/登录 gitee(码云)</h4><p>首先我们需要一个码云账户，如果没有码云账户，那么需要注册一个，地址：<a target="_blank" rel="noopener" href="https://gitee.com/signup">点这里</a></p>
-<img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316230045679.png" srcset="/img/loading.gif" lazyload alt="image-20240316230045679" style="zoom:67%;">
+                <p>作者在已经使用默认私钥连接某个github账户后，现在需要在另一个github账户上搭建Hexo博客，那么就需要配置两个私钥，下面就是配置过程的一些细节。</p>
+<h3 id="配置SSH密钥："><a href="#配置SSH密钥：" class="headerlink" title="配置SSH密钥："></a>配置SSH密钥：</h3><p>只有配置好 SSH 密钥后，我们才可以通过 git 操作实现本地代码库与 Github 代码库同步，在你第一次新建的文件夹里面（如：我的文件夹为：F:\Hnkey\Blog），右键Git Bash Here 输入以下命令：</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">$ ssh-keygen -t rsa -C <span class="hljs-string">"your email@example.com"</span> <br><span class="hljs-regexp">//</span>引号里面填写你的邮箱地址，比如abcdefg@qq.com<br></code></pre></td></tr></tbody></table></figure>
 
-<p>注册后登录，不需要实名。</p>
-<h4 id="2-新建仓库"><a href="#2-新建仓库" class="headerlink" title="2.新建仓库"></a>2.新建仓库</h4><p>在右上角找到(+)，然后选择<strong>新建仓库</strong>。</p>
-<p><img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316230943946.png" srcset="/img/loading.gif" lazyload alt="image-20240316230943946"></p>
-<h3 id="3-填写相关数据"><a href="#3-填写相关数据" class="headerlink" title="3.填写相关数据"></a>3.填写相关数据</h3><ul>
-<li>设置仓库名，输入一个任意的你想要新建的仓库名称。</li>
-<li>选择开源/私有。</li>
-<li>设置模板，选择Readme文件。</li>
-<li>设置分支，可以选择单分支模型。</li>
-</ul>
-<img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316231554708.png" srcset="/img/loading.gif" lazyload alt="image-20240316231554708" style="zoom:80%;">
+<p>然后会出现以下信息：</p>
+<figure class="highlight gradle"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs gradle">Generating <span class="hljs-keyword">public</span>/<span class="hljs-keyword">private</span> rsa key pair.  <br>Enter <span class="hljs-keyword">file</span> in which to save the key (<span class="hljs-regexp">/c/U</span>sers<span class="hljs-regexp">/you/</span>.ssh/id_rsa):  <br></code></pre></td></tr></tbody></table></figure>
 
-<h4 id="4-获取私密令牌"><a href="#4-获取私密令牌" class="headerlink" title="4.获取私密令牌"></a>4.获取私密令牌</h4><p>在 <strong>设置-安全设置-私人令牌</strong> 里创建私人令牌。</p>
-<p><img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316232236509.png" srcset="/img/loading.gif" lazyload alt="image-20240316232236509"></p>
-<p>设置令牌的描述文字，选择令牌的权限-projects，私人令牌只显示一次，记得保存好。</p>
-<p><img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316232528948.png" srcset="/img/loading.gif" lazyload alt="image-20240316232528948"></p>
-<h4 id="5-保存配置"><a href="#5-保存配置" class="headerlink" title="5.保存配置"></a>5.保存配置</h4><p>打开Noxoria，进入界面后，在 <strong>设置-备份设置</strong> 中设置备份仓库。</p>
-<p>需要三个参数：</p>
-<p>用户名：gitee的个人空间地址名，一般为设置的用户名。</p>
-<p><img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316234302872.png" srcset="/img/loading.gif" lazyload alt="image-20240316234302872"></p>
-<p>仓库名：刚才新建仓库时设置的仓库名。</p>
-<p>私人令牌：填写我们刚才获取的私人令牌。</p>
-<h4 id="6-等待结果"><a href="#6-等待结果" class="headerlink" title="6.等待结果"></a>6.等待结果</h4><p>保存配置后，如果配置正确，会提示<strong>参数正确，配置已保持</strong>，那么配置备份仓库就完成了，数据备份和恢复功能就可以使用了。</p>
-<p><img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316234701059.png" srcset="/img/loading.gif" lazyload alt="image-20240316234701059"></p>
-<p>如果不正确，会有一定的提示，根据提示判断下错误的位置：</p>
-<p>下面的例子是用户名少了字符，但是也有特殊情况无法判断，比如你的用户名为：aabbcc,码云存在一个aabbc的用户，你们都有一个名为data的仓库，如果输错用户名，则会提示令牌不正确或无权限。</p>
-<p><img src="https://fastly.jsdelivr.net/gh/Honexz/typora_image/image-20240316235054970.png" srcset="/img/loading.gif" lazyload alt="image-20240316235054970"></p>
-<p>如图所示，我在演示时，nuxoria误打成noxoria 了🤣~~</p>
+<p>不要以默认方式存储密钥，这样会覆盖我们以前的密钥：</p>
+<p>选择一个合适的密钥名字，如：id_rsa_hnkey,然后就可以一直回车了，现在我们到C盘的.SSH文件里查看，就会有我们原来默认的私钥和新创建的私钥文件,文件列表如下：</p>
+<figure class="highlight autohotkey"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">id_rsa<br>id_rsa.pub<br>id_rs<span class="hljs-built_in">a_hnkey</span><br>id_rs<span class="hljs-built_in">a_hnkey</span>.pub<br></code></pre></td></tr></tbody></table></figure>
+
+<p>我们现在需要在该目录(我的.ssh目录：C:\Users\book.ssh)下新创建一个配置文件，文件名为config,没有后缀名，config文件编辑以下内容：</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment"># 加上以下内容</span><br><span class="hljs-comment">#default github</span><br>Host github.com<br>HostName github.com<br>PreferredAuthentications publickey<br>IdentityFile ~<span class="hljs-regexp">/.ssh/i</span>d_rsa<br> <br>Host hnkey.github.com		<span class="hljs-comment">#取一个区别与默认Host(github.com)的别名，任意取，建议别名方便记忆</span><br>HostName github.com		<span class="hljs-comment">#不要改这行</span><br>PreferredAuthentications publickey<br>IdentityFile ~<span class="hljs-regexp">/.ssh/i</span>d_rsa_hnkey		<span class="hljs-comment">#私钥文件名</span><br>user hnkey		<span class="hljs-comment">#指明是谁在使用改私钥</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>由于第一个私钥是默认的，如果你也有一个默认的私钥，那么可以不做修改，主要需要对第二个私钥进行配置，细节在上文已经注释</p>
+<p>修改完成后，测试一下链接是否成功建立</p>
+<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">ssh</span> -T git<span class="hljs-variable">@hnkey</span>.github.com<br></code></pre></td></tr></tbody></table></figure>
+
+<p>区别于默认的测试命令</p>
+<p>如果出现错误： Permission denied (publickey).</p>
+<p>那么执行一下以下命令：</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">ssh-agent -s<br>ssh-add ~<span class="hljs-regexp">/.ssh/i</span>d_rsa_hnkey		<span class="hljs-comment">#私钥文件名需要修改</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>再执行测试命令，一般都不会出错，会出现以下提示：</p>
+<figure class="highlight 1c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">Hi,xxxxx, You<span class="hljs-string">"ve successfully......</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>说明同一设备连接多github账户已经成功</p>
+<h3 id="配置GIT个人信息"><a href="#配置GIT个人信息" class="headerlink" title="配置GIT个人信息"></a>配置GIT个人信息</h3><p>如果你在曾经连接GitHub仓库已经配置了全局的个人信息，不用清除，因为我得到的答案是局部配置会优于全局配置生效，那么，我们只需要在该仓库下配置局部的个人信息，就可以了。</p>
+<p>为确保这是一个合格的git仓库，请在该仓库的起始目录初始化：</p>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp">git <span class="hljs-keyword">init</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>然后执行以下命令，配置局部的git个人信息：</p>
+<figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">git config <span class="hljs-keyword">user</span>.name "your.name"	#需要配置的用户名和邮箱，这里的your.name,就输入前面config文件中的<span class="hljs-keyword">user</span>用户<br>git config <span class="hljs-keyword">user</span>.email "your.email"<br></code></pre></td></tr></tbody></table></figure>
+
+<p>以后，我们在该仓库下执行克隆等命令，都需要使用别名</p>
+<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">git clone git@hnkey<span class="hljs-selector-class">.github</span><span class="hljs-selector-class">.com</span>:Hooahhh/hexo-theme-fluid<span class="hljs-selector-class">.git</span><br>官网给你的SSH连接地址是：github<span class="hljs-selector-class">.com</span>:Hooahhh/hexo-theme-fluid.git，需要手动修改<br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="配置配置文件"><a href="#配置配置文件" class="headerlink" title="配置配置文件"></a>配置配置文件</h3><p>这一步是配置Hexo的配置文件的内容，与上文已无关系，在此做个记录。</p>
+<p>Hexo文件下的_config.yml文件就是Hexo主要的配置文件，要想将内容配置到对应的仓库，配置文件修改如下：</p>
+<figure class="highlight dts"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">deploy:</span><br><span class="hljs-symbol">  type:</span> git<br><span class="hljs-symbol">  repository:</span> git@hnkey.github.com:Hnkey/hnkey.github.io.git<br><span class="hljs-symbol">  branch:</span> master<br>  <span class="hljs-meta">#需要注意的是，比如type: git之间有个空格</span><br></code></pre></td></tr></tbody></table></figure>
+
 
                 
               </div>
@@ -369,13 +362,6 @@
     </div>
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/nuxoria/">#nuxoria</a>
-      
-    </div>
-  
 </div>
 
 
@@ -384,26 +370,26 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>nuxoria的自定义仓库如何配置？</div>
-      <div>https://blog.dbii.top/posts/c77f9970/</div>
+      <div>一台电脑SSH连接多个github账户的配置细节</div>
+      <div>https://blog.dbii.top/posts/155c2f89</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>MiFuzz</div>
+          <div>mifuzz</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年3月16日</div>
+          <div>2023年5月26日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年3月17日</div>
+          <div>2023年5月28日</div>
         </div>
       
       
@@ -446,9 +432,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/9550038b/" title="微信小程序抓包教程">
+                      <a href="/posts/b244341" title="Kerberoast攻击分析">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">微信小程序抓包教程</span>
+                        <span class="hidden-mobile">Kerberoast攻击分析</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -456,8 +442,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/44659fec/" title="PHP特性">
-                        <span class="hidden-mobile">PHP特性</span>
+                      <a href="/posts/4a17b156" title="Hello World">
+                        <span class="hidden-mobile">Hello World</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -560,7 +546,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a>© 2023  </a> <i class="iconfont icon-love"></i> <a href="https://blog.dbii.top/about" target="_blank" rel="nofollow noopener"><span>MiFuzz</span></a> </br> <a>最难开口的事情就是 初次的问好 和最终的道别</a> 
+       <a>© 2023  </a> <i class="iconfont icon-love"></i> <a href="https://blog.dbii.top/about" target="_blank" rel="nofollow noopener"><span>mifuzz</span></a> </br> <a>最难开口的事情就是 初次的问好 和最终的道别</a> 
     </div>
   
   
