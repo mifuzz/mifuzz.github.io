@@ -16,21 +16,21 @@
   <meta name="author" content="mifuzz">
   <meta name="keywords" content="">
   
-    <meta name="description" content="作者在已经使用默认私钥连接某个github账户后，现在需要在另一个github账户上搭建Hexo博客，那么就需要配置两个私钥，下面就是配置过程的一些细节。 配置SSH密钥：只有配置好 SSH 密钥后，我们才可以通过 git 操作实现本地代码库与 Github 代码库同步，在你第一次新建的文件夹里面（如：我的文件夹为：F:\Hnkey\Blog），右键Git Bash Here 输入以下命令： 12">
+    <meta name="description" content="Blasting有时会遇到前端加密的情况，虽然可以抓取到注册、登录的数据包，但是却因为前端的JS加密逻辑复杂，难以分析，无法爆破，Blasting就是为前端密码爆破而设计的，并且界面继承burpsuite的爆破模块，不难使用。 下载下载地址：github_Blasting 坑点安装前可以先检查blasting依赖安装情况,有可能你已经安装了某个版本不适配的依赖 Linux： 123456789DE">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一台电脑SSH连接多个github账户的配置细节">
-<meta property="og:url" content="https://blog.dbii.top/posts/155c2f89/index.html">
+<meta property="og:title" content="前端爆破工具Blasting安装教程">
+<meta property="og:url" content="https://blog.dbii.top/posts/7dab541f/index.html">
 <meta property="og:site_name" content="mifuzz&#39;s blog">
-<meta property="og:description" content="作者在已经使用默认私钥连接某个github账户后，现在需要在另一个github账户上搭建Hexo博客，那么就需要配置两个私钥，下面就是配置过程的一些细节。 配置SSH密钥：只有配置好 SSH 密钥后，我们才可以通过 git 操作实现本地代码库与 Github 代码库同步，在你第一次新建的文件夹里面（如：我的文件夹为：F:\Hnkey\Blog），右键Git Bash Here 输入以下命令： 12">
+<meta property="og:description" content="Blasting有时会遇到前端加密的情况，虽然可以抓取到注册、登录的数据包，但是却因为前端的JS加密逻辑复杂，难以分析，无法爆破，Blasting就是为前端密码爆破而设计的，并且界面继承burpsuite的爆破模块，不难使用。 下载下载地址：github_Blasting 坑点安装前可以先检查blasting依赖安装情况,有可能你已经安装了某个版本不适配的依赖 Linux： 123456789DE">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-05-26T15:26:04.667Z">
-<meta property="article:modified_time" content="2023-05-28T08:47:28.217Z">
+<meta property="article:published_time" content="2024-03-22T03:05:02.000Z">
+<meta property="article:modified_time" content="2024-03-22T03:06:08.452Z">
 <meta property="article:author" content="mifuzz">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>一台电脑SSH连接多个github账户的配置细节 - mifuzz&#39;s blog</title>
+  <title>前端爆破工具Blasting安装教程 - mifuzz&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -214,7 +214,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">一台电脑SSH连接多个github账户的配置细节</span>
+            <span id="subtitle">前端爆破工具Blasting安装教程</span>
           
         </div>
 
@@ -225,8 +225,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-26 23:26" pubdate>
-          2023年5月26日 晚上
+        <time datetime="2024-03-22 11:05" pubdate>
+          2024年3月22日 上午
         </time>
       </span>
     
@@ -237,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.8k 字
+          1.2k 字
         
       </span>
     
@@ -248,7 +248,7 @@
         
         
         
-          16 分钟
+          11 分钟
         
       </span>
     
@@ -286,52 +286,28 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">一台电脑SSH连接多个github账户的配置细节</h1>
+            <h1 style="display: none">前端爆破工具Blasting安装教程</h1>
             
             
               <div class="markdown-body">
                 
-                <p>作者在已经使用默认私钥连接某个github账户后，现在需要在另一个github账户上搭建Hexo博客，那么就需要配置两个私钥，下面就是配置过程的一些细节。</p>
-<h3 id="配置SSH密钥："><a href="#配置SSH密钥：" class="headerlink" title="配置SSH密钥："></a>配置SSH密钥：</h3><p>只有配置好 SSH 密钥后，我们才可以通过 git 操作实现本地代码库与 Github 代码库同步，在你第一次新建的文件夹里面（如：我的文件夹为：F:\Hnkey\Blog），右键Git Bash Here 输入以下命令：</p>
-<figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>ssh-keygen -t rsa -C <span class="hljs-string">"your email@example.com"</span> <br>//引号里面填写你的邮箱地址，比如abcdefg<span class="hljs-variable">@qq</span>.com<br></code></pre></td></tr></tbody></table></figure>
+                <h2 id="Blasting"><a href="#Blasting" class="headerlink" title="Blasting"></a>Blasting</h2><p>有时会遇到前端加密的情况，虽然可以抓取到注册、登录的数据包，但是却因为前端的JS加密逻辑复杂，难以分析，无法爆破，Blasting就是为前端密码爆破而设计的，并且界面继承burpsuite的爆破模块，不难使用。</p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>下载地址：<a class="btn" href="https://github.com/gubeihc/blasting" title="title" target="_blank">github_Blasting</a></p>
+<h3 id="坑点"><a href="#坑点" class="headerlink" title="坑点"></a>坑点</h3><p>安装前可以先检查blasting依赖安装情况,有可能你已经安装了某个版本不适配的依赖</p>
+<p>Linux：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">DEPENDENCIES=$(<span class="hljs-built_in">cat</span> requirements.txt)<br><span class="hljs-keyword">for</span> dependency <span class="hljs-keyword">in</span> <span class="hljs-variable">$DEPENDENCIES</span>; <span class="hljs-keyword">do</span><br>    <span class="hljs-keyword">if</span> ! <span class="hljs-built_in">command</span> -v <span class="hljs-variable">$dependency</span> &amp;&gt; /dev/null; <span class="hljs-keyword">then</span><br>        <span class="hljs-built_in">echo</span> <span class="hljs-string">"<span class="hljs-variable">$dependency</span> 未安装"</span><br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-built_in">echo</span> <span class="hljs-string">"<span class="hljs-variable">$dependency</span> 已安装"</span><br>    <span class="hljs-keyword">fi</span><br><span class="hljs-keyword">done</span><br><br></code></pre></td></tr></tbody></table></figure>
 
-<p>然后会出现以下信息：</p>
-<figure class="highlight gradle"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs gradle">Generating <span class="hljs-keyword">public</span>/<span class="hljs-keyword">private</span> rsa key pair.  <br>Enter <span class="hljs-keyword">file</span> in which to save the key (<span class="hljs-regexp">/c/U</span>sers<span class="hljs-regexp">/you/</span>.ssh/id_rsa):  <br></code></pre></td></tr></tbody></table></figure>
+<p>别忘了更改文件的权限：</p>
+<figure class="highlight stata"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata">chmod a+x <span class="hljs-keyword">test</span>.<span class="hljs-keyword">sh</span><br></code></pre></td></tr></tbody></table></figure>
 
-<p>不要以默认方式存储密钥，这样会覆盖我们以前的密钥：</p>
-<p>选择一个合适的密钥名字，如：id_rsa_hnkey,然后就可以一直回车了，现在我们到C盘的.SSH文件里查看，就会有我们原来默认的私钥和新创建的私钥文件,文件列表如下：</p>
-<figure class="highlight autohotkey"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">id_rsa<br>id_rsa.pub<br>id_rs<span class="hljs-built_in">a_hnkey</span><br>id_rs<span class="hljs-built_in">a_hnkey</span>.pub<br></code></pre></td></tr></tbody></table></figure>
+<p>python:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pkg_resources<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">check_installed_dependencies</span>(<span class="hljs-params">requirements_path</span>):<br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(requirements_path, <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> file:<br>        requirements = file.readlines()<br>    requirements = [line.strip() <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> requirements]<br>    installed_packages = {pkg.key: pkg.version <span class="hljs-keyword">for</span> pkg <span class="hljs-keyword">in</span> pkg_resources.working_set}<br>    <br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"检查依赖项安装情况...\n"</span>)<br><br>    <span class="hljs-keyword">for</span> requirement <span class="hljs-keyword">in</span> requirements:<br>        package_name = pkg_resources.Requirement.parse(requirement).key<br>        <span class="hljs-keyword">if</span> package_name <span class="hljs-keyword">in</span> installed_packages:<br>            installed_version = installed_packages[package_name]<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">f"已安装: <span class="hljs-subst">{package_name}</span> (版本: <span class="hljs-subst">{installed_version}</span>)"</span>)<br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">f"未安装: <span class="hljs-subst">{requirement}</span>"</span>)<br><br>check_installed_dependencies(<span class="hljs-string">'requirements.txt'</span>)<br></code></pre></td></tr></tbody></table></figure>
 
-<p>我们现在需要在该目录(我的.ssh目录：C:\Users\book.ssh)下新创建一个配置文件，文件名为config,没有后缀名，config文件编辑以下内容：</p>
-<figure class="highlight crmsh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs crmsh"><span class="hljs-comment"># 加上以下内容</span><br><span class="hljs-comment">#default github</span><br>Host github.com<br>HostName github.com<br>PreferredAuthentications publickey<br>IdentityFile ~/.ssh/id_rsa<br> <br>Host hnkey.github.com		<span class="hljs-comment">#取一个区别与默认Host(github.com)的别名，任意取，建议别名方便记忆</span><br>HostName github.com		<span class="hljs-comment">#不要改这行</span><br>PreferredAuthentications publickey<br>IdentityFile ~/.ssh/id_rsa_hnkey		<span class="hljs-comment">#私钥文件名</span><br><span class="hljs-keyword">user</span> <span class="hljs-title">hnkey</span>		<span class="hljs-comment">#指明是谁在使用改私钥</span><br></code></pre></td></tr></tbody></table></figure>
+<p>官方文件里的依赖文件没有ddddocr库，没有安装的需要自己安装一下就好。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>Windows 10 python 3.9.6 下可用</p>
+<figure class="highlight mel"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mel">pip install -r requirements.txt <span class="hljs-comment">//安装依赖 </span><br>pip install ddddocr <span class="hljs-comment">//验证码识别库</span><br><span class="hljs-keyword">python</span> -m playwright install <span class="hljs-comment">//安装浏览器 </span><br><span class="hljs-keyword">python</span> BLAST.py <span class="hljs-comment">//启动工具</span><br></code></pre></td></tr></tbody></table></figure>
 
-<p>由于第一个私钥是默认的，如果你也有一个默认的私钥，那么可以不做修改，主要需要对第二个私钥进行配置，细节在上文已经注释</p>
-<p>修改完成后，测试一下链接是否成功建立</p>
-<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">ssh</span> -T git<span class="hljs-variable">@hnkey</span>.github.com<br></code></pre></td></tr></tbody></table></figure>
-
-<p>区别于默认的测试命令</p>
-<p>如果出现错误： Permission denied (publickey).</p>
-<p>那么执行一下以下命令：</p>
-<figure class="highlight dockerfile"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile">ssh-agent -s<br>ssh-<span class="hljs-keyword">add</span><span class="language-bash"> ~/.ssh/id_rsa_hnkey		<span class="hljs-comment">#私钥文件名需要修改</span></span><br></code></pre></td></tr></tbody></table></figure>
-
-<p>再执行测试命令，一般都不会出错，会出现以下提示：</p>
-<figure class="highlight 1c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">Hi,xxxxx, You<span class="hljs-string">"ve successfully......</span><br></code></pre></td></tr></tbody></table></figure>
-
-<p>说明同一设备连接多github账户已经成功</p>
-<h3 id="配置GIT个人信息"><a href="#配置GIT个人信息" class="headerlink" title="配置GIT个人信息"></a>配置GIT个人信息</h3><p>如果你在曾经连接GitHub仓库已经配置了全局的个人信息，不用清除，因为我得到的答案是局部配置会优于全局配置生效，那么，我们只需要在该仓库下配置局部的个人信息，就可以了。</p>
-<p>为确保这是一个合格的git仓库，请在该仓库的起始目录初始化：</p>
-<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp">git <span class="hljs-keyword">init</span><br></code></pre></td></tr></tbody></table></figure>
-
-<p>然后执行以下命令，配置局部的git个人信息：</p>
-<figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">git config <span class="hljs-keyword">user</span>.name "your.name"	#需要配置的用户名和邮箱，这里的your.name,就输入前面config文件中的<span class="hljs-keyword">user</span>用户<br>git config <span class="hljs-keyword">user</span>.email "your.email"<br></code></pre></td></tr></tbody></table></figure>
-
-<p>以后，我们在该仓库下执行克隆等命令，都需要使用别名</p>
-<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">git clone git@hnkey<span class="hljs-selector-class">.github</span><span class="hljs-selector-class">.com</span>:Hooahhh/hexo-theme-fluid<span class="hljs-selector-class">.git</span><br>官网给你的SSH连接地址是：github<span class="hljs-selector-class">.com</span>:Hooahhh/hexo-theme-fluid.git，需要手动修改<br></code></pre></td></tr></tbody></table></figure>
-
-<h3 id="配置配置文件"><a href="#配置配置文件" class="headerlink" title="配置配置文件"></a>配置配置文件</h3><p>这一步是配置Hexo的配置文件的内容，与上文已无关系，在此做个记录。</p>
-<p>Hexo文件下的_config.yml文件就是Hexo主要的配置文件，要想将内容配置到对应的仓库，配置文件修改如下：</p>
-<figure class="highlight dts"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">deploy:</span><br><span class="hljs-symbol">  type:</span> git<br><span class="hljs-symbol">  repository:</span> git@hnkey.github.com:Hnkey/hnkey.github.io.git<br><span class="hljs-symbol">  branch:</span> master<br>  <span class="hljs-meta">#需要注意的是，比如type: git之间有个空格</span><br></code></pre></td></tr></tbody></table></figure>
-
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>请参考 官方github上的说明。</p>
 
                 
               </div>
@@ -350,7 +326,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%92%8C%E7%BD%91%E7%BB%9C%E6%8A%80%E8%83%BD/" class="category-chain-item">计算机和网络技能</a>
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
   
   
 
@@ -370,8 +346,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>一台电脑SSH连接多个github账户的配置细节</div>
-      <div>https://blog.dbii.top/posts/155c2f89/</div>
+      <div>前端爆破工具Blasting安装教程</div>
+      <div>https://blog.dbii.top/posts/7dab541f/</div>
     </div>
     <div class="license-meta">
       
@@ -383,13 +359,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月26日</div>
+          <div>2024年3月22日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年5月28日</div>
+          <div>2024年3月22日</div>
         </div>
       
       
@@ -432,18 +408,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/b244341/" title="Kerberoast攻击分析">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Kerberoast攻击分析</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/4a17b156/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/posts/9550038b/" title="微信小程序抓包教程">
+                        <span class="hidden-mobile">微信小程序抓包教程</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
