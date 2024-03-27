@@ -16,12 +16,12 @@
   <meta name="author" content="miFuzz">
   <meta name="keywords" content="">
   
-    <meta name="description" content="var ap &#x3D; new APlayer({             element: document.getElementById(&quot;aplayer-YFiknrmg&quot;),             narrow: false,             autoplay: false,             s">
+    <meta name="description" content="var ap &#x3D; new APlayer({             element: document.getElementById(&quot;aplayer-ndXnnIuh&quot;),             narrow: false,             autoplay: false,             s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信小程序抓包教程">
 <meta property="og:url" content="https://blog.dbii.top/posts/9550038b/index.html">
 <meta property="og:site_name" content="miFuzz&#39;s blog">
-<meta property="og:description" content="var ap &#x3D; new APlayer({             element: document.getElementById(&quot;aplayer-YFiknrmg&quot;),             narrow: false,             autoplay: false,             s">
+<meta property="og:description" content="var ap &#x3D; new APlayer({             element: document.getElementById(&quot;aplayer-ndXnnIuh&quot;),             narrow: false,             autoplay: false,             s">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319145813397.png">
 <meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319150642963.png">
@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319155843213.png">
 <meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319160308459.png">
 <meta property="article:published_time" content="2024-03-19T08:12:56.000Z">
-<meta property="article:modified_time" content="2024-03-21T07:06:10.575Z">
+<meta property="article:modified_time" content="2024-03-26T06:15:14.145Z">
 <meta property="article:author" content="miFuzz">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319145813397.png">
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          1.3k 字
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          12 分钟
+          11 分钟
         
       </span>
     
@@ -305,12 +305,12 @@
             
               <div class="markdown-body">
                 
-                <div id="aplayer-YFiknrmg" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;width:100%;">
+                <div id="aplayer-ndXnnIuh" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;width:100%;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-YFiknrmg"),
+            element: document.getElementById("aplayer-ndXnnIuh"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -347,7 +347,7 @@
 <p>C:\Users\hello\AppData\Roaming\Tencent\WeChat\XPlugin\Plugins\RadiumWMPF\9079\extracted\runtime</p>
 <p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319154239824.png" srcset="/img/loading.gif" lazyload alt="image-20240319154239824"></p>
 <p>将这个路径保存，待会儿我们配置Proxifter会使用。</p>
-<h3 id="Proxifter"><a href="#Proxifter" class="headerlink" title="Proxifter"></a>Proxifter</h3><p>资源来自文章1<sup id="fnref:01" class="footnote-ref"><a href="#fn:01" rel="footnote"><span class="hint--top hint--rounded" aria-label="[渗透必备：使用Proxifier玩转代理](https://blog.zgsec.cn/archives/278.html)">[01]</span></a></sup>，是破解汉化版，在官网下载的Proxifter 反而无法使用，设置代理服务器后代理总是不成功，下面提供一个蓝奏的下载链接：</p>
+<h3 id="Proxifter"><a href="#Proxifter" class="headerlink" title="Proxifter"></a>Proxifter</h3><p>资源来自文章1<sup id="fnref:01" class="footnote-ref"><a href="#fn:01" rel="footnote"><span class="hint--top hint--rounded" aria-label="[渗透必备：使用Proxifier玩转代理](https://blog.zgsec.cn/archives/278.html)">[01]</span></a></sup>，是破解汉化版，下面提供一个蓝奏的下载链接：</p>
 <p>下载链接：<a target="_blank" rel="noopener" href="https://wwd.lanzouj.com/ih9861rvt68d">蓝奏云</a></p>
 <p>在安装Proxifter完成后，打开可看到如下界面：然后我们依次配置<strong>代理服务器</strong>和<strong>代理规则</strong>。</p>
 <p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319154723229.png" srcset="/img/loading.gif" lazyload alt="image-20240319154723229"></p>
@@ -363,7 +363,6 @@
 <p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319155843213.png" srcset="/img/loading.gif" lazyload alt="image-20240319155843213"></p>
 <p>然后使用burpsuite开启拦截即可抓包</p>
 <p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240319160308459.png" srcset="/img/loading.gif" lazyload alt="image-20240319160308459"></p>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>如果你同时也在使用 <strong>Clash</strong> 等代理软件，那么你需要像上面一样配置规则,将Clash的流量直接放行出去。</p>
 <h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:01" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://blog.zgsec.cn/archives/278.html">渗透必备：使用Proxifier玩转代理</a>
 <a href="#fnref:01" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:02" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://blog.csdn.net/CKT_GOD/article/details/134076065">微信小程序Burp+Proxifter抓包详细教程</a>
 <a href="#fnref:02" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
@@ -423,7 +422,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年3月21日</div>
+          <div>2024年3月26日</div>
         </div>
       
       

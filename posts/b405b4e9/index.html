@@ -1,0 +1,779 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="miFuzz">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="前言 律师: 我有当事人有充分的不在场证明,这是他的浏览器记录,足以证明他在那天晚上没有杀人。 男子：人是我杀的…  在现实生活中，我们需要自己的“个人空间”，其一个重要的原因就是，个人空间提供了一处保护个人隐私的环境。它允许人们在不受打扰的环境中独自思考、放松和进行个人活动，而不必担心被他人窥探或干扰。 而在网络空间里，我们又如何保护我们的隐私呢？ 最常见的就是对数据进行加密：  数据加密：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络隐式保护的再延申">
+<meta property="og:url" content="https://blog.dbii.top/posts/b405b4e9/index.html">
+<meta property="og:site_name" content="miFuzz&#39;s blog">
+<meta property="og:description" content="前言 律师: 我有当事人有充分的不在场证明,这是他的浏览器记录,足以证明他在那天晚上没有杀人。 男子：人是我杀的…  在现实生活中，我们需要自己的“个人空间”，其一个重要的原因就是，个人空间提供了一处保护个人隐私的环境。它允许人们在不受打扰的环境中独自思考、放松和进行个人活动，而不必担心被他人窥探或干扰。 而在网络空间里，我们又如何保护我们的隐私呢？ 最常见的就是对数据进行加密：  数据加密：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326162753345.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326163805252.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326163715045.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326164345016.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326164711103.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326164831097.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326165312501.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326165403354.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326165800633.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326170304069.png">
+<meta property="og:image" content="c:\Users\book\AppData\Roaming\Typora\typora-user-images\image-20240326170636753.png">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326170741146.png">
+<meta property="og:image" content="c:\Users\book\AppData\Roaming\Typora\typora-user-images\image-20240326171047410.png">
+<meta property="article:published_time" content="2024-03-26T06:21:19.000Z">
+<meta property="article:modified_time" content="2024-03-27T13:41:21.827Z">
+<meta property="article:author" content="miFuzz">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326162753345.png">
+  
+  
+  
+  <title>网络隐式保护的再延申 - miFuzz&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/gdt.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.dbii.top","root":"/","version":"1.9.4","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":false,"default":"Markdown"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>迷糊</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/music/">
+                <i class="iconfont icon-music"></i>
+                <span>音乐</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/read/">
+                <i class="iconfont icon-books"></i>
+                <span>阅读</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/flowerandbook.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">网络隐式保护的再延申</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-03-26 14:21" pubdate>
+          2024年3月26日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          31 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">网络隐式保护的再延申</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>律师: 我有当事人有充分的不在场证明,这是他的浏览器记录,足以证明他在那天晚上没有杀人。</p>
+<p>男子：人是我杀的…</p>
+</blockquote>
+<p>在现实生活中，我们需要自己的“个人空间”，其一个重要的原因就是，个人空间提供了一处保护个人隐私的环境。它允许人们在不受打扰的环境中独自思考、放松和进行个人活动，而不必担心被他人窥探或干扰。</p>
+<p>而在网络空间里，我们又如何保护我们的隐私呢？</p>
+<p>最常见的就是对数据进行加密：</p>
+<blockquote>
+<p><strong>数据加密：</strong></p>
+<p> 在互联网通信和数据传输中使用加密技术，如 SSL/TLS 协议，以保护数据的机密性。加密可以防止未经授权的访问者在数据传输过程中拦截、窃取敏感信息。</p>
+</blockquote>
+<p>最常见的HTTPS，比如在浏览器中尝试访问百度的网址<code>baidu.com</code>，最终访问的网址是<code>https://baidu.com</code>。</p>
+<p>这意味着百度和用户之间的通信使用了安全套接层协议（SSL/TLS）来加密数据传输。这确保了在数据从用户的计算机发送到网站服务器，以及从网站服务器返回到用户的计算机的过程中，数据是经过加密的。</p>
+<p>这样，我们在百度搜索、浏览的内容，在数据在互联网传输时就不会轻易被第三方知道。</p>
+<p>但是这样，“百度”还是知道谁浏览了什么内容，就像是你去图书馆查资料，会有访客记录。如果我们不希望自己查资料的事情被人知道，该怎么办呢？</p>
+<p>现实里，我们可以叫“我的一个朋友”去查，然后他再告诉我，这样图书馆的访客记录就不是自己，只有朋友不开口，不就没人知道自己查资料的事情了吗？</p>
+<p>另外，有份资料只有在B地有，但是我们现在在A地，不方便去B地，但是B地有个朋友，叫他查了资料再转述给我们，不是更方便吗？</p>
+<p>在网络空间，你可以拥有一个或多个这样的朋友，他们充当“显眼包”，在台前做这些事情，我们安居幕后。</p>
+<p>在互联网的这个朋友，我们可以称呼他为<strong>代理服务器</strong>。</p>
+<h3 id="代理服务器"><a href="#代理服务器" class="headerlink" title="代理服务器"></a>代理服务器</h3><p>代理服务器是一种位于客户端和目标服务器之间的中间服务器，它充当客户端与目标服务器之间的中转点。</p>
+<p>当客户端发送请求时，代理服务器接收请求并将其转发给目标服务器，然后将目标服务器的响应返回给客户端。代理服务器可以在客户端和目标服务器之间执行多种功能，例如代理请求、缓存数据、过滤内容等。</p>
+<p>在代理服务器上，我们通过代理工具，使用多种协议来搭建代理服务。</p>
+<p>比如可以选择Vmess、Vless、socks协议用于代理服务器和客户端之间进行通信。选择TLS,XTLS来加密数据。</p>
+<p>有了代理服务器，我们不仅更方便访问某些数据和服务，我们访问互联网的真实IP地址被隐藏了，网络空间的隐私有了一定的保护，那么是否高枕无忧了呢？</p>
+<h3 id="DNS泄露"><a href="#DNS泄露" class="headerlink" title="DNS泄露"></a>DNS泄露</h3><p>DNS（Domain Name System）是互联网中用于将将人类可读的域名转换为计算机可理解的 IP 地址的分布式命名系统。</p>
+<p>使用代理服务器时，DNS服务有可能会泄露我们的真实IP地址。通常我们可以使用下面的网站来判断是否存在DNS泄露：</p>
+<p><a target="_blank" rel="noopener" href="https://ipleak.net/">IPleak</a>：<a target="_blank" rel="noopener" href="https://ipleak.net/">https://ipleak.net/</a></p>
+<p><a target="_blank" rel="noopener" href="https://browserleaks.com/ip">browserleaks</a>：<a target="_blank" rel="noopener" href="https://browserleaks.com/ip">https://browserleaks.com/ip</a></p>
+<p>以上两个网站可以显示上网设备发送DNS请求的IP地址。</p>
+<p>比如我们的代理服务器位于新加坡，但是在IPleak可以看到位于中国的DNS地址，那么就说明DNS服务泄露了上网设备的真实IP地址。</p>
+<h4 id="为什么会发生DNS泄露"><a href="#为什么会发生DNS泄露" class="headerlink" title="为什么会发生DNS泄露"></a>为什么会发生DNS泄露</h4><p>首先我们需要知道，DNS请求也是流量，为什么会产生DNS泄露，就是因为DNS流量没有走代理软件，比如以下方式DNS请求产生的流量：</p>
+<ol>
+<li><p><strong>直接 DNS 查询：</strong> </p>
+<p>当你使用代理服务器时，你的计算机或网络配置可能会直接发送 DNS 查询请求，而不通过代理服务器。这样，你的真实 IP 地址将被暴露给 DNS 服务器，从而泄露你的身份。确保你的计算机和网络设置正确地配置了代理服务器，以便所有的 DNS 查询都通过代理进行。</p>
+</li>
+<li><p><strong>IPv6 泄露：</strong></p>
+<p>如果你的网络支持 IPv6，并且你的代理服务器只能处理 IPv4 流量，那么你的计算机在进行 DNS 查询时可能会绕过代理服务器，直接使用 IPv6 进行查询。这样，你的真实 IP 地址就会通过 IPv6 泄露出去。你可以禁用 IPv6，或者确保代理服务器支持 IPv6 流量，以防止此类泄露。</p>
+</li>
+<li><p><strong>特定应用程序的 DNS 查询：</strong></p>
+<p>有些应用程序可能会绕过代理服务器进行 DNS 查询，而直接使用操作系统配置的 DNS 服务器。这种情况下，这些应用程序可能会泄露你的真实 IP 地址。确保你的操作系统和应用程序正确地配置了代理服务器，以确保所有的 DNS 查询都通过代理进行。</p>
+</li>
+</ol>
+<h3 id="避免DNS泄露"><a href="#避免DNS泄露" class="headerlink" title="避免DNS泄露"></a>避免DNS泄露</h3><p>我们可以使用<span class="label label-primary">Proxifier</span> + <span class="label label-primary">Clash/V2ray</span> 来避免DNS泄露。</p>
+<h4 id="Proxifier"><a href="#Proxifier" class="headerlink" title="Proxifier"></a>Proxifier</h4><p>Proxifier 是一款网络工具，用于在应用程序级别捕获和重定向网络流量。它在操作系统的网络栈之上工作，并允许你将特定应用程序的网络流量路由到指定的代理服务器或其他网络目标。</p>
+<p>Proxifier 捕获的流量是在传输层和应用层之间的流量。具体而言，它可以捕获和操作以下类型的流量：</p>
+<ol>
+<li><strong>TCP 流量：</strong> Proxifier 可以捕获和处理基于 TCP（传输控制协议）的应用程序流量。这包括通过 TCP 连接发送和接收的数据，例如网页浏览、电子邮件、文件传输等。</li>
+<li><strong>UDP 流量：</strong> Proxifier 也可以捕获和处理基于 UDP（用户数据报协议）的应用程序流量。UDP 是一种无连接的传输协议，常用于实时音视频传输、游戏数据等。</li>
+<li><strong>DNS 查询：</strong> Proxifier 可以捕获并重定向应用程序发出的 DNS（域名系统）查询请求。这使得你可以将 DNS 查询路由到特定的 DNS 服务器或代理服务器。</li>
+</ol>
+<p>Proxifier可以捕获我们设备上网产生的上述流量，这个时候我们将这些流量分流，设置不同的出口，这样所有的DNS请求流量的出口就能被我们控制了。</p>
+<h4 id="配置代理服务器"><a href="#配置代理服务器" class="headerlink" title="配置代理服务器"></a>配置代理服务器</h4><p>Clash和V2ray的使用不再赘述，当我i们选择使用Proxifier，这时候代理软件不需要再设置<strong>系统代理</strong>，清除即可。</p>
+<p>在Proxifier的**配置文件(profile)-&gt;代理服务器(Proxy Server)<strong>里，我们选择</strong>添加(add)**代理服务器，可以看到如下页面：</p>
+<p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326162753345.png" srcset="/img/loading.gif" lazyload alt="image-20240326162753345"></p>
+<p>V2ray和Clash默认本地监听地址如下：</p>
+<figure class="highlight accesslog"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs accesslog"><span class="hljs-number">127.0.0.1:10808</span>	//V2ray<br><span class="hljs-number">127.0.0.1:7890</span>	//Clash<br></code></pre></td></tr></tbody></table></figure>
+
+<p>协议这里，使用V2ray选择SOCKS5，使用Clash选择HTTPS。V2ray和Clash的设置，感觉会用的接下里的操作不用说，不会用的软件设置应该没有改，放图自己看看吧。</p>
+<p>局域网和IPv6开不开都可以：</p>
+<p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326163805252.png" srcset="/img/loading.gif" lazyload alt="image-20240326163805252"></p>
+<p>协议选HTTP</p>
+<p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326163715045.png" srcset="/img/loading.gif" lazyload alt="image-20240326163715045"></p>
+<p>设置好了代理服务器，然后我们来设置代理规则：</p>
+<h4 id="代理规则"><a href="#代理规则" class="headerlink" title="代理规则"></a>代理规则</h4><p>代理规则在**配置文件(profile)-&gt;代理规则(Proxification Rules)**设置。可以看到如下规则：</p>
+<p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326164345016.png" srcset="/img/loading.gif" lazyload alt="image-20240326164345016"></p>
+<p>第一步需要勾选放行Localhost规则的流量，本地软件之间通讯会使用环回地址，规则里没有IPV6的地址，复制如下规则添加：</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">::<span class="hljs-number">1</span>;<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>;localhost;%ComputerName%<br></code></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326164711103.png" srcset="/img/loading.gif" lazyload alt="image-20240326164711103"></p>
+<p>接下来所有流量出口全部设置为Proxifier设置的代理服务器：</p>
+<p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326164831097.png" srcset="/img/loading.gif" lazyload alt="image-20240326164831097"></p>
+<p>选择你配置的代理服务器。</p>
+<p><strong>之后，因为Proxifier也把代理服务器的流量捕获了，然后代理软件的流量出口又是自身，会造成环流，根据Proxifier的提示选择添加规则就可以了。</strong>当然，你也可以自己添加：</p>
+<p><strong>V2ray</strong></p>
+<figure class="highlight smali"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs smali">wv2ray.exe;v2rayn.exe<br></code></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326165312501.png" srcset="/img/loading.gif" lazyload alt="image-20240326165312501"></p>
+<p><strong>Clash</strong></p>
+<figure class="highlight gcode"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gcode">clash-wi<span class="hljs-symbol">n64</span>.exe<br></code></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326165403354.png" srcset="/img/loading.gif" lazyload alt="image-20240326165403354"></p>
+<h4 id="解决DNS泄露"><a href="#解决DNS泄露" class="headerlink" title="解决DNS泄露"></a>解决DNS泄露</h4><p>最后一步，设置Proxifier代理解析DNS，在**配置文件(profile)-&gt;名称解析(Name resolution)**设置</p>
+<p>选择<strong>通过代理解析主机名称</strong>，在DNS名称列表里选择<strong>不解析以下主机名</strong>。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326165800633.png" srcset="/img/loading.gif" lazyload alt="image-20240326165800633"></p>
+<p>之后我们就可以去IPleak上查一查了。</p>
+<p>在这里插播一下，既然都做到这里了，我们不妨将虚拟机的流量也使用Proxifier代理，让虚拟机里的流量也能走代理。</p>
+<h4 id="代理虚拟机流量"><a href="#代理虚拟机流量" class="headerlink" title="代理虚拟机流量"></a>代理虚拟机流量</h4><p>虚拟机版本：VMware Workstation 16 Pro</p>
+<p>捕获如下应用的流量走我们的代理：</p>
+<figure class="highlight abnf"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf">vmware.exe<span class="hljs-comment">;vmnetcfg.exe;vmnat.exe;vmrun.exe;vmware-vmx.exe;mkssandbox.exe;vmware-hostd.exe;vmnat.exe;vmnetdhcp.exe</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>添加如图代理规则：</p>
+<p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326170304069.png" srcset="/img/loading.gif" lazyload alt="image-20240326170304069"></p>
+<p>VMware 16以上的虚拟机还需要如下设置：</p>
+<p>Proxifier还需要如下配置：配置文件-高级-服务和其他用户</p>
+<p><img src="C:\Users\book\AppData\Roaming\Typora\typora-user-images\image-20240326170636753.png" srcset="/img/loading.gif" lazyload alt="image-20240326170636753"></p>
+<p>勾选<strong>由该计算机上其他用户运行的应用程序</strong>和Windows服务和其他系统程序</p>
+<p><img src="https://fastly.jsdelivr.net/gh/honexz/typora_image/image-20240326170741146.png" srcset="/img/loading.gif" lazyload alt="image-20240326170741146"></p>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>使用这个方法来实现全局代理上网，可能会出现许多小毛病，这就需要我们好好“调教”Proxifier了。</p>
+<p>使用git SSH连接github会出错，添加规则放行git的流量即可。</p>
+<h3 id="WebRTC泄露"><a href="#WebRTC泄露" class="headerlink" title="WebRTC泄露"></a>WebRTC泄露</h3><p>WebRTC（Web Real-Time Communication）是一种开放的实时通信技术，它允许在网页浏览器之间进行点对点的音频、视频和数据传输，无需插件或额外的软件。</p>
+<p><img src="C:\Users\book\AppData\Roaming\Typora\typora-user-images\image-20240326171047410.png" srcset="/img/loading.gif" lazyload alt="image-20240326171047410"></p>
+<h4 id="避免WebRTC泄露"><a href="#避免WebRTC泄露" class="headerlink" title="避免WebRTC泄露"></a>避免WebRTC泄露</h4><p>禁用WeRTC</p>
+<p>使用浏览器插件阻止WebRTC泄露</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>网络隐式保护的再延申</div>
+      <div>https://blog.dbii.top/posts/b405b4e9/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>miFuzz</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年3月26日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年3月27日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="ND - 禁止演绎">
+                    <i class="iconfont icon-nd"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/2c58b17a/" title="powershell">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">powershell</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/7dab541f/" title="前端爆破工具Blasting安装教程">
+                        <span class="hidden-mobile">前端爆破工具Blasting安装教程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a>© 2023  </a> <i class="iconfont icon-love"></i> <a href="https://blog.dbii.top/about" target="_blank" rel="nofollow noopener"><span>miFuzz</span></a> </br> <a>最难开口的事情就是 初次的问好 和最终的道别</a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/DynamicLine.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
