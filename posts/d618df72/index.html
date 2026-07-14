@@ -16,21 +16,21 @@
   <meta name="author" content="miFuzz">
   <meta name="keywords" content="">
   
-    <meta name="description" content="pippip 是 Python 的包管理器。这意味着它是一个工具,允许你安装和管理不属于标准库的其他库和依赖。 issueissue:pip报错：ValueError: check_hostname requires server_hostname 记录使用pip命令的一次踩坑今天使用dirsearch,突然抽风报错，说缺少依赖，就安装依赖呗，dirsearch下有个文件requirements.">
+    <meta name="description" content="📌前言作者名木槿，很久以前网上看到的帖子。 ✨ 1我还年少无知的时候，经常专心走路，顾不得抬头看看，那时候在我的心里，只有方向和终点。 直到有一个女孩轻轻地拉住我的衣角。 春花烂漫中，她柔声说道： “走这么快，你他妈赶去投胎？” 自此，我的心里有了三样东西，方向、终点，以及 速度。 “为啥？”她问我，眼睛一眨一眨。 “步子太大容易扯到蛋。” “啥是蛋？” 我看她，眼睛一眨一眨。 “蛋就是蛋。”">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记录使用pip命令的一次踩坑">
-<meta property="og:url" content="https://fuzz.cc.cd/posts/1840438d/index.html">
+<meta property="og:title" content="只是年少的一个梦">
+<meta property="og:url" content="https://fuzz.cc.cd/posts/d618df72/index.html">
 <meta property="og:site_name" content="miFuzz&#39;s blog">
-<meta property="og:description" content="pippip 是 Python 的包管理器。这意味着它是一个工具,允许你安装和管理不属于标准库的其他库和依赖。 issueissue:pip报错：ValueError: check_hostname requires server_hostname 记录使用pip命令的一次踩坑今天使用dirsearch,突然抽风报错，说缺少依赖，就安装依赖呗，dirsearch下有个文件requirements.">
+<meta property="og:description" content="📌前言作者名木槿，很久以前网上看到的帖子。 ✨ 1我还年少无知的时候，经常专心走路，顾不得抬头看看，那时候在我的心里，只有方向和终点。 直到有一个女孩轻轻地拉住我的衣角。 春花烂漫中，她柔声说道： “走这么快，你他妈赶去投胎？” 自此，我的心里有了三样东西，方向、终点，以及 速度。 “为啥？”她问我，眼睛一眨一眨。 “步子太大容易扯到蛋。” “啥是蛋？” 我看她，眼睛一眨一眨。 “蛋就是蛋。”">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-06-09T14:00:14.000Z">
-<meta property="article:modified_time" content="2023-06-09T14:17:38.397Z">
+<meta property="article:published_time" content="2026-07-14T08:19:12.000Z">
+<meta property="article:modified_time" content="2026-07-14T08:50:45.484Z">
 <meta property="article:author" content="miFuzz">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>记录使用pip命令的一次踩坑 - miFuzz&#39;s blog</title>
+  <title>只是年少的一个梦 - miFuzz&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -214,7 +214,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">记录使用pip命令的一次踩坑</span>
+            <span id="subtitle">只是年少的一个梦</span>
           
         </div>
 
@@ -225,8 +225,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-06-09 22:00" pubdate>
-          2023年6月9日 晚上
+        <time datetime="2026-07-14 16:19" pubdate>
+          2026年7月14日 下午
         </time>
       </span>
     
@@ -237,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.5k 字
+          805 字
         
       </span>
     
@@ -248,7 +248,7 @@
         
         
         
-          55 分钟
+          7 分钟
         
       </span>
     
@@ -286,80 +286,49 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">记录使用pip命令的一次踩坑</h1>
+            <h1 style="display: none">只是年少的一个梦</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="pip"><a href="#pip" class="headerlink" title="pip"></a>pip</h2><p>pip 是 Python 的包管理器。这意味着它是一个工具,允许你安装和管理不属于标准库的其他库和依赖。</p>
-<h3 id="issue"><a href="#issue" class="headerlink" title="issue"></a>issue</h3><p>issue:pip报错：ValueError: check_hostname requires server_hostname</p>
-<h3 id="记录使用pip命令的一次踩坑"><a href="#记录使用pip命令的一次踩坑" class="headerlink" title="记录使用pip命令的一次踩坑"></a>记录使用pip命令的一次踩坑</h3><p>今天使用dirsearch,突然抽风报错，说缺少依赖，就安装依赖呗，dirsearch下有个文件requirements.txt，记录了其所需的依赖。</p>
-<figure class="highlight cmake"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> -r requirements.txt<br></code></pre></td></tr></tbody></table></figure>
-
-<p>执行命令报错：</p>
-<blockquote>
-<p>ERROR: Exception:</p>
-<p>Traceback (most recent call last):<br>File “d:\python\lib\site-packages\pip_internal\cli\base_command.py”, line 180, in _main<br>status = self.run(options, args)<br>File “d:\python\lib\site-packages\pip_internal\cli\req_command.py”, line 205, in wrapper<br>return func(self, options, args)<br>File “d:\python\lib\site-packages\pip_internal\commands\install.py”, line 318, in run<br>requirement_set = resolver.resolve(<br>File “d:\python\lib\site-packages\pip_internal\resolution\resolvelib\resolver.py”, line 127……</p>
-</blockquote>
-<p>报错非常长，我习惯性的从ERROR后截取一段来搜索，搜索报错有两种原因：</p>
-<p>1.pip版本过老</p>
-<p>2.网络问题(更换国内镜像)</p>
-<h3 id="检查报错原因1"><a href="#检查报错原因1" class="headerlink" title="检查报错原因1"></a>检查报错原因1</h3><p>这里习惯性的尝试了直接使用解决方法，升级pip</p>
-<figure class="highlight ada"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">python -m pip install <span class="hljs-comment">--upgrade pip</span><br></code></pre></td></tr></tbody></table></figure>
-
-<p>然后又是一堆报错，搜索报错的原因，提示我尝试清除缓存</p>
-<figure class="highlight ebnf"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">pip cache purge</span><br></code></pre></td></tr></tbody></table></figure>
-
-<p>又报错：</p>
-<blockquote>
-<p>ERROR: No matching packages</p>
-</blockquote>
-<p>搜索报错，网上给出的原因：缓存已经被清空或者是pip 版本较老导致的。</p>
-<p>解决办法：</p>
-<ol>
-<li>升级pip：在命令行中执行 python -m pip install –upgrade pip命令，升级 pip到最新版本。然后再尝试执行 pip cache purge 命令。</li>
-<li>直接删除缓存目录：在命令行中执行以下命令，手动删除 pip 的缓存目录：<ul>
-<li>Windows：rmdir /s %HOME%\AppData\Local\pip\Cache</li>
-<li>Linux/MacOS：rm -rf ~/.cache/pi</li>
-</ul>
-</li>
-</ol>
-<hr>
-<p>看到这个回答，我想这不是形成了闭环吗？</p>
-<p>到这里其实已经花费了很多时间，从互联网找答案真的很消耗耐心，各种信息里需要筛选正确的答案，很容易走弯路。</p>
-<p>这个时候我反而安静下来了，我仔细想了一下 pip更新很快吗？我安装的pip版本是多少呢？</p>
-<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">pip</span> --version<br><span class="hljs-attribute">pip</span> <span class="hljs-number">21</span>.<span class="hljs-number">1</span>.<span class="hljs-number">3</span> from d:\python\lib\site-packages\pip (python <span class="hljs-number">3</span>.<span class="hljs-number">9</span>)<br></code></pre></td></tr></tbody></table></figure>
-
-<p>当我看到21.1.3 我内心大概有了猜测，搜索“pip 21.1.3 ERROR: No matching packages”,得到一个答案：</p>
-<blockquote>
-<p>在 pip 版本 20.3 或更高版本中，pip cache purge 命令已经被废弃，并且在最新版本的pip中已经被删除。因此，如果您使用的是 pip 版本 21.1.3，执行 pip cache purge 命令会提示 “ERROR: No matching packages”，这是因为此命令已经不存在了。</p>
-</blockquote>
-<p>这个时候我直接搜索了全部的报错信息：</p>
-<blockquote>
-<p>ERROR: Exception:<br>Traceback (most recent call last):<br>File “d:\python\lib\site-packages\pip_internal\cli\base_command.py”, line 180, in _main<br>status = self.run(options, args)<br>File “d:\python\lib\site-packages\pip_internal\cli\req_command.py”, line 205, in wrapper<br>return func(self, options, args)<br>File “d:\python\lib\site-packages\pip_internal\commands\install.py”, line 318, in run<br>requirement_set = resolver.resolve(<br>File “d:\python\lib\site-packages\pip_internal\resolution\resolvelib\resolver.py”, line 127, in resolve<br>result = self._result = resolver.resolve(<br>File “d:\python\lib\site-packages\pip_vendor\resolvelib\resolvers.py”, line 473, in resolve<br>state = resolution.resolve(requirements, max_rounds=max_rounds)<br>File “d:\python\lib\site-packages\pip_vendor\resolvelib\resolvers.py”, line 341, in resolve<br>name, crit = self._merge_into_criterion(r, parent=None)<br>File “d:\python\lib\site-packages\pip_vendor\resolvelib\resolvers.py”, line 172, in _merge_into_criterion<br>if not criterion.candidates:<br>File “d:\python\lib\site-packages\pip_vendor\resolvelib\structs.py”, line 139, in bool<br>return bool(self.sequence)<br>File “d:\python\lib\site-packages\pip_internal\resolution\resolvelib\found_candidates.py”, line 143, in bool<br>return any(self)<br>File “d:\python\lib\site-packages\pip_internal\resolution\resolvelib\found_candidates.py”, line 129, in <genexpr><br>return (c for c in iterator if id(c) not in self.incompatible_ids)<br>File “d:\python\lib\site-packages\pip_internal\resolution\resolvelib\found_candidates.py”, line 30, in _iter_built<br>for version, func in infos:<br>File “d:\python\lib\site-packages\pip_internal\resolution\resolvelib\factory.py”, line 269, in iter_index_candidate_infos<br>result = self._finder.find_best_candidate(<br>File “d:\python\lib\site-packages\pip_internal\index\package_finder.py”, line 879, in find_best_candidate<br>candidates = self.find_all_candidates(project_name)<br>File “d:\python\lib\site-packages\pip_internal\index\package_finder.py”, line 824, in find_all_candidates<br>page_candidates = list(page_candidates_it)<br>File “d:\python\lib\site-packages\pip_internal\index\sources.py”, line 134, in page_candidates<br>yield from self._candidates_from_page(self._link)<br>File “d:\python\lib\site-packages\pip_internal\index\package_finder.py”, line 783, in process_project_url<br>html_page = self._link_collector.fetch_page(project_url)<br>File “d:\python\lib\site-packages\pip_internal\index\collector.py”, line 512, in fetch_page<br>return _get_html_page(location, session=self.session)<br>File “d:\python\lib\site-packages\pip_internal\index\collector.py”, line 422, in _get_html_page<br>resp = _get_html_response(url, session=session)<br>File “d:\python\lib\site-packages\pip_internal\index\collector.py”, line 120, in _get_html_response<br>resp = session.get(<br>File “d:\python\lib\site-packages\pip_vendor\requests\sessions.py”, line 555, in get<br>return self.request(‘GET’, url, kwargs)<br>File “d:\python\lib\site-packages\pip_internal\network\session.py”, line 449, in request<br>return super().request(method, url, *args, kwargs)<br>File “d:\python\lib\site-packages\pip_vendor\requests\sessions.py”, line 542, in request<br>resp = self.send(prep, send_kwargs)<br>File “d:\python\lib\site-packages\pip_vendor\requests\sessions.py”, line 655, in send<br>r = adapter.send(request, kwargs)<br>File “d:\python\lib\site-packages\pip_vendor\cachecontrol\adapter.py”, line 53, in send<br>resp = super(CacheControlAdapter, self).send(request, **kw)<br>File “d:\python\lib\site-packages\pip_vendor\requests\adapters.py”, line 439, in send<br>resp = conn.urlopen(<br>File “d:\python\lib\site-packages\pip_vendor\urllib3\connectionpool.py”, line 696, in urlopen<br>self._prepare_proxy(conn)<br>File “d:\python\lib\site-packages\pip_vendor\urllib3\connectionpool.py”, line 964, in _prepare_proxy<br>conn.connect()<br>File “d:\python\lib\site-packages\pip_vendor\urllib3\connection.py”, line 359, in connect<br>conn = self._connect_tls_proxy(hostname, conn)<br>File “d:\python\lib\site-packages\pip_vendor\urllib3\connection.py”, line 500, in <em>connect_tls_proxy<br>return ssl_wrap_socket(<br>File “d:\python\lib\site-packages\pip_vendor\urllib3\util\ssl</em>.py”, line 432, in ssl_wrap_socket<br>ssl_sock = <em>ssl_wrap_socket_impl(sock, context, tls_in_tls)<br>File “d:\python\lib\site-packages\pip_vendor\urllib3\util\ssl</em>.py”, line 474, in _ssl_wrap_socket_impl<br>return ssl_context.wrap_socket(sock)<br>File “d:\python\lib\ssl.py”, line 500, in wrap_socket<br>return self.sslsocket_class._create(<br>File “d:\python\lib\ssl.py”, line 997, in _create<br>raise ValueError(“check_hostname requires server_hostname”)<br>ValueError: check_hostname requires server_hostname</genexpr></p>
-</blockquote>
-<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><blockquote>
-<p>这个报错是由于 <code>pip</code> 在使用 TLS 代理时出现了问题。</p>
-<p>问题可能是由于您使用的代理服务器没有正确配置 TLS 证书，或者是由于代理服务器返回的响应中缺少必要的信息导致的。</p>
-</blockquote>
-<p>📌我看到这个回答，马上就明白可能是因为我开了<strong>网络代理</strong>的原因。</p>
-<p>📌关闭代理后，执行命令一切正常了。</p>
-<p>做完这一切后，知道自己又陷入经验主义的错误后，想到了自己以前经常犯的错误：</p>
-<p><strong>报错的真正原因可能是在出现在头部，也可能在尾部，而不应该总是从ERROR开始跟踪报错</strong></p>
-<p>之后又仔细查看了报错，搜索了这么一个关键报错：</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">pip ValueError: check_hostname <span class="hljs-keyword">requires</span> server_hostname<br></code></pre></td></tr></tbody></table></figure>
-
-<p>w3c的一个回答不错，还有分析：<a target="_blank" rel="noopener" href="https://www.w3cschool.cn/article/92755260.html">文章链接</a></p>
-<p>分析如下：</p>
-<blockquote>
-<p>出现这个错误的原因是使用了代理，由于”总”所周知的原因，有些外网需要一些特殊手段才能访问，而要访问这些网站就需要使用代理，作者的朋友当时就是代理没有关掉，所以在pip的时候才会报错。</p>
-<p>为什么使用代理会出现这样的错误呢，作者找到了蛛丝马迹：pip的较新的版本有这样的一个要求，就是标记对pip仓库的信任，或者使用https进行数据传输（类似的问题作者在学习linux的时候也遇到过）。而使用代理会导致pip认为你请求的仓库不是安全的，所以安装失败，所以解决方法就是关闭代理，或者在代理中设置相关内容。</p>
-</blockquote>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="pip报错"><a href="#pip报错" class="headerlink" title="pip报错"></a>pip报错</h3><p>ERROR: Exception:</p>
-<p>Traceback (most recent call last):<br>File “d:\python\lib\site-packages\pip_internal\cli\base_command.py”, line 180, in _main</p>
-<p>……</p>
-<p>ValueError: check_hostname requires server_hostname</p>
-<h3 id="一个解决办法"><a href="#一个解决办法" class="headerlink" title="一个解决办法"></a>一个解决办法</h3><p>有可能是开启了网络代理的原因，请关闭网络代理尝试重新执行命令。</p>
+                <h3 id="📌前言"><a href="#📌前言" class="headerlink" title="📌前言"></a>📌前言</h3><p>作者名木槿，很久以前网上看到的帖子。</p>
+<h4 id="✨-1"><a href="#✨-1" class="headerlink" title="✨ 1"></a>✨ <strong>1</strong></h4><p>我还年少无知的时候，经常专心走路，顾不得抬头看看，那时候在我的心里，只有方向和终点。</p>
+<p>直到有一个女孩轻轻地拉住我的衣角。</p>
+<p>春花烂漫中，她柔声说道：</p>
+<p>“走这么快，你他妈赶去投胎？”</p>
+<p>自此，我的心里有了三样东西，方向、终点，以及</p>
+<p>速度。</p>
+<p>“为啥？”她问我，眼睛一眨一眨。</p>
+<p>“步子太大容易扯到蛋。”</p>
+<p>“啥是蛋？”</p>
+<p>我看她，眼睛一眨一眨。</p>
+<p>“蛋就是蛋。”</p>
+<p>她不满的撇撇嘴。</p>
+<p>“切，以为你懂得多才跟着你。”</p>
+<h4 id="✨-2"><a href="#✨-2" class="headerlink" title="✨ 2"></a>✨ <strong>2</strong></h4><p>可能是那次对话打通了她任督二脉，在一个有些沉闷的午后，她写了新的qq签名。</p>
+<p>“我走路带风。”</p>
+<p>在她那灰暗的头像亮起的时候，我觉得我生平第一次遇到了挑战。</p>
+<p>“没有人可以比我快，你带啥也不行。”</p>
+<p>我不甘示弱，在第二天黎明，就着天色鱼白，听着野鸡鸣叫，我踏上征途，翻山越岭，劈荆斩棘，在曙光还未洒满大地之时来到了校门前。</p>
+<p>她在微风中笑着，干瘦的像根豆芽菜。</p>
+<p>“你输了。”</p>
+<p>“为什么？”我不甘心的问道。</p>
+<p>“我问我妈了，我没蛋，不怕步子大。”</p>
+<h4 id="✨-3"><a href="#✨-3" class="headerlink" title="✨ 3"></a>✨ <strong>3</strong></h4><p>那次以后，我心中只有一样东西。</p>
+<p>追上她。</p>
+<p>寒来暑往，我们在日复一日的追逐中长大。</p>
+<p>我越来越高，本以为长长的腿可以追上前方那单薄的背影。可谁曾想，当初的势均力敌，如今却难望其项背，她越跑越快，从孩童到少女，夏花灿烂，她身后追逐的人多如越江之鲫。</p>
+<p>我气喘吁吁，看到她获得运动会短跑冠军的时候竟觉得有点恍惚。</p>
+<p>这货是真追不上，太能跑了阿。</p>
+<h4 id="✨-4"><a href="#✨-4" class="headerlink" title="✨ 4"></a>✨ <strong>4</strong></h4><p>我开始忘记奔跑，忘记追逐，只是偶尔能透过窗棂，看到操场上她迎风奔跑。</p>
+<p>她剪掉长发，变得柔声细语，光芒万丈。</p>
+<p>我摊开笔墨，变得沉默寡言，形单影只。</p>
+<p>芳华易逝，我们小心试探，山盟海誓总会被距离稀释，她没有听到我说等一等。</p>
+<p>时光不在，你我各奔东西，两小无猜却也被命运蹉跎，我没有听到她说不要急。</p>
+<h4 id="✨-5"><a href="#✨-5" class="headerlink" title="✨ 5"></a>✨ <strong>5</strong></h4><p>人都说青春如梦，而我却在一个又一个的清晨贪恋长夜，不肯醒来。</p>
+<p>只因在梦里，我依旧在奔跑追逐，微风的黄昏中她在远方呼喊，那声音传来，能让我一往无前。</p>
+<p>她说:</p>
+<p>我等。</p>
 
                 
               </div>
@@ -378,7 +347,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%92%8C%E7%BD%91%E7%BB%9C%E6%8A%80%E8%83%BD/" class="category-chain-item">计算机和网络技能</a>
+  <a href="/categories/%E8%8A%B8%E8%8A%B8%E4%BC%97%E7%94%9F/" class="category-chain-item">芸芸众生</a>
   
   
 
@@ -398,8 +367,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>记录使用pip命令的一次踩坑</div>
-      <div>https://fuzz.cc.cd/posts/1840438d/</div>
+      <div>只是年少的一个梦</div>
+      <div>https://fuzz.cc.cd/posts/d618df72/</div>
     </div>
     <div class="license-meta">
       
@@ -411,13 +380,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年6月9日</div>
+          <div>2026年7月14日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年6月9日</div>
+          <div>2026年7月14日</div>
         </div>
       
       
@@ -460,9 +429,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/963d4df1/" title="简记一次对burpsuite的更新">
+                      <a href="/posts/e0a172e9/" title="且敬往事一杯酒">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">简记一次对burpsuite的更新</span>
+                        <span class="hidden-mobile">且敬往事一杯酒</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -470,8 +439,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/bbf780e8/" title="Windows 域环境的搭建">
-                        <span class="hidden-mobile">Windows 域环境的搭建</span>
+                      <a href="/posts/2b8a953f/" title="阅读是我人生的一盏明灯">
+                        <span class="hidden-mobile">阅读是我人生的一盏明灯</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
